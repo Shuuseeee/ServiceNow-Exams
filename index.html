@@ -189,14 +189,14 @@ input,textarea,select{font:inherit;color:inherit}
 @media(min-width:768px){.q-bottom{bottom:0}}
 
 /* Exam top */
-.exam-top{position:sticky;top:0;padding:10px 16px;z-index:50;display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-radius:0 0 var(--r2) var(--r2);margin:-12px -12px 12px;
+.exam-top{position:sticky;top:0;padding:10px 16px;z-index:50;display:flex;align-items:center;gap:12px;flex-wrap:nowrap;min-height:48px;border-radius:0 0 var(--r2) var(--r2);margin:-12px -12px 12px;
   background:rgba(250,249,245,.8);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   backdrop-filter:saturate(180%) blur(20px);
   border-bottom:0.5px solid rgba(0,0,0,.1)}
 .dark .exam-top{background:rgba(20,20,19,.8);border-bottom-color:rgba(255,255,255,.06)}
 @media(min-width:768px){.exam-top{margin:-20px -20px 20px;padding:12px 24px;top:var(--nav-h)}}
-.timer{display:flex;align-items:center;gap:4px;font-weight:700;font-size:1rem;color:var(--pri)}
+.timer{display:flex;align-items:center;gap:4px;font-weight:700;font-size:1rem;color:var(--pri);font-variant-numeric:tabular-nums;min-width:80px}
 .timer.warning{color:var(--warn)}
 .timer.danger{color:var(--err)}
 .exam-prog{font-size:.85rem;color:var(--tx2)}
@@ -507,7 +507,7 @@ function defaultState(){
     notes:{},
     examHistory:[],
     pausedExam:null,
-    settings:{lang:'en',showExplanation:true,darkMode:false,wrongMasteryThreshold:2},
+    settings:{lang:'en',showExplanation:true,darkMode:false,wrongMasteryThreshold:2,shuffleOptions:false},
     reviewSchedule:{}
   };
 }
@@ -520,7 +520,8 @@ function loadState(){
   }catch(e){ST=defaultState();}
   if(!ST.reviewSchedule)ST.reviewSchedule={};
   if(!ST.notes)ST.notes={};
-  if(!ST.settings)ST.settings={lang:'en',showExplanation:true,darkMode:false,wrongMasteryThreshold:2};
+  if(!ST.settings)ST.settings={lang:'en',showExplanation:true,darkMode:false,wrongMasteryThreshold:2,shuffleOptions:false};
+  if(ST.settings.shuffleOptions===undefined)ST.settings.shuffleOptions=false;
   applyDarkMode();
 }
 
@@ -832,7 +833,9 @@ function renderPracticeQuestion(){
 
   // Options
   html+='<div class="options-list">';
-  q.options.forEach(function(o){
+  let opts=q.options.slice();
+  if(ST.settings.shuffleOptions)opts=shuffle(opts);
+  opts.forEach(function(o){
     let sel=practiceSelected.includes(o.key);
     let multi=q.isMultiple;
     let cls='opt-item'+(multi?' multi':'')+(sel?' selected':'');
@@ -1226,7 +1229,9 @@ function renderExamActive(){
   html+='<div style="font-size:1rem;line-height:1.7;margin:8px 0">'+h(qText(q))+'</div>';
 
   html+='<div class="options-list">';
-  q.options.forEach(function(o){
+  let exOpts=q.options.slice();
+  if(ST.settings.shuffleOptions)exOpts=shuffle(exOpts);
+  exOpts.forEach(function(o){
     let s=sel.includes(o.key);
     let multi=q.isMultiple;
     html+='<div class="opt-item'+(multi?' multi':'')+(s?' selected':'')+'" onclick="examToggle(\''+o.key+'\')">';
@@ -1506,6 +1511,11 @@ function renderProfile(){
   html+='<div class="setting-item">';
   html+='<div class="setting-label">\u9519\u9898\u638c\u63e1\u9608\u503c</div>';
   html+='<input type="number" class="num-input" value="'+ST.settings.wrongMasteryThreshold+'" min="0" max="10" onchange="ST.settings.wrongMasteryThreshold=parseInt(this.value)||0;saveState()">';
+  html+='</div>';
+
+  html+='<div class="setting-item">';
+  html+='<div class="setting-label">\u9009\u9879\u4e71\u5e8f</div>';
+  html+='<div class="toggle'+(ST.settings.shuffleOptions?' on':'')+'" onclick="ST.settings.shuffleOptions=!ST.settings.shuffleOptions;saveState();renderProfile()"></div>';
   html+='</div>';
 
   html+='<div class="setting-item">';
