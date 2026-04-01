@@ -28,7 +28,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "根据ServiceNow CSM的知识管理系统规则，代理和经理不能直接从社区问题创建知识文章。社区问题通常需要经过审核和验证流程才能转化为正式的知识文章。这些问题的创建权限被限制在特定的角色和工作流程中，以确保知识库的质量和一致性。因此该陈述是正确的。",
       "note": null
     },
     {
@@ -51,7 +51,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "关于客户的服务合约信息并不是存储在知识库（Knowledge）中的。服务合约信息通常被存储在客户账户、权利或相关的业务实体中。知识库主要用于存储常见问题解答、故障排除指南和产品信息等公共知识资源。因此该陈述是错误的。",
       "note": null
     },
     {
@@ -86,7 +86,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "在ServiceNow中，代理可以从多个地方创建案例，包括客户服务应用（Customer Service Application）、联系人（Contact）记录和账户（Account）记录。这些位置都提供了直观的界面和上下文信息来创建和管理案例。聊天（Chat）通常用于沟通而不是案例创建的主要入口。",
       "note": null
     },
     {
@@ -120,7 +120,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "匹配规则的条件基于两个主要方面：首先是代理资源的最佳匹配条件，即根据代理的技能、可用性和专长来匹配；其次是特定的案例属性，如类别、优先级、产品类型等。这两个条件共同确保案例被路由到最合适的代理或团队。",
       "note": null
     },
     {
@@ -153,12 +153,12 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "匹配规则通过根据代理的可用性来匹配最佳代理，增强了分配能力。虽然匹配最佳代理是一个功能，但这不是匹配规则的主要目的。匹配规则的核心是提供动态的案例到团队或个人的匹配，这是它增强分配能力的关键方式。因此答案应该强调动态匹配的能力。",
       "note": null
     },
     {
       "id": "csm.6",
-      "question": "Special Handling Notes can apply to which one of the following based on specificattributes?",
+      "question": "Special Handling Notes can apply to which one of the following based on specific attributes?",
       "questionJa": "",
       "options": [
         {
@@ -186,7 +186,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "特殊处理注释（Special Handling Notes）可以基于特定属性应用于联系人记录。这允许系统根据联系人的特定特征（如VIP状态、优先级等）自动应用特殊的处理指示。这种功能有助于确保重要或特殊客户得到适当的关注和处理。",
       "note": null
     },
     {
@@ -219,7 +219,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "预测智能通过预测案例值而无需人工干预，改进了案例管理。这个功能使用机器学习算法来自动填充案例字段，如优先级、类别和分配组，基于历史数据和模式。这大大提高了效率并减少了人工配置的需求。",
       "note": null
     },
     {
@@ -252,7 +252,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "匹配规则的条件是特定的案例属性，如案例类别、优先级、产品类型等。这些属性被用来定义规则如何自动将案例路由到合适的代理或团队。代理域不是匹配规则的条件，而是一个独立的概念。",
       "note": null
     },
     {
@@ -285,7 +285,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "案例表单时间线中的蓝色圆圈代表案例状态的变化。这些圆圈用于可视化标记案例生命周期中的关键状态转换点。每个蓝色圆圈都对应一个特定的状态变化事件，帮助用户追踪案例的进展。",
       "note": null
     },
     {
@@ -319,12 +319,12 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "预测智能通过消除猜测，改进分类质量。它支持案例分类和案例优先级决策，这两个功能是预测智能的关键应用。案例分类帮助自动标记案例类型，而案例优先级则自动设置紧急程度，两者都提高了分类的准确性。",
       "note": null
     },
     {
       "id": "csm.11",
-      "question": "Which Business Rules are part of the Customer Service Management baselineconfiguration? (Choose two.)",
+      "question": "Which Business Rules are part of the Customer Service Management baseline configuration? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -353,7 +353,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "自动评估（Auto Assessment）和更新案例权利（Update Case Entitlement）是客户服务管理基线配置的一部分。这些业务规则在标准CSM实施中自动执行，用于自动化案例评估流程和管理客户的服务权利。",
       "note": null
     },
     {
@@ -394,7 +394,7 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "CSM套件实施的关键成功因素包括：定义业务痛点，为实施提供明确的方向；提供一致的客户服务，确保用户体验；清晰理解用例，确保解决方案与需求相符；以及实施的质量取决于底层流程。这些因素共同确保实施的成功。",
       "note": null
     },
     {
@@ -404,23 +404,19 @@
       "options": [
         {
           "key": "A",
-          "text": "Minimize customizations",
-          "textJa": ""
+          "text": "Minimize customizations"
         },
         {
           "key": "B",
-          "text": "Focus Out-of-the-box functionality",
-          "textJa": ""
+          "text": "Focus Out-of-the-box functionality"
         },
         {
           "key": "C",
-          "text": "Design for Scalabilit y",
-          "textJa": ""
+          "text": "Design for Scalability"
         },
         {
           "key": "D",
-          "text": "Mobile friendly functionality",
-          "textJa": ""
+          "text": "Mobile friendly functionality"
         }
       ],
       "answer": [
@@ -429,7 +425,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "在设计解决方案时，应该强调最小化定制、关注开箱即用的功能和设计可扩展性。这些原则确保了解决方案的可维护性、升级能力和长期成本效益。最小化定制可以减少维护成本，开箱即用的功能可以加快实施，而可扩展性设计则确保系统能够适应未来的增长。",
       "note": null
     },
     {
@@ -463,7 +459,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "在研讨会之前，参与度经理扮演中介的角色，在客户和实施团队之间充当沟通桥梁；同时协助处理技术要求，确保实施的技术方面得到适当的关注和支持。这两个角色对于有效的前期准备至关重要。",
       "note": null
     },
     {
@@ -496,7 +492,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "前期参与的附带资料应该包括范围指南（Scoping Guide），它定义了实施的边界和预期的交付成果。常见问题、客户服务角色模板和SKU定价表通常是实施过程中的补充资料，而不是核心的前期参与资料。",
       "note": null
     },
     {
@@ -531,12 +527,12 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "文章可以提供多个功能：记录当前和已知问题，为常见问题或问题提供答案和响应，以及分享产品信息。这些功能使知识库成为自助支持的强大工具，可以减少支持工作量并改进客户体验。",
       "note": null
     },
     {
       "id": "csm.17",
-      "question": "Contextual Search framework is used for providing Knowledge search results in which ofthese scenarios?",
+      "question": "Contextual Search framework is used for providing Knowledge search results in which of these scenarios?",
       "questionJa": "",
       "options": [
         {
@@ -564,12 +560,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "上下文搜索框架用于在门户问题输入和记录生成器这两种场景中提供知识搜索结果。这个框架能够根据上下文信息（如案例类别、优先级等）来智能地过滤和排列搜索结果，提高搜索的相关性和效率。",
       "note": null
     },
     {
       "id": "csm.18",
-      "question": "Which of the following are true regarding integrating a ServiceNow Knowledge base withexternal content? (Choose two.)",
+      "question": "Which of the following are true regarding integrating a ServiceNow Knowledge base with external content? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -598,12 +594,12 @@
         "B"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "关于将ServiceNow知识库与外部内容集成，以下是正确的：导入的外部文章在ServiceNow中显示为附件；只有允许WebDAV连接的应用程序才能被集成。这两点说明了ServiceNow如何处理外部内容的集成和兼容性要求。",
       "note": null
     },
     {
       "id": "csm.19",
-      "question": "Access to a Knowledge base or Article can be restricted based on a customer’s assetsand the product models using which of the following? (Choose two.)",
+      "question": "Access to a Knowledge base or Article can be restricted based on a customer's assets and the product models using which of the following? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -632,7 +628,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "知识库或文章的访问权限可以基于客户的资产和产品型号使用以下方式限制：知识产品权利（Knowledge Product Entitlements）允许根据客户拥有的产品进行限制；用户条件（User Criteria）允许定义更细粒度的访问规则。这两种方法共同提供了灵活的访问控制机制。",
       "note": null
     },
     {
@@ -672,7 +668,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "知识产品权利的好处包括：减少呼叫量，通过让客户自助访问相关知识来降低支持成本；使代理更容易管理案例量，通过提供快速的参考资料；允许访问与客户拥有的产品相关的知识文章，确保客户只看到相关的内容。这些好处共同提高了支持效率和客户满意度。",
       "note": null
     },
     {
@@ -705,7 +701,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "知识类别的特点是：不可跨知识库共享（Shareable across KBs: No），但支持多级结构（Multi-Level: Yes）。这意味着类别是特定于每个知识库的，但可以组织成分层的结构来更好地组织和导航知识内容。",
       "note": null
     },
     {
@@ -744,7 +740,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "具有sn_customerservice.proxy_contact角色的用户可以代表客户创建案例，并代表客户创建请求。这个角色允许代理或支持人员在客户无法直接访问系统时代表他们提交和管理请求。",
       "note": null
     },
     {
@@ -777,7 +773,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "目录项变量的目的是允许客户或消费者有资格获得他们的答案。这些变量在目录表单中用于根据客户输入动态调整可用选项或流程，确保客户看到与其特定需求相关的内容。",
       "note": null
     },
     {
@@ -787,30 +783,26 @@
       "options": [
         {
           "key": "A",
-          "text": "Publishing the workflow",
-          "textJa": ""
+          "text": "Publishing the workflow"
         },
         {
           "key": "B",
-          "text": "Defining workflow activities",
-          "textJa": ""
+          "text": "Defining workflow activities"
         },
         {
           "key": "C",
-          "text": "Approving the workf low",
-          "textJa": ""
+          "text": "Approving the workflow"
         },
         {
           "key": "D",
-          "text": "Managing workflow versions",
-          "textJa": ""
+          "text": "Managing workflow versions"
         }
       ],
       "answer": [
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "在创建目录工作流时，批准工作流是可选的。发布工作流、定义工作流活动和管理工作流版本都是创建和维护工作流的必需步骤。批准流程通常是一个配置选项，可以根据组织的需求启用或禁用。",
       "note": null
     },
     {
@@ -843,7 +835,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "用于创建案例记录生成器的模块是记录生成器（Record Producers）。这个模块提供了一个用户友好的界面来定义和配置记录生成器，特别是为客户服务管理创建案例记录生成器。它是ServiceNow中创建此类自动化工具的标准模块。",
       "note": null
     },
     {
@@ -876,12 +868,12 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Customer Service Plugin 的依赖项包括 Task Activities、Skills Management 和 Openframe，这些都是必需的组件。Communities 不是其依赖项，是独立的功能模块。因此，Communities 不是依赖项，答案是 D。",
       "note": null
     },
     {
       "id": "csm.27",
-      "question": "ACME corporation wants to use ServiceNow CSM for supporting their customersthrough Twitter. What CSM entity would you recommend ACME to store the customer’s Twitter profile details?",
+      "question": "ACME corporation wants to use ServiceNow CSM for supporting their customers through Twitter. What CSM entity would you recommend ACME to store the customer's Twitter profile details?",
       "questionJa": "",
       "options": [
         {
@@ -914,7 +906,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "ServiceNow CSM 中存储客户社交媒体资料的专门实体是 Social Profile。这个实体设计用于存储和管理客户的各种社交媒体账户信息，包括 Twitter、Facebook 等。Account、Consumer 等都不是存储社交资料的适当场所，Personnel File 更不是。",
       "note": null
     },
     {
@@ -952,12 +944,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "ServiceNow CSM 开箱即用支持 Facebook 和 Twitter 社交媒体频道。LinkedIn 不在开箱支持的范围内，需要额外的配置和集成工作才能使用。因此答案是 C，表示 LinkedIn 不可用。",
       "note": null
     },
     {
       "id": "csm.29",
-      "question": "What is the equivalent of NOT selecting any group, when configuring multiple activeconfigurations of OpenFrame?",
+      "question": "What is the equivalent of NOT selecting any group, when configuring multiple active configurations of OpenFrame?",
       "questionJa": "",
       "options": [
         {
@@ -985,7 +977,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "在配置 OpenFrame 的多个活跃配置时，不选择任何群组的等效含义是选择所有群组。这意味着 OpenFrame 将对所有群组用户开放访问，与不限制群组范围相同，使其对整个组织可用。",
       "note": null
     },
     {
@@ -1018,7 +1010,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "在 Customer Service Management 中，只支持一个出站电子邮件账户。这是系统设计的限制，确保了统一的电子邮件管理、追踪和审计。所有出站电子邮件都必须通过这一个配置的账户发送。",
       "note": null
     },
     {
@@ -1069,7 +1061,7 @@
         "G"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "CSM 的主要功能包括 Service Entitlements（服务权限/资格）、Real-time SLAs（实时SLA）、Service Contracts（服务合同）和 Skills-based routing（基于技能的路由）。Timed Audits 和 Demand Management 不是 CSM 的标准功能，Service Prospecting 也不在列表中。",
       "note": null
     },
     {
@@ -1109,12 +1101,12 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "论坛用户类型包括 Registered（已注册用户）、Public（公开用户）和 Custom（自定义用户类型）三种。Admin 是系统角色而不是论坛用户类型，Moderator 是权限设置而非用户类型分类。这些类型定义了不同用户在社区论坛中的访问权限和功能。",
       "note": null
     },
     {
       "id": "csm.33",
-      "question": "Which of the following are true regarding the Community Portal application? (Choosetwo.)",
+      "question": "Which of the following are true regarding the Community Portal application? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -1143,7 +1135,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Community Portal 可供任何有 Community 许可证的客户使用（答案 A），而且大部分配置不需要系统管理员角色即可完成（答案 D）。它不是默认包含在 Support 和 Service 门户中的，也不仅限于 CSM 许可证持有者。",
       "note": null
     },
     {
@@ -1166,7 +1158,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "在 Community 中，仅当单一用户报告内容进行审核时，该内容不会被立即隐藏。需要达到特定的报告阈值（通常是多个用户的报告）才能自动隐藏内容。系统要求一定数量的报告来防止滥用。因此答案是 B（False）。",
       "note": null
     },
     {
@@ -1200,7 +1192,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "CSM 中可用的案例类型是 Order（订单）和 Product（产品）。Product Support 和 Support 不是 CSM 中的标准案例类型分类。这两种类型允许客户创建不同性质的支持请求和管理案例。",
       "note": null
     },
     {
@@ -1220,7 +1212,7 @@
         },
         {
           "key": "C",
-          "text": "The plugin ‘com.snc.csm_time_recording’ needs to be activated",
+          "text": "The plugin 'com.snc.csm_time_recording' needs to be activated",
           "textJa": ""
         },
         {
@@ -1233,12 +1225,12 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "要在 Customer Service Case 表单上启用 Follow the sun 字段，需要同时满足两个条件：1) 必须将表单的 value 属性设置为 true；2) 还需要将该字段添加到案例表单中。仅设置属性而不添加字段，或仅添加字段而不设置属性都不足以启用此功能。",
       "note": null
     },
     {
       "id": "csm.37",
-      "question": "In the Customer Service Management space, what does the term asset managementmean?",
+      "question": "In the Customer Service Management space, what does the term asset management mean?",
       "questionJa": "",
       "options": [
         {
@@ -1266,12 +1258,12 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "在 CSM 语境中，资产管理是指跟踪客户正在使用的产品或服务。它关注客户持有和使用的具体资产及其生命周期，而不仅仅是财务或库存信息。这是客户关系管理和服务支持的核心部分。",
       "note": null
     },
     {
       "id": "csm.38",
-      "question": "Which of the following roles cannot update a consumer’s record?",
+      "question": "Which of the following roles cannot update a consumer's record?",
       "questionJa": "",
       "options": [
         {
@@ -1299,7 +1291,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "sn_customerservice_agent 角色无法更新消费者记录。只有具有更高权限的 sn_customerservice_manager、sn_customerservice.consumer_agent 和 admin 角色拥有更新消费者记录的权限。这是基于角色的访问控制的设计。",
       "note": null
     },
     {
@@ -1332,7 +1324,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Major Issue Management 使用 Targeted Communications（定向通信）功能。这个功能允许组织向受重大问题影响的特定客户群发送有针对性的通知、更新和信息。它有助于改善沟通和客户满意度。",
       "note": null
     },
     {
@@ -1365,7 +1357,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "要实现从父案例到子案例的字段同步，需要安装并启用 Major Issue Management 并配置相关属性。这不是标准的 CSM 功能，需要特定的插件和配置。高级插件虽然有帮助，但具体答案指向 Major Issue Management 需要被安装和属性启用。",
       "note": null
     },
     {
@@ -1405,12 +1397,12 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "在移动设备上离线使用 Field Service Management 应用时，可以完成的功能包括：Execute assigned tasks（执行分配的任务）、Close work orders（关闭工单）和 Manage assets（管理资产）。Manage requests 和 Manage cases 需要实时连接才能同步数据。",
       "note": null
     },
     {
       "id": "csm.43",
-      "question": "Information in the Case Field ‘Contact’ is copied to which Incident Field?",
+      "question": "Information in the Case Field 'Contact' is copied to which Incident Field?",
       "questionJa": "",
       "options": [
         {
@@ -1438,7 +1430,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Case 表单中的 Contact 字段信息会被复制到关联的 Incident 表单的 Caller 字段。这是 CSM 和 ITSM 集成的一部分，用于保持联系人信息和事件起票人信息的一致性和对应关系。",
       "note": null
     },
     {
@@ -1471,12 +1463,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "一个 ServiceNow 实例可以有无限数量的 OpenFrame 活跃配置。这提供了灵活性和可扩展性，允许组织为不同的客户群体、业务单位或使用场景配置多个独立的 OpenFrame 实例。",
       "note": null
     },
     {
       "id": "csm.45",
-      "question": "What are common types of application record data that are imported during a CSM datamigration? (Choose two.)",
+      "question": "What are common types of application record data that are imported during a CSM data migration? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -1505,12 +1497,12 @@
         "B"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "CSM 数据迁移期间导入的常见应用程序记录数据包括 Knowledge Article（知识文章）和 Accounts（账户）。Chat 和 Case 通常不在标准迁移范围内，因为它们通常是活动数据或需要特殊处理。",
       "note": null
     },
     {
       "id": "csm.46",
-      "question": "Which are the key self-service functions of the Customer Support Portal? (Choosethree.)",
+      "question": "Which are the key self-service functions of the Customer Support Portal? (Choose three.)",
       "questionJa": "",
       "options": [
         {
@@ -1540,7 +1532,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Customer Support Portal 的关键自助服务功能包括 Community（社区）、Knowledge Base（知识库）和 Service Catalog（服务目录）。'Open An Incident' 不是开箱即用的自助功能，因为这需要通过 Case 系统而非 Incident。",
       "note": null
     },
     {
@@ -1574,12 +1566,12 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "在 CSM 中，频道（Channel）包括 Web 和 Chat。Contacts 是客户实体而非频道，Article 是内容类型而非交互频道。Web 和 Chat 是客户与组织交互的主要通信渠道。",
       "note": null
     },
     {
       "id": "csm.48",
-      "question": "Out-of-the-box, the consumer support portal (/csp) CANNOT be used for which one ofthe following actions?",
+      "question": "Out-of-the-box, the consumer support portal (/csp) CANNOT be used for which one of the following actions?",
       "questionJa": "",
       "options": [
         {
@@ -1607,12 +1599,12 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "消费者支持门户（/csp）开箱即用支持查看知识文章、进行实时聊天和消费者自注册，但不支持 'Open an incident'（打开事件）功能。开启事件需要额外的配置或与事件管理系统的集成。",
       "note": null
     },
     {
       "id": "csm.49",
-      "question": "The Customer Support Portal default configuration provides the following channels tointeract with customers? (Choose two.)",
+      "question": "The Customer Support Portal default configuration provides the following channels to interact with customers? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -1641,7 +1633,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Customer Support Portal 默认配置提供的交互频道是 Chat（聊天）和 Email（电子邮件）。Web 和 Social 不是默认包含的频道，虽然可以通过额外的配置和许可来添加这些频道。",
       "note": null
     },
     {
@@ -1651,69 +1643,61 @@
       "options": [
         {
           "key": "A",
-          "text": "True",
-          "textJa": ""
+          "text": "True"
         },
         {
           "key": "B",
-          "text": "False",
-          "textJa": ""
+          "text": "False"
         }
       ],
       "answer": [
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The ServiceNow Communities feature is available for customers with various license types, not exclusively CSM. Community features enable knowledge sharing and peer support across the platform.",
       "note": null
     },
     {
       "id": "csm.52",
-      "question": "Read the use case below to determine if the customer service relationship is B2B or B2C. Mary Contrary experiences a power outage and call the electrical company. The agentdetermines the outage is local to the customer and scheduled a technician to Mary’shouse.",
+      "question": "Read the use case below to determine if the customer service relationship is B2B or B2C. Mary Contrary experiences a power outage and calls the electrical company. The agent determines the outage is local to the customer and scheduled a technician to Mary's house.",
       "questionJa": "",
       "options": [
         {
           "key": "A",
-          "text": "B2C",
-          "textJa": ""
+          "text": "B2C"
         },
         {
           "key": "B",
-          "text": "B2B",
-          "textJa": ""
+          "text": "B2B"
         }
       ],
       "answer": [
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "This is a B2C (Business-to-Consumer) relationship because the electrical company is providing direct service to an individual consumer (Mary) at her home.",
       "note": null
     },
     {
       "id": "csm.53",
-      "question": "If the CSM Demo Data Plugin has been installed what are two options either of whichwill prepare that instance to be used as part of the release path to production? (Choosetwo.)",
+      "question": "If the CSM Demo Data Plugin has been installed what are two options either of which will prepare that instance to be used as part of the release path to production? (Choose two.)",
       "questionJa": "",
       "options": [
         {
           "key": "A",
-          "text": "Zboot the instance",
-          "textJa": ""
+          "text": "Reboot the instance"
         },
         {
           "key": "B",
-          "text": "Disable the Case Interceptor",
-          "textJa": ""
+          "text": "Disable the Case Interceptor"
         },
         {
           "key": "C",
-          "text": "Remove the Demo Data via a HI Request",
-          "textJa": ""
+          "text": "Remove the Demo Data via a HI Request"
         },
         {
           "key": "D",
-          "text": "Clone back to this instance from a valid instance",
-          "textJa": ""
+          "text": "Clone back to this instance from a valid instance"
         }
       ],
       "answer": [
@@ -1721,7 +1705,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "To prepare a demo instance for production use, you can either remove demo data via an HI Request or clone from a valid production instance to ensure clean data.",
       "note": null
     },
     {
@@ -1731,53 +1715,47 @@
       "options": [
         {
           "key": "A",
-          "text": "When a new customer is created",
-          "textJa": ""
+          "text": "When a new customer is created"
         },
         {
           "key": "B",
-          "text": "When an internal problem occurs",
-          "textJa": ""
+          "text": "When an internal problem occurs"
         },
         {
           "key": "C",
-          "text": "When a customer has a question or issue to resolve",
-          "textJa": ""
+          "text": "When a customer has a question or issue to resolve"
         },
         {
           "key": "D",
-          "text": "When we have new marketing material for a customer",
-          "textJa": ""
+          "text": "When we have new marketing material for a customer"
         }
       ],
       "answer": [
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "New inbound cases should be opened when a customer has a question or issue that requires resolution, as this is the core purpose of case management.",
       "note": null
     },
     {
       "id": "csm.55",
-      "question": "From a service provider’s perspective, is the following a product or an asset? A cable modem model that the service provider sells.",
+      "question": "From a service provider's perspective, is the following a product or an asset? A cable modem model that the service provider sells.",
       "questionJa": "",
       "options": [
         {
           "key": "A",
-          "text": "Product",
-          "textJa": ""
+          "text": "Product"
         },
         {
           "key": "B",
-          "text": "Asset",
-          "textJa": ""
+          "text": "Asset"
         }
       ],
       "answer": [
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "A cable modem model that a service provider sells is a product because it is an item offered for sale, distinct from assets the provider owns and manages.",
       "note": null
     },
     {
@@ -1787,43 +1765,39 @@
       "options": [
         {
           "key": "A",
-          "text": "False",
-          "textJa": ""
+          "text": "False"
         },
         {
           "key": "B",
-          "text": "True",
-          "textJa": ""
+          "text": "True"
         }
       ],
       "answer": [
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Entitlements specify the level and type of support services provided to customers based on their service contracts and license agreements.",
       "note": null
     },
     {
       "id": "csm.57",
-      "question": "Partner admin contacts have access to the data of both their partner accounts andcustomer accounts.",
+      "question": "Partner admin contacts have access to the data of both their partner accounts and customer accounts.",
       "questionJa": "",
       "options": [
         {
           "key": "A",
-          "text": "True",
-          "textJa": ""
+          "text": "True"
         },
         {
           "key": "B",
-          "text": "False",
-          "textJa": ""
+          "text": "False"
         }
       ],
       "answer": [
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Partner admin contacts have full access to both their partner account data and the associated customer account data for account management purposes.",
       "note": null
     },
     {
@@ -1833,40 +1807,34 @@
       "options": [
         {
           "key": "A",
-          "text": "proactive Case",
-          "textJa": ""
+          "text": "Proactive Case"
         },
         {
           "key": "B",
-          "text": "Service-Aware Install Base",
-          "textJa": ""
+          "text": "Service-Aware Install Base"
         },
         {
           "key": "C",
-          "text": "Service-Aware CMDB",
-          "textJa": ""
+          "text": "Service-Aware CMDB"
         },
         {
           "key": "D",
-          "text": "Proactive Prevention",
-          "textJa": ""
+          "text": "Proactive Prevention"
         },
         {
           "key": "E",
-          "text": "Service Reporting",
-          "textJa": ""
+          "text": "Service Reporting"
         },
         {
           "key": "F",
-          "text": "Service Monitoring",
-          "textJa": ""
+          "text": "Service Monitoring"
         }
       ],
       "answer": [
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The three main components of Proactive Customer Service Operations are the Service-Aware Install Base, Service-Aware CMDB, and proactive monitoring capabilities.",
       "note": null
     },
     {
@@ -1876,23 +1844,19 @@
       "options": [
         {
           "key": "A",
-          "text": "When importing to multiple instances import to each instance separately.",
-          "textJa": ""
+          "text": "When importing to multiple instances import to each instance separately."
         },
         {
           "key": "B",
-          "text": "Use ServiceNow automatic functionality to clean the data after it is in ServiceNow tables rather than in thelegacy repository.",
-          "textJa": ""
+          "text": "Use ServiceNow automatic functionality to clean the data after it is in ServiceNow tables rather than in the legacy repository."
         },
         {
           "key": "C",
-          "text": "Ensure the field data lengths in ServiceNow are adequate for the imported data because ServiceNowdoes not automatically adjust the length.",
-          "textJa": ""
+          "text": "Ensure the field data lengths in ServiceNow are adequate for the imported data because ServiceNow does not automatically adjust the length."
         },
         {
           "key": "D",
-          "text": "Images embedded in Knowledge Articles should be uploaded separately.",
-          "textJa": ""
+          "text": "Images embedded in Knowledge Articles should be uploaded separately."
         }
       ],
       "answer": [
@@ -1900,7 +1864,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Best practices for data imports include ensuring adequate field data lengths and uploading embedded Knowledge Article images separately for proper content management.",
       "note": null
     },
     {
@@ -1910,23 +1874,19 @@
       "options": [
         {
           "key": "A",
-          "text": "See the detailed configurations of the products and services deployed for a customer to determine meaction needed",
-          "textJa": ""
+          "text": "See the detailed configurations of the products and services deployed for a customer to determine the action needed"
         },
         {
           "key": "B",
-          "text": "Monitor alerts for operational services and configuration items that affect service health",
-          "textJa": ""
+          "text": "Monitor alerts for operational services and configuration items that affect service health"
         },
         {
           "key": "C",
-          "text": "Trace information provided m a case to the right product or service to which it relates",
-          "textJa": ""
+          "text": "Trace information provided in a case to the right product or service to which it relates"
         },
         {
           "key": "D",
-          "text": "Close an upsell of related products and services not yet purchased by a customer",
-          "textJa": ""
+          "text": "Identify an upsell of related products and services not yet purchased by a customer"
         }
       ],
       "answer": [
@@ -1934,7 +1894,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The install base view enables agents to see deployed product configurations and identify related products or services that could address customer needs (upsell opportunities).",
       "note": null
     },
     {
@@ -1944,20 +1904,18 @@
       "options": [
         {
           "key": "A",
-          "text": "True",
-          "textJa": ""
+          "text": "True"
         },
         {
           "key": "B",
-          "text": "False",
-          "textJa": ""
+          "text": "False"
         }
       ],
       "answer": [
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Cost Information on cases is not included as part of the standard Performance Analytics Content Pack for Customer Service.",
       "note": null
     },
     {
@@ -1967,63 +1925,55 @@
       "options": [
         {
           "key": "A",
-          "text": "Provide agents with an escalation guide",
-          "textJa": ""
+          "text": "Provide agents with an escalation guide"
         },
         {
           "key": "B",
-          "text": "Guide agents through account management",
-          "textJa": ""
+          "text": "Guide agents through account management"
         },
         {
           "key": "C",
-          "text": "Dynamically guide agents to help resolve complex cases",
-          "textJa": ""
+          "text": "Dynamically guide agents to help resolve complex cases"
         },
         {
           "key": "D",
-          "text": "Provide agents with a knowledge guide",
-          "textJa": ""
+          "text": "Provide agents with a knowledge guide"
         }
       ],
       "answer": [
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Guided Decisions dynamically guides agents through workflow decisions and processes to help resolve complex customer cases more efficiently.",
       "note": null
     },
     {
       "id": "csm.63",
-      "question": "Which feature enables you to quickly identify high-priority tasks based on multipledimensions, not just by a single field value like priority?",
+      "question": "Which feature enables you to quickly identify high-priority tasks based on multiple dimensions, not just by a single field value like priority?",
       "questionJa": "",
       "options": [
         {
           "key": "A",
-          "text": "Case Performance",
-          "textJa": ""
+          "text": "Case Performance"
         },
         {
           "key": "B",
-          "text": "Case Analytics",
-          "textJa": ""
+          "text": "Case Analytics"
         },
         {
           "key": "C",
-          "text": "Case Digest",
-          "textJa": ""
+          "text": "Case Digest"
         },
         {
           "key": "D",
-          "text": "Case Spotlight",
-          "textJa": ""
+          "text": "Case Spotlight"
         }
       ],
       "answer": [
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Case Spotlight is the feature that enables quickly identifying high-priority tasks by evaluating multiple dimensions and criteria, not just a single priority field.",
       "note": null
     },
     {
@@ -2033,104 +1983,89 @@
       "options": [
         {
           "key": "A",
-          "text": "Execute",
-          "textJa": ""
+          "text": "Execute"
         },
         {
           "key": "B",
-          "text": "Initiate",
-          "textJa": ""
+          "text": "Initiate"
         },
         {
           "key": "C",
-          "text": "Deliver",
-          "textJa": ""
+          "text": "Deliver"
         },
         {
           "key": "D",
-          "text": "Plan",
-          "textJa": ""
+          "text": "Plan"
         },
         {
           "key": "E",
-          "text": "Close",
-          "textJa": ""
+          "text": "Close"
         }
       ],
       "answer": [
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "In the NOW Create methodology, workshops are conducted during the Plan stage to gather business requirements and design solutions.",
       "note": null
     },
     {
       "id": "csm.65",
-      "question": "Which application must be activated to enable customers to check in on-line for futureappointments?",
+      "question": "Which application must be activated to enable customers to check in online for future appointments?",
       "questionJa": "",
       "options": [
         {
           "key": "A",
-          "text": "Business Location",
-          "textJa": ""
+          "text": "Business Location"
         },
         {
           "key": "B",
-          "text": "Walk-Up Experience",
-          "textJa": ""
+          "text": "Walk-Up Experience"
         },
         {
           "key": "C",
-          "text": "Field Service Management",
-          "textJa": ""
+          "text": "Field Service Management"
         },
         {
           "key": "D",
-          "text": "Service Organization",
-          "textJa": ""
+          "text": "Service Organization"
         }
       ],
       "answer": [
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The Walk-Up Experience application must be activated to enable customers to check in online for future scheduled appointments.",
       "note": null
     },
     {
       "id": "csm.66",
-      "question": "What are some of the influencing factors that will help determine the type of customersupport desk structure required? (Choose four.)",
+      "question": "What are some of the influencing factors that will help determine the type of customer support desk structure required? (Choose four.)",
       "questionJa": "",
       "options": [
         {
           "key": "A",
-          "text": "Knowledge and skills required for agents",
-          "textJa": ""
+          "text": "Knowledge and skills required for agents"
         },
         {
           "key": "B",
-          "text": "Geographical location of customer",
-          "textJa": ""
+          "text": "Geographical location of customer"
         },
         {
           "key": "C",
-          "text": "Languages spoken by agents",
-          "textJa": ""
+          "text": "Languages spoken by agents"
         },
         {
           "key": "D",
-          "text": "Number and type of support tools available",
-          "textJa": ""
+          "text": "Number and type of support tools available"
         },
         {
           "key": "E",
-          "text": "Number of customer service portals used",
-          "textJa": ""
+          "text": "Number of customer service portals used"
         },
         {
           "key": "F",
-          "text": "Number of agents required",
-          "textJa": ""
+          "text": "Number of agents required"
         }
       ],
       "answer": [
@@ -2140,154 +2075,135 @@
         "F"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Support desk structure is influenced by agent knowledge and skills, customer geography, languages spoken by agents, and the total number of agents needed.",
       "note": null
     },
     {
       "id": "csm.67",
-      "question": "What is the default value in the Channel field when a new case is opened by a customerin the Service Catalog, using the Customer Service Portal?",
+      "question": "What is the default value in the Channel field when a new case is opened by a customer in the Service Catalog, using the Customer Service Portal?",
       "questionJa": "",
       "options": [
         {
           "key": "A",
-          "text": "Web",
-          "textJa": ""
+          "text": "Web"
         },
         {
           "key": "B",
-          "text": "Catalog",
-          "textJa": ""
+          "text": "Catalog"
         },
         {
           "key": "C",
-          "text": "Portal",
-          "textJa": ""
+          "text": "Portal"
         },
         {
           "key": "D",
-          "text": "Virtual Agent",
-          "textJa": ""
+          "text": "Virtual Agent"
         }
       ],
       "answer": [
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "When a case is opened through the Service Catalog portal, the default value in the Channel field is Web.",
       "note": null
     },
     {
       "id": "csm.68",
-      "question": "An entitlement defines the types of support a customer receives. Entitlements are basedon a number of standard fields such as product and asset. When Proactive Customer Service Operations is implemented which additional fields could be used?",
+      "question": "An entitlement defines the types of support a customer receives. Entitlements are based on a number of standard fields such as product and asset. When Proactive Customer Service Operations is implemented which additional fields could be used?",
       "questionJa": "",
       "options": [
         {
           "key": "A",
-          "text": "Contact",
-          "textJa": ""
+          "text": "Contact"
         },
         {
           "key": "B",
-          "text": "Sold product",
-          "textJa": ""
+          "text": "Sold product"
         },
         {
           "key": "C",
-          "text": "Install base Item",
-          "textJa": ""
+          "text": "Install base Item"
         },
         {
           "key": "D",
-          "text": "Configuration item",
-          "textJa": ""
+          "text": "Configuration item"
         },
         {
           "key": "E",
-          "text": "Business Service",
-          "textJa": ""
+          "text": "Business Service"
         }
       ],
       "answer": [
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "When Proactive Customer Service Operations is implemented, Install base Item becomes an additional field that can be used as entitlement criteria.",
       "note": null
     },
     {
       "id": "csm.69",
-      "question": "When activating the Customer Service Management Demo Data plugin, which case typeis available besides product case?",
+      "question": "When activating the Customer Service Management Demo Data plugin, which case type is available besides product case?",
       "questionJa": "",
       "options": [
         {
           "key": "A",
-          "text": "Order",
-          "textJa": ""
+          "text": "Order"
         },
         {
           "key": "B",
-          "text": "Contract",
-          "textJa": ""
+          "text": "Contract"
         },
         {
           "key": "C",
-          "text": "FAQ",
-          "textJa": ""
+          "text": "FAQ"
         },
         {
           "key": "D",
-          "text": "Monitoring",
-          "textJa": ""
+          "text": "Monitoring"
         },
         {
           "key": "E",
-          "text": "Request",
-          "textJa": ""
+          "text": "Request"
         },
         {
           "key": "F",
-          "text": "Billing",
-          "textJa": ""
+          "text": "Billing"
         }
       ],
       "answer": [
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "When activating the Customer Service Management Demo Data plugin, Order case type is available as an option besides the standard Product case type.",
       "note": null
     },
     {
       "id": "csm.70",
-      "question": "What’s the purpose of the Deactivate Special Handling Notes Scheduled Job?",
+      "question": "What's the purpose of the Deactivate Special Handling Notes Scheduled Job?",
       "questionJa": "",
       "options": [
         {
           "key": "A",
-          "text": "Runs at the end of the month and deactivates all Special Handling notes more than 30 days old",
-          "textJa": ""
+          "text": "Runs at the end of the month and deactivates all Special Handling notes more than 30 days old"
         },
         {
           "key": "B",
-          "text": "Runs weekly and must have the Active checkbox unchecked in order for Special Handling notes to bedeleted by the end of the week",
-          "textJa": ""
+          "text": "Runs weekly and must have the Active checkbox unchecked in order for Special Handling notes to be deleted by the end of the week"
         },
         {
           "key": "C",
-          "text": "Runs on demand by the System Admin who must set specific weekly schedules and set only those thatare priority 1-critical to be deactivated",
-          "textJa": ""
+          "text": "Runs on demand by the System Admin who must set specific weekly schedules and set only those that are priority 1-critical to be deactivated"
         },
         {
           "key": "D",
-          "text": "Runs daily at midnight, checks all active alerts and sets the status to Expired for those that have reachedtheir expiration dates",
-          "textJa": ""
+          "text": "Runs daily at midnight, checks all active alerts and sets the status to Expired for those that have reached their expiration dates"
         }
       ],
       "answer": [
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The Deactivate Special Handling Notes job runs daily at midnight and marks alert status as Expired for those that have reached their expiration dates.",
       "note": null
     },
     {
@@ -2297,30 +2213,26 @@
       "options": [
         {
           "key": "A",
-          "text": "Lets agents and chat supervisors have a conversation without the requester knowing",
-          "textJa": ""
+          "text": "Lets agents and chat supervisors have a conversation without the requester knowing"
         },
         {
           "key": "B",
-          "text": "Lets the chat supervisors have a conversation with the requester without the agent knowing",
-          "textJa": ""
+          "text": "Lets the chat supervisors have a conversation with the requester without the agent knowing"
         },
         {
           "key": "C",
-          "text": "Lets agents have chat conversations with other agents without the requester knowing",
-          "textJa": ""
+          "text": "Lets agents have chat conversations with other agents without the requester knowing"
         },
         {
           "key": "D",
-          "text": "Lets agents and requesters have a conversation without the chat supervisor knowing",
-          "textJa": ""
+          "text": "Lets agents and requesters have a conversation without the chat supervisor knowing"
         }
       ],
       "answer": [
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The Agent Whisper function allows agents and chat supervisors to have private conversations without the customer or requester being aware of it.",
       "note": null
     },
     {
@@ -2330,23 +2242,19 @@
       "options": [
         {
           "key": "A",
-          "text": "Contact (customer_contact)",
-          "textJa": ""
+          "text": "Contact (customer_contact)"
         },
         {
           "key": "B",
-          "text": "Consumer User (csm_consumer-user)",
-          "textJa": ""
+          "text": "Consumer User (csm_consumer_user)"
         },
         {
           "key": "C",
-          "text": "Consumer (csm_consumer)",
-          "textJa": ""
+          "text": "Consumer (csm_consumer)"
         },
         {
           "key": "D",
-          "text": "CSM User (csm_user)",
-          "textJa": ""
+          "text": "CSM User (csm_user)"
         }
       ],
       "answer": [
@@ -2354,7 +2262,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Upon self-registration through the Consumer Service Portal, records are automatically created in both the Consumer User and Consumer tables.",
       "note": null
     },
     {
@@ -2364,23 +2272,19 @@
       "options": [
         {
           "key": "A",
-          "text": "Customer service agent (sn_customerservice_agent)",
-          "textJa": ""
+          "text": "Customer service agent (sn_customerservice_agent)"
         },
         {
           "key": "B",
-          "text": "Proxy case creator (sn_customerservice.proxy_case_creator)",
-          "textJa": ""
+          "text": "Proxy case creator (sn_customerservice.proxy_case_creator)"
         },
         {
           "key": "C",
-          "text": "Partner (sn_customerservice.partner)",
-          "textJa": ""
+          "text": "Partner (sn_customerservice.partner)"
         },
         {
           "key": "D",
-          "text": "Case Viewer (sn_customerservice.case_viewer)",
-          "textJa": ""
+          "text": "Case Viewer (sn_customerservice.case_viewer)"
         }
       ],
       "answer": [
@@ -2388,38 +2292,33 @@
         "B"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Customer service agents and proxy case creators are the roles that can create a customer service case from a community discussion.",
       "note": null
     },
     {
       "id": "csm.74",
-      "question": "The assignment workbench uses configurable matching criteria to evaluate agents in aselected group and provide an overall ranking. What are the different types of criteriaavailable for the assignment workbench? (Choose three.)",
+      "question": "The assignment workbench uses configurable matching criteria to evaluate agents in a selected group and provide an overall ranking. What are the different types of criteria available for the assignment workbench? (Choose three.)",
       "questionJa": "",
       "options": [
         {
           "key": "A",
-          "text": "Correlation",
-          "textJa": ""
+          "text": "Correlation"
         },
         {
           "key": "B",
-          "text": "Availability",
-          "textJa": ""
+          "text": "Availability"
         },
         {
           "key": "C",
-          "text": "Scripted",
-          "textJa": ""
+          "text": "Scripted"
         },
         {
           "key": "D",
-          "text": "Simple Match",
-          "textJa": ""
+          "text": "Simple Match"
         },
         {
           "key": "E",
-          "text": "Aggregate",
-          "textJa": ""
+          "text": "Aggregate"
         }
       ],
       "answer": [
@@ -2428,48 +2327,41 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The assignment workbench uses three types of matching criteria: Scripted criteria, Simple Match criteria, and Aggregate criteria for evaluating and ranking agents.",
       "note": null
     },
     {
       "id": "csm.75",
-      "question": "Asset classes are defined to allow for logical grouping of assets. There are five assetclasses provided to group assets, each Asset class provides unique functionality for thatgroup of Assets in the platform. Which of the following are the asset classes used? (Choose five.)",
+      "question": "Asset classes are defined to allow for logical grouping of assets. There are five asset classes provided to group assets, each Asset class provides unique functionality for that group of Assets in the platform. Which of the following are the asset classes used? (Choose five.)",
       "questionJa": "",
       "options": [
         {
           "key": "A",
-          "text": "Hardware assets",
-          "textJa": ""
+          "text": "Hardware assets"
         },
         {
           "key": "B",
-          "text": "Facility assets",
-          "textJa": ""
+          "text": "Facility assets"
         },
         {
           "key": "C",
-          "text": "Configuration assets",
-          "textJa": ""
+          "text": "Configuration assets"
         },
         {
           "key": "D",
-          "text": "Software licenses assets",
-          "textJa": ""
+          "text": "Software licenses assets"
         },
         {
           "key": "E",
-          "text": "Enterprise Software assets",
-          "textJa": ""
+          "text": "Enterprise Software assets"
         },
         {
           "key": "F",
-          "text": "Network assets",
-          "textJa": ""
+          "text": "Network assets"
         },
         {
           "key": "G",
-          "text": "Consumables assets",
-          "textJa": ""
+          "text": "Consumables assets"
         }
       ],
       "answer": [
@@ -2480,7 +2372,7 @@
         "G"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The five asset classes used in the platform are Hardware assets, Facility assets, Software licenses assets, Enterprise Software assets, and Consumables assets.",
       "note": null
     },
     {
@@ -2513,12 +2405,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "CSM应用程序与ITSM应用程序共享同一个Asset表，但CSM应用程序对该表的字段设置了不同的访问限制。CSM只显示与其功能相关的特定字段子集，而不使用完全不同的Asset表。这种设计方式使ServiceNow能够在两个应用程序间保持数据一致性，同时为每个应用程序提供特定的数据视图。答案是C：ServiceNow uses the same Asset table for both CSM and ITSM, however CSM has a different subset of fields。",
       "note": null
     },
     {
       "id": "csm.77",
-      "question": "A consumer service agent receives and accepts a case which was created by aconsumer. The agent needs and requests more information from the consumer. Afterreceiving the information, the agent proposes a solution that is accepted by theconsumer. Given this scenario, what is the chronological order of case states used tomanage this case?",
+      "question": "A consumer service agent receives and accepts a case which was created by a consumer. The agent needs and requests more information from the consumer. After receiving the information, the agent proposes a solution that is accepted by the consumer. Given this scenario, what is the chronological order of case states used to manage this case?",
       "questionJa": "",
       "options": [
         {
@@ -2546,7 +2438,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "根据题目描述的场景：案例创建（New）→ 代理接受（Open）→ 需要更多信息（Awaiting Info）→ 获得信息后继续处理（Open）→ 提出解决方案（Resolved）→ 关闭案例（Closed）。这是CSM案例管理的标准生命周期流程，体现了从创建到解决再到关闭的完整过程。正确答案是D：New > Open > Awaiting Info > Open > Resolved > Closed，反映了案例在需要更多信息时的状态变化。",
       "note": null
     },
     {
@@ -2597,7 +2489,7 @@
         "F"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "在CSM的匹配标准中，系统可以基于多个因素来分配工作。包括：匹配技能（A）、上次分配的代理（B）、分配的案例数量（E）和当天的可用性（F）。这些标准帮助确保工作项被分配给最合适的代理，提高效率和客户满意度。认证（C）和距离（D）等因素不是标准匹配条件，合作伙伴工作时间（G）也不适用于CSM场景。",
       "note": null
     },
     {
@@ -2631,12 +2523,12 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "在ServiceNow CSM中，外部角色是指授予外部用户（客户和消费者）的角色。客户服务代理（sn_customerservice_agent）和消费者支持代理（sn_customerservice.consumer_agent）被视为外部角色（C、D），因为它们用于支持外部客户和消费者交互。而合作伙伴管理员和客户管理员通常被视为特定的管理角色而非标准外部角色。",
       "note": null
     },
     {
       "id": "csm.80",
-      "question": "What is a supported external customer that, in turn, sells to and supports one or morecustomers?",
+      "question": "What is a supported external customer that, in turn, sells to and supports one or more customers?",
       "questionJa": "",
       "options": [
         {
@@ -2664,12 +2556,12 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Partner（合作伙伴）是被支持的外部客户，它反过来向一个或多个其他客户销售和提供支持。这定义了B2B合作伙伴关系模型，其中合作伙伴既是ServiceNow的客户，又是其他客户的服务提供者。这种双重身份使合作伙伴能够在管理自身支持需求的同时为其他客户提供服务。",
       "note": null
     },
     {
       "id": "csm.81",
-      "question": "Customer Service Trending Topics is a capability that enables companies to use Predictive Intelligence to quickly pinpoint factors driving up case volume and act tomitigate them. Which of the following would be a benefit of using Predictive Intelligence Customer Service Trending Topics?",
+      "question": "Customer Service Trending Topics is a capability that enables companies to use Predictive Intelligence to quickly pinpoint factors driving up case volume and act to mitigate them. Which of the following would be a benefit of using Predictive Intelligence Customer Service Trending Topics?",
       "questionJa": "",
       "options": [
         {
@@ -2697,12 +2589,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "CSM的Predictive Intelligence Trending Topics功能的主要优势在于能够自动生成相似基础问题的案例集群。通过使用AI和机器学习技术，系统可以识别多个案例背后的共同主题和问题。这不是消除传统分析（A错），也不能创建根本原因解决方案（C）或保证减少呼叫量（D），而是自动聚类以发现模式。",
       "note": null
     },
     {
       "id": "csm.82",
-      "question": "Which ServiceNow applications can be integrated out-of-the-box with CSM? (Choosethree.)",
+      "question": "Which ServiceNow applications can be integrated out-of-the-box with CSM? (Choose three.)",
       "questionJa": "",
       "options": [
         {
@@ -2737,7 +2629,7 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "ServiceNow CSM可以与服务组合管理（Service Portfolio Management - A）、项目管理（Project Management - B）和ITOM事件管理（ITOM Event Management - E）进行开箱即用的集成。这些集成允许CSM与其他ServiceNow应用程序无缝协作，增强功能和数据共享能力。DevOps（C）和Risk Management（D）不是标准的开箱即用集成。",
       "note": null
     },
     {
@@ -2777,7 +2669,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "社区的主要好处包括：降低支持成本（Reduce support costs - A）、增进与客户的互动（Engagement with Customers - B）和获取产品反馈（Get product feedback - C）。通过建立社区，组织可以利用客户知识，减少支持工作量，同时收集宝贵的产品改进建议。减少销售成本（D）和增加营销有效性（E）虽然可能，但不是核心好处。",
       "note": null
     },
     {
@@ -2815,7 +2707,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "这道题的正确答案是D（减少每次销售成本 - Reduce cost per sales）。注意选项B有拼写错误（\"Cu stomers\"应为\"Customers\"）。虽然社区有多个好处，但这道题特别强调的是与销售相关的成本减少。相比题83，这道题是单选题，答案侧重于商业成本效益。",
       "note": null
     },
     {
@@ -2848,12 +2740,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "在CSM系统中，案例（Case）是用于识别和解决外部客户的问题或疑问的个人记录（C）。案例是CSM的核心功能，用于管理客户请求、问题和需求，从创建到解决的完整生命周期。与事件（Incidents）不同，案例专门针对外部客户，而不是内部用户的问题。",
       "note": null
     },
     {
       "id": "csm.86",
-      "question": "External content integration is important for agents to be able to access knowledgearticles from external sources. ALL external sources must be:",
+      "question": "External content integration is important for agents to be able to access knowledge articles from external sources. ALL external sources must be:",
       "questionJa": "",
       "options": [
         {
@@ -2881,12 +2773,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "外部内容集成要求所有外部知识源必须符合WebDAV标准（WebDAV-compliant - C）。WebDAV（Web分布式创作和版本控制）是一个HTTP扩展，允许用户远程编辑和管理web服务器上的文件。这确保了外部内容可以与ServiceNow CSM安全集成和同步。WebDAV版本化（A）和Web可配置性（B）不是硬性要求。",
       "note": null
     },
     {
       "id": "csm.87",
-      "question": "An Account Relationship is based on a defined account relationship hype. Users with the System Administrator role can define two types of relationships: (Choose two.)",
+      "question": "An Account Relationship is based on a defined account relationship type. Users with the System Administrator role can define two types of relationships: (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -2920,7 +2812,7 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "账户关系（Account Relationship）有两种主要类型：账户对账户关系（Account-to-account - C）和合作伙伴对账户关系（Partner-to-account - E）。这些关系类型使系统能够定义不同组织实体之间的层次结构和依赖关系，支持复杂的B2B场景管理和数据关联。",
       "note": null
     },
     {
@@ -2953,12 +2845,12 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "用户标准（User Criteria）可以在知识库（Knowledge Base）和文章（Article）级别配置（D）。通过这种方式，管理员可以控制特定用户或用户组对知识内容的访问权限，实现知识的有针对性分发。这种灵活的访问控制机制确保用户只看到与其相关的知识内容。",
       "note": null
     },
     {
       "id": "csm.89",
-      "question": "When the virtual agent plugin is installed NLU is activated but is not available for useuntil what two configurations are completed? (Choose two.)",
+      "question": "When the virtual agent plugin is installed NLU is activated but is not available for use until what two configurations are completed? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -2987,12 +2879,12 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "当虚拟代理插件安装时，NLU（自然语言理解）被激活但需要两个配置才能使用：选择NLU服务提供商（A）和启用虚拟代理中的NLU功能（C）。这两个步骤是使NLU功能完全可操作所必需的初始配置。配置Intent和Entity置信度阈值（B、D）是高级配置，不是基本要求。",
       "note": null
     },
     {
       "id": "csm.90",
-      "question": "An entitlement defines the types of support a customer receives. Entitlements are basedon a number of standard fields such as product and asset. When Proactive Customer Service Operations is implemented which additional fields could be used? (Choose two.)",
+      "question": "An entitlement defines the types of support a customer receives. Entitlements are based on a number of standard fields such as product and asset. When Proactive Customer Service Operations is implemented which additional fields could be used? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -3026,12 +2918,12 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "在实施主动客户服务运营时，可以使用的额外字段包括安装基础项目（Install base item - D）和销售产品（Sold product - E）。这些字段与标准的产品和资产字段结合，使权限系统能够更精细地控制和个性化支持，特别是在跟踪客户拥有的资产和产品时。",
       "note": null
     },
     {
       "id": "csm.91",
-      "question": "When implementing Knowledge Product Entitlements, what is enabled when activatingthe Enable access control of Knowledge Articles system property?",
+      "question": "When implementing Knowledge Product Entitlements, what is enabled when activating the Enable access control of Knowledge Articles system property?",
       "questionJa": "",
       "options": [
         {
@@ -3059,12 +2951,12 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "启用知识文章访问控制（Enable access control of Knowledge Articles）系统属性后，允许基于客户拥有的产品访问相关的知识文章（D）。这实现了与知识产品权限相关联的细粒度访问控制，确保客户只能查看与其购买或拥有的产品相关的知识内容，提高了知识库的相关性和安全性。",
       "note": null
     },
     {
       "id": "csm.92",
-      "question": "Advance Work Assignment assigns work to agents based on their availability, capacity, and skills. Agent Affinity enhances the Advanced Work Assignment process by adding additional agent details organized by affinity type. Which of these are these affinitytypes? (Choose three.)",
+      "question": "Advanced Work Assignment assigns work to agents based on their availability, capacity, and skills. Agent Affinity enhances the Advanced Work Assignment process by adding additional agent details organized by affinity type. Which of these are affinity types? (Choose three.)",
       "questionJa": "",
       "options": [
         {
@@ -3099,12 +2991,12 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "在Agent Affinity中，亲缘类型包括：账户团队责任（Account team responsibility - B）、历史性（Historical - C）和相关任务（Related task - D）。这些亲缘类型帮助系统在进行工作分配时，优先考虑与特定代理相关的历史交互、账户关系和任务相关性，实现更智能的工作分配。",
       "note": null
     },
     {
       "id": "csm.93",
-      "question": "In Agent Workspace Chat, Agents have the ability to use quick actions to work moreefficiently. What action does the /r quick action perform?",
+      "question": "In Agent Workspace Chat, Agents have the ability to use quick actions to work more efficiently. What action does the /r quick action perform?",
       "questionJa": "",
       "options": [
         {
@@ -3132,7 +3024,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "在Agent Workspace Chat中，/r快速操作用于使用响应模板将文本插入对话（C）。这个功能使代理能够快速选择预定义的回复模板，提高响应效率和一致性。这对于处理常见问题和提供标准化回复非常有用。",
       "note": null
     },
     {
@@ -3165,12 +3057,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "使用范围应用程序（scoped applications）的安全好处是限制了对实例中其他应用程序的可访问性（C）。范围应用程序通过应用程序边界和隔离，确保应用程序内的数据和功能不会暴露给其他应用程序，提高系统整体安全性和数据隐私保护。",
       "note": null
     },
     {
       "id": "csm.95",
-      "question": "In case management. Parent Child Synchronization allows for which of the following:",
+      "question": "In case management, Parent Child Synchronization allows for which of the following:",
       "questionJa": "",
       "options": [
         {
@@ -3198,12 +3090,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "父子同步（Parent Child Synchronization）允许当所有字段填完时，父案例自动生成子案例（C）。这是一个同步的自动填充机制，使系统能够根据父案例的详细信息自动创建对应的子案例，简化案例管理流程，提高工作效率。",
       "note": null
     },
     {
       "id": "csm.96",
-      "question": "The CSM application has a feature that can be used to filter records in CSM-relatedtables which are accessible by users with CSM roles. This feature makes it unnecessaryto create business logic for those persona access the data. What is this feature?",
+      "question": "The CSM application has a feature that can be used to filter records in CSM-related tables which are accessible by users with CSM roles. This feature makes it unnecessary to create business logic for those personas to access the data. What is this feature?",
       "questionJa": "",
       "options": [
         {
@@ -3231,12 +3123,12 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "CSM查询规则（CSM Query Rules - A）是CSM应用程序中的一个功能，用于根据CSM角色过滤可访问的记录。这种声明式的访问控制机制消除了为每个CSM角色手动编写业务逻辑的需要，简化了访问控制的实现和维护。",
       "note": null
     },
     {
       "id": "csm.97",
-      "question": "In Advanced Work Assignment, what does the overflow assignment capability do, ifdefined?",
+      "question": "In Advanced Work Assignment, what does the overflow assignment capability do, if defined?",
       "questionJa": "",
       "options": [
         {
@@ -3264,7 +3156,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "在Advanced Work Assignment中，溢出分配（overflow assignment - A）功能可以确保当一个支持组达到容量限制时，工作项会自动路由到另一个组。这保证了工作的持续分配和最优的资源利用，防止某个组过载而其他组闲置。",
       "note": null
     },
     {
@@ -3297,12 +3189,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "在Workspace Chat中，/r快速操作用于将当前聊天历史卷入现有案例（C）。这个功能允许代理将聊天记录转换为正式案例记录，便于案例追踪、管理和知识积累。与csm.93不同，这里/r是指\"roll up\"而非\"response\"。",
       "note": null
     },
     {
       "id": "csm.99",
-      "question": "Which role must B2B and B2C customers obtain, at a MINIMUM, to access to a ServiceNow instance?",
+      "question": "Which role must B2B and B2C customers obtain, at a MINIMUM, to access a ServiceNow instance?",
       "questionJa": "",
       "options": [
         {
@@ -3330,12 +3222,12 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "B2B和B2C客户必须获得External（snc_external）角色才能访问ServiceNow实例（A）。这是ServiceNow中允许外部用户访问系统的最小权限角色，是所有外部用户访问的基础。没有这个角色，外部用户无法在系统中进行任何操作。",
       "note": null
     },
     {
       "id": "csm.100",
-      "question": "Which Flow Designer flow can be used to automatically close resolved cases ifcustomers do not respond within a specified time?",
+      "question": "Which Flow Designer flow can be used to automatically close resolved cases if customers do not respond within a specified time?",
       "questionJa": "",
       "options": [
         {
@@ -3363,12 +3255,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Auto Close Resolved Cases（自动关闭已解决案例）Flow Designer流可用于自动关闭已解决的案例，如果客户在指定时间内未做出回应（B）。这个自动化流程有助于提高案例管理效率和及时结案，减少长期未结案例的堆积。",
       "note": null
     },
     {
       "id": "csm.101",
-      "question": "What role can be assigned to employees who are not fulfillers, such as those in salesand services, or do not have other CSM-specific roles, but have a need to create caseson behalf of customers?",
+      "question": "What role can be assigned to employees who are not fulfillers, such as those in sales and services, or do not have other CSM-specific roles, but have a need to create cases on behalf of customers?",
       "questionJa": "",
       "options": [
         {
@@ -3396,12 +3288,12 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Proxy Contact role (sn_customservice.proxy_contact) is designed for employees who are not fulfillers but need to create cases on behalf of customers. This role grants the necessary permissions without providing full fulfiller access.",
       "note": null
     },
     {
       "id": "csm.102",
-      "question": "Proactive Customer Service Operations works Event Management to proactively monitorand fix issues affecting customers. It can also trigger case workflow’s and enableorganizations to notify customers whose services or products are impacted by an outageor issue. What are the three main components that make up Proactive Customer Service Operations? (Choose three.)",
+      "question": "Proactive Customer Service Operations works with Event Management to proactively monitor and fix issues affecting customers. It can also trigger case workflows and enable organizations to notify customers whose services or products are impacted by an outage or issue. What are the three main components that make up Proactive Customer Service Operations? (Choose three.)",
       "questionJa": "",
       "options": [
         {
@@ -3441,7 +3333,7 @@
         "F"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The three main components of Proactive Customer Service Operations are: Service-Aware Install Base (provides visibility into customer assets), Proactive Case (enables automated case creation), and Service Monitoring (tracks service health and issues).",
       "note": null
     },
     {
@@ -3475,7 +3367,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "External roles in CSM include Customer Admin (sn_customerservice.customer_admin) and Partner Admin (sn_customerservice.partner_admin). These roles are granted to users outside the organization who need to manage customer-related activities.",
       "note": null
     },
     {
@@ -3508,7 +3400,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "By default, ServiceNow CSM does not automatically close resolved cases. Organizations must manually configure auto-closure rules if they want this behavior implemented.",
       "note": null
     },
     {
@@ -3541,12 +3433,12 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Blue circles in the case timeline represent state changes. These visual indicators help agents quickly identify when a case status has been modified, making it easier to track the case progression.",
       "note": null
     },
     {
       "id": "csm.106",
-      "question": "What are the different resource matching methods on the Matching Rule form? (Choosefour.)",
+      "question": "What are the different resource matching methods on the Matching Rule form? (Choose four.)",
       "questionJa": "",
       "options": [
         {
@@ -3587,12 +3479,12 @@
         "F"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The four resource matching methods are: Scripted (uses custom business logic), Advanced (uses complex queries), Simple (uses basic field matching), and Selection Criteria (allows manual selection). History and Skill are not standard matching methods.",
       "note": null
     },
     {
       "id": "csm.107",
-      "question": "Which of the following child case states would cause parent - child case synchronizationto fail? (Choose three.)",
+      "question": "Which of the following child case states would cause parent-child case synchronization to fail? (Choose three.)",
       "questionJa": "",
       "options": [
         {
@@ -3632,12 +3524,12 @@
         "F"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Parent-child case synchronization will fail when a child case is in Resolved, Closed, or Cancelled states. These terminal states prevent proper synchronization with the parent case as they indicate case completion.",
       "note": null
     },
     {
       "id": "csm.108",
-      "question": "External customers can view the problem, change, and request records associated withtheir customer service cases from the Customer and Consumer Service Portals. Whichof the following can they approve in relation to cases via the portals?",
+      "question": "External customers can view the problem, change, and request records associated with their customer service cases from the Customer and Consumer Service Portals. Which of the following can they approve in relation to cases via the portals?",
       "questionJa": "",
       "options": [
         {
@@ -3665,12 +3557,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "External customers can approve Change Records and Request Records through the portal. This allows them to have visibility and control over changes and requests that affect their services.",
       "note": null
     },
     {
       "id": "csm.109",
-      "question": "Playbooks for CSM provide step-by-step guidance for resolving specific types ofcustomer service cases. What are the three out-of-the-box playbooks for CSM? (Choosethree.)",
+      "question": "Playbooks for CSM provide step-by-step guidance for resolving specific types of customer service cases. What are the three out-of-the-box playbooks for CSM? (Choose three.)",
       "questionJa": "",
       "options": [
         {
@@ -3705,7 +3597,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The three out-of-the-box CSM playbooks are: Case playbook for Onboarding (guidance for new customer setup), Case playbook for Product Support (guidance for product issues), and Case playbook for Complaints (guidance for handling complaints).",
       "note": null
     },
     {
@@ -3745,12 +3637,12 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Special handling notes can be applied to cases based on Product, Account, and Contact attributes. These notes provide contextual information to agents about special requirements or considerations for specific products, accounts, or contacts.",
       "note": null
     },
     {
       "id": "csm.111",
-      "question": "As an agent you can report a knowledge gap, if you cannot find relevant articles thatcould help resolve a case. Which action is required to create the knowledge gap?",
+      "question": "As an agent you can report a knowledge gap, if you cannot find relevant articles that could help resolve a case. Which action is required to create the knowledge gap?",
       "questionJa": "",
       "options": [
         {
@@ -3778,7 +3670,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "To report a knowledge gap, agents use the Related Links on the case form. This allows them to document areas where knowledge articles are missing, helping the knowledge management team identify and create needed content.",
       "note": null
     },
     {
@@ -3811,7 +3703,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The Product Model and Catalog Items Relationship plugin provides a contextual service catalog based on the customer's subscribed services. This enables agents to propose relevant catalog items to customers based on their specific product subscriptions.",
       "note": null
     },
     {
@@ -3844,12 +3736,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "When the state of an associated ITSM record is updated, the case work notes are automatically updated. This ensures that agents have visibility into related ITSM activity and can see the impact of updates on their cases.",
       "note": null
     },
     {
       "id": "csm.114",
-      "question": "Application Scoping from a security perspective brings the following benefits: (Choosetwo.)",
+      "question": "Application Scoping from a security perspective brings the following benefits: (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -3878,7 +3770,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Application Scoping provides two key security benefits: First, it improves instance security by limiting access to other applications on the instance. Second, scoping holds records and acts as a container for the desired CSM applications, providing isolation and control.",
       "note": null
     },
     {
@@ -3911,12 +3803,12 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Multiple service catalogs are made available on the Customer Service Portal by including them in the list of service catalogs on the Customer Service Portal record. This configuration allows different customers to see relevant catalogs based on their needs.",
       "note": null
     },
     {
       "id": "csm.116",
-      "question": "Now Create provides a prescriptive methodology, leading practices, and accelerators tohelp with ServiceNow implementations and upgrades. How many sequential projectphases and exit gates are there in the Now Create Methodology?",
+      "question": "Now Create provides a prescriptive methodology, leading practices, and accelerators to help with ServiceNow implementations and upgrades. How many sequential project phases and exit gates are there in the Now Create Methodology?",
       "questionJa": "",
       "options": [
         {
@@ -3944,12 +3836,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The Now Create Methodology includes five sequential project phases and exit gates. These gates ensure quality and readiness before progressing to the next phase of a ServiceNow implementation or upgrade.",
       "note": null
     },
     {
       "id": "csm.117",
-      "question": "From which one of the following can an agent create a CSM Case:",
+      "question": "From which one of the following can an agent create a CSM Case?",
       "questionJa": "",
       "options": [
         {
@@ -3977,12 +3869,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Agents can create CSM cases from Chat. This integration enables agents to convert chat conversations with customers into formal case records for proper tracking and management.",
       "note": null
     },
     {
       "id": "csm.118",
-      "question": "Using the out-of-the-box major issue management process flow, a consumer serviceagent proposes an existing case in the Open state as a major case candidate. The majorcase candidate has a consumer defined and is approved by the customer servicemanager What happens to the major case candidate?",
+      "question": "Using the out-of-the-box major issue management process flow, a consumer service agent proposes an existing case in the Open state as a major case candidate. The major case candidate has a consumer defined and is approved by the customer service manager. What happens to the major case candidate?",
       "questionJa": "",
       "options": [
         {
@@ -4010,7 +3902,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "When a major case candidate is approved by the manager, a new major case is created and the major case candidate is added as a child to the major case. This relationship enables proper tracking and management of the major issue and its associated cases.",
       "note": null
     },
     {
@@ -4044,7 +3936,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Two types of escalation templates can be created: Case escalation templates (for escalating cases to assignment groups) and Account escalation templates (for escalating at the account level). These provide different scoping options for escalation rules.",
       "note": null
     },
     {
@@ -4084,12 +3976,12 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Recommended practices for implementation workshops include: giving customers the data they need to make informed decisions, engaging with customers to understand their organization deeply, and guiding customers toward industry best practices. These practices ensure successful implementations that align with customer needs.",
       "note": null
     },
     {
       "id": "csm.121",
-      "question": "What is the specific type of catalog item called that allows users to create task-basedrecords, such as case records, from the Service Catalog?",
+      "question": "What is the specific type of catalog item called that allows users to create task-based records, such as case records, from the Service Catalog?",
       "questionJa": "",
       "options": [
         {
@@ -4117,7 +4009,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "A Record Producer is the specific type of catalog item that allows users to create task-based records such as cases from the Service Catalog. This enables self-service case creation through the catalog interface.",
       "note": null
     },
     {
@@ -4150,7 +4042,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "State Flows handle state transitioning for case management in CSM. This functionality manages the workflow of case states and ensures that cases follow the proper state progression according to configured rules.",
       "note": null
     },
     {
@@ -4189,7 +4081,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Two key benefits of customer access management are: it increases automation by automatically granting access to cases based on access to sold products, and it improves the customer experience by enabling related parties to track and collaborate on cases.",
       "note": null
     },
     {
@@ -4223,12 +4115,12 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The advantages of leading indicators over lagging indicators are: they are prospective (forward-looking, allowing for proactive action) and easy to influence (can be changed or improved through current actions). Lagging indicators are retrospective and harder to influence after the fact.",
       "note": null
     },
     {
       "id": "csm.125",
-      "question": "Customer Service Management Administrators can delegate Contact Administrationactivities to specific contacts within accounts by assigning specific roles to one or moreusers. Which of the following roles, if assigned, would allow the user to create contacts?",
+      "question": "Customer Service Management Administrators can delegate Contact Administration activities to specific contacts within accounts by assigning specific roles to one or more users. Which of the following roles, if assigned, would allow the user to create contacts?",
       "questionJa": "",
       "options": [
         {
@@ -4256,7 +4148,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The Customer Admin role (sn_customerservice.customer_admin) allows users to create contacts. This role grants the necessary permissions for contact administration activities within customer accounts. Note: The original typo 'customer_admln' should be corrected to 'customer_admin'.",
       "note": null
     },
     {
@@ -4289,12 +4181,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Knowledge article versioning is the ability to manage and track article updates throughout their lifecycle. This allows organizations to maintain version control, manage revisions, and track changes over time. Answer is C.",
       "note": null
     },
     {
       "id": "csm.127",
-      "question": "Service providers use business models to support their various customers. What type ofcustomer is supported with the Business-to-Consumer (B2C) model?",
+      "question": "Service providers use business models to support their various customers. What type of customer is supported with the Business-to-Consumer (B2C) model?",
       "questionJa": "",
       "options": [
         {
@@ -4322,12 +4214,12 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The B2C (Business-to-Consumer) business model is designed to serve individual consumers, as opposed to B2B which serves other businesses. Answer is A - Individuals.",
       "note": null
     },
     {
       "id": "csm.128",
-      "question": "When configuring email in Communication Channels, how many outgoing emailaddresses are supported?",
+      "question": "When configuring email in Communication Channels, how many outgoing email addresses are supported?",
       "questionJa": "",
       "options": [
         {
@@ -4355,12 +4247,12 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "In ServiceNow CSM Communication Channels configuration, only one (1) outgoing email address is supported. This ensures clear and controlled email communication from the system. Answer is A - One.",
       "note": null
     },
     {
       "id": "csm.129",
-      "question": "Which of the following roles have permission to create a relationship between a contactand an account? (Choose two.)",
+      "question": "Which of the following roles have permission to create a relationship between a contact and an account? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -4394,12 +4286,12 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Only customer service managers and admins have permission to create relationships between contacts and accounts. These are the two roles that possess sufficient permissions. Answers are D (sn_customerservice_manager) and E (admin).",
       "note": null
     },
     {
       "id": "csm.130",
-      "question": "In CSM Asset Management has a different meaning than in ITSM or Corporate Finance Which of the following defines Asset Management in CSM?",
+      "question": "In CSM, Asset Management has a different meaning than in ITSM or Corporate Finance. Which of the following defines Asset Management in CSM?",
       "questionJa": "",
       "options": [
         {
@@ -4427,7 +4319,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "In CSM context, Asset Management refers to tracking specific products or services that customers are using, which is different from ITSM's IT focus or Corporate Finance's asset valuation focus. Answer is C.",
       "note": null
     },
     {
@@ -4460,12 +4352,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "KCS (Knowledge Centered Services) is a documented methodology that provides a set of best practices for creating, capturing, and maintaining knowledge. It focuses on continuous improvement of knowledge and its utilization. Answer is B.",
       "note": null
     },
     {
       "id": "csm.132",
-      "question": "When creating or importing assets for CSM, model categories are used to: (Choosethree.)",
+      "question": "When creating or importing assets for CSM, model categories are used to: (Choose three.)",
       "questionJa": "",
       "options": [
         {
@@ -4500,12 +4392,12 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Model categories are used to: 1) Define whether a CI is created when an Asset is created, 2) Group assets together, and 3) Define links between Asset and CI classes. Answers are A, B, and E.",
       "note": null
     },
     {
       "id": "csm.133",
-      "question": "Viewing a customer’s install base in the CSM Workspaces enables customer serviceagents to: (Choose two.)",
+      "question": "Viewing a customer's install base in the CSM Workspaces enables customer service agents to: (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -4534,7 +4426,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Viewing install base enables agents to: 1) See detailed product/service configurations to determine necessary actions, and 2) Trace case information to the right products/services. Answers are B and C.",
       "note": null
     },
     {
@@ -4573,7 +4465,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Benefits of proactive customer service include reduced inbound call volume and reduced Mean Time To Resolve (MTTR), which improves customer satisfaction and operational efficiency. Answers are A and D.",
       "note": null
     },
     {
@@ -4613,7 +4505,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The Customer Service Portal includes: 1) Header with links for customer activities like creating cases, 2) Search feature to retrieve information from multiple repositories, and 3) Links to resources like knowledge base, community, and customer support. Answers are A, B, and C.",
       "note": null
     },
     {
@@ -4646,12 +4538,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "NLU is an acronym that stands for Natural-Language Understanding. This is a technology used in AI and chatbots to process and comprehend human language input. Answer is B.",
       "note": null
     },
     {
       "id": "csm.137",
-      "question": "Out-of-the-box. cases are automatically closed after how many days?",
+      "question": "Out-of-the-box, cases are automatically closed after how many days?",
       "questionJa": "",
       "options": [
         {
@@ -4679,7 +4571,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "By default, cases in ServiceNow CSM are NOT automatically closed. They must be manually closed or configured through automation rules. Organizations can customize this behavior based on their business needs. Answer is D.",
       "note": null
     },
     {
@@ -4712,12 +4604,12 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "A customization is defined as any change to the platform that is NOT applied through the usage of built-in tools on the Now Platform. If you use standard configuration options and built-in tools, it's not a customization. Answer is B.",
       "note": null
     },
     {
       "id": "csm.139",
-      "question": "Which solution must be implemented to let a breakdown dashboard appear as a pop-upwindow on the case form?",
+      "question": "Which solution must be implemented to let a breakdown dashboard appear as a pop-up window on the case form?",
       "questionJa": "",
       "options": [
         {
@@ -4745,7 +4637,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "In-form Analytics is the solution that enables breakdowns and dashboards to appear as pop-up windows directly on case forms, providing agents with real-time insights without leaving the form. Answer is B.",
       "note": null
     },
     {
@@ -4779,12 +4671,12 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Case digests include Case Action Summaries (summaries of actions taken) and Post Case Reviews (reviews conducted after case closure). These help document and communicate case activities. Answers are B and C.",
       "note": null
     },
     {
       "id": "csm.141",
-      "question": "By default what can customers with the customer (sn_customerservice.customer) rolesee on the customer service portal? (Choose three.)",
+      "question": "By default what can customers with the customer (sn_customerservice.customer) role see on the customer service portal? (Choose three.)",
       "questionJa": "",
       "options": [
         {
@@ -4819,12 +4711,12 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Customers with the customer role can view Assets (their purchased products), Publications (knowledge and documentation), and Products (available in their catalog) by default. Answers are A, B, and C.",
       "note": null
     },
     {
       "id": "csm.142",
-      "question": "Which feature allows an agent to copy reusable messages to case or task forms toprovide quick and consistent messages to users?",
+      "question": "Which feature allows an agent to copy reusable messages to case or task forms to provide quick and consistent messages to users?",
       "questionJa": "",
       "options": [
         {
@@ -4852,7 +4744,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Response Templates allow agents to copy pre-written, reusable messages into case or task forms, ensuring consistent communication with customers while saving time. Answer is C.",
       "note": null
     },
     {
@@ -4885,12 +4777,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "In CSM, an asset is defined as a specific product instance that is supported for a particular customer. This is distinct from a product type and refers to the actual instance deployed at the customer's location. Answer is B.",
       "note": null
     },
     {
       "id": "csm.144",
-      "question": "Which capabilities does the integration with Microsoft Outlook add-in offer? (Choosetwo.)",
+      "question": "Which capabilities does the integration with Microsoft Outlook add-in offer? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -4919,7 +4811,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The Microsoft Outlook add-in offers the ability to register email senders as contacts and create cases using email content in Outlook for the customer contact. Answers are B and D.",
       "note": null
     },
     {
@@ -4947,12 +4839,12 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Out-of-the-box, Special Handling Notes can be applied to Consumer entities. These notes provide special instructions or handling requirements for specific consumers/customers. Answer is A.",
       "note": null
     },
     {
       "id": "csm.146",
-      "question": "Which service catalogs are available out-of-the-box in the customer portals? (Choosetwo.)",
+      "question": "Which service catalogs are available out-of-the-box in the customer portals? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -4981,7 +4873,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The two service catalogs available out-of-the-box in customer portals are Customer Service (for customer service requests) and Consumer Service (for consumer/individual service requests). Answers are B and C.",
       "note": null
     },
     {
@@ -5014,7 +4906,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Partner admin contacts have access to both their customer accounts (to provide support) and their partner accounts (to manage partner relationships and operations). Answer is C - Both.",
       "note": null
     },
     {
@@ -5048,12 +4940,12 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Scoping benefits from a security perspective: 1) Improves instance security by limiting accessibility to other applications, and 2) Acts as a container for the CSM applications. Answers are A and D.",
       "note": null
     },
     {
       "id": "csm.149",
-      "question": "Advanced Work Assignment (AWA) pushes work to qualified agents using work itemqueues, routing conditions, and assignment criteria that you define. Which step wouldensure the work was allocated to the appropriate agent?",
+      "question": "Advanced Work Assignment (AWA) pushes work to qualified agents using work item queues, routing conditions, and assignment criteria that you define. Which step would ensure the work was allocated to the appropriate agent?",
       "questionJa": "",
       "options": [
         {
@@ -5081,12 +4973,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "To ensure work is allocated to the appropriate agent, you must Define Assignment Rules, which specify how to assign work items to qualified agents based on criteria and conditions. Answer is B.",
       "note": null
     },
     {
       "id": "csm.150",
-      "question": "What action can be performed by a Partner Admin (sn_customerservice.partner_admin) and NOT by a Partner (sn_customerservice partner) in the Customer Service Portal?",
+      "question": "What action can be performed by a Partner Admin (sn_customerservice.partner_admin) and NOT by a Partner (sn_customerservice.partner) in the Customer Service Portal?",
       "questionJa": "",
       "options": [
         {
@@ -5114,7 +5006,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Partner Admins can create and update contacts for their partner accounts, a capability that regular Partners do not have. This allows admins to manage the partner account structure. Answer is D.",
       "note": null
     },
     {
@@ -5147,7 +5039,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "家庭实体（household entity）是指通常共享一个公共地址并将服务作为一个整体使用的消费者群体。该定义强调了它是由消费者（consumers）组成的集合，而不是用户、人员或客户的通用术语。这种分类在客户服务管理中用于识别和管理相关联的客户群体。",
       "note": null
     },
     {
@@ -5180,7 +5072,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "实施团队需要尽可能快地向客户交付核心功能，以实现近期投资回报率（near-term ROI）。这种方法使客户能够在完整解决方案准备好之前开始从系统中获得价值，同时也为复杂的定制工作留出足够的时间。快速交付核心功能是实施策略中至关重要的部分。",
       "note": null
     },
     {
@@ -5220,7 +5112,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "分配工作台支持多个开箱即用的可配置匹配条件：已分配案例数（Assigned Cases）可衡量代理当前的工作量；可用性今天（Availability Today）反映代理在当天的实时可用性；匹配技能（Matching Skills）确保代理具备处理特定案例所需的专业知识。这三个条件共同确保案例被分配给最合适的代理。",
       "note": null
     },
     {
@@ -5253,7 +5145,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "在账户团队中，将角色标记为'唯一'的目的是防止同一角色在不同客户账户上被使用。这确保了每个账户的特定角色分配的专一性和一致性，有助于维护清晰的责任划分。",
       "note": null
     },
     {
@@ -5286,7 +5178,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "虽然CMDB可能将某些资产跟踪为配置项（CIs），但并非所有资产都是CIs。这种区分很重要：CIs代表需要在配置管理中追踪的标准化配置，而资产是指向客户销售和支持的特定产品实例。不是所有销售给客户的产品实例都需要作为CIs进行配置管理。",
       "note": null
     },
     {
@@ -5319,7 +5211,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "启用'Contact Local Time'字段时，代理可以使用该字段来识别当前是否是与客户联系的合适时间。该字段显示客户所在地区的本地时间，帮助代理在考虑到时区差异的情况下与客户沟通，从而提高联系的成功率和客户满意度。",
       "note": null
     },
     {
@@ -5353,7 +5245,7 @@
         "B"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "消费者支持代理（Consumer Support Agent）和客户服务经理（Customer Service Manager）这两个角色可以更新消费者的记录。这些角色具有必要的权限来修改消费者的信息和相关数据，以支持服务交付和客户关系管理。",
       "note": null
     },
     {
@@ -5386,7 +5278,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "动态关联记录（Dynamic Related Records）功能使代理能够在上下文侧面板中快速查看关联记录，而无需切换标签页。这个功能提高了工作效率，使代理可以在单一界面中访问所需的所有信息。",
       "note": null
     },
     {
@@ -5419,7 +5311,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "启用自动关闭已解决案例流并使用默认设置时，系统将在5天后向无响应的客户发送提醒。这个时间间隔给予客户充足的时间来回应，同时也确保了案例不会无限期地保持打开状态。",
       "note": null
     },
     {
@@ -5452,7 +5344,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "系统管理员（System administrator）角色负责为每个账户创建唯一的注册代码。这确保了注册过程由具有最高权限和安全责任的人员管理，有利于维护系统的完整性和安全性。",
       "note": null
     },
     {
@@ -5485,12 +5377,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "要使代理能够为案例创建事件（Incident）记录，他们必须被分配ITIL角色。这个角色提供了必要的权限来访问事件管理功能，并允许代理在需要时从客户服务案例创建相关的IT服务管理事件。",
       "note": null
     },
     {
       "id": "csm.162",
-      "question": "In the ’Action Status' column on a case list what could a red indicator dot mean? (Choose two.)",
+      "question": "In the 'Action Status' column on a case list what could a red indicator dot mean? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -5519,7 +5411,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "案例列表中的红色指示点可能表示两种情况：案例被内部和客户同时阻止（Blocked internally and by customer），或仅被内部阻止（Blocked internally）。这些指示帮助代理快速识别需要注意的案例问题。",
       "note": null
     },
     {
@@ -5553,7 +5445,7 @@
         "B"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "关于父子案例同步的正确说法包括：多个子案例可以从一个父案例进行管理，就像在重大问题管理中一样，这支持复杂的案例层次结构；管理员可以选择哪些字段从父案例同步到子案例，提供了配置的灵活性。这两个特性是父子同步功能的关键。",
       "note": null
     },
     {
@@ -5591,7 +5483,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "当案例的渠道字段设置为社交媒体时，相关的社交媒体对话详情存储在社交日志（Social Logs）中。这些日志记录了所有通过社交媒体渠道的交互，为代理提供了完整的沟通历史和背景信息。",
       "note": null
     },
     {
@@ -5624,7 +5516,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "当重大案例候选被批准并创建重大案例时，原始的客户案例成为重大案例的子案例。这个关系使得所有相关的客户案例都可以在单一的重大案例管理界面中进行协调和监控，提高了案例管理的效率。",
       "note": null
     },
     {
@@ -5658,12 +5550,12 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "用于衡量权利的单位类型包括：小时（Hours）用于基于时间的支持权利，如SLA时间或服务小时；案例（Case）用于基于案例数量的权利限制。这两种衡量方式覆盖了不同的客户服务需求。",
       "note": null
     },
     {
       "id": "csm.167",
-      "question": "How are ServiceNow’s out-of-the-box Customer Service Management applicationspackaged? (Choose two.)",
+      "question": "How are ServiceNow's out-of-the-box Customer Service Management applicationspackaged? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -5692,7 +5584,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "ServiceNow的开箱即用客户服务管理应用通过两种方式打包：应用商店应用（Store Apps）和插件（Plugins）。应用商店应用提供了完整的功能包，而插件允许进一步的定制和扩展。",
       "note": null
     },
     {
@@ -5725,7 +5617,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "产品模型可以在同一模型中同时包含物理项目和数字（逻辑）项目。这种灵活性允许组织创建代表复杂产品的综合模型，这些产品可能包含硬件和软件的组合，或其他形式的数字资产。",
       "note": null
     },
     {
@@ -5758,7 +5650,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "创建联系人（消费者）功能仅在CSM可配置工作区中可用。这个特性专门为可配置工作区设计，允许代理直接在工作区中创建新的消费者记录，而无需离开工作界面。",
       "note": null
     },
     {
@@ -5791,7 +5683,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "在CSM可配置工作区中，表单头的次要值可以显示在上下文侧面板中，而不是显示在功能区组件上方。这提供了更灵活的表单布局选项，允许定制如何呈现表单信息。",
       "note": null
     },
     {
@@ -5824,7 +5716,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "用户条件记录可以应用于知识库（Knowledge Base）和知识文章（Article）。这两个级别的应用允许系统在不同的粒度上基于用户特征（如客户类型、地区等）来限制知识内容的访问。",
       "note": null
     },
     {
@@ -5869,7 +5761,7 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "构成主动客户服务运营的三个主要组成部分是：服务监控（Service Monitoring）用于实时监视系统健康状况；服务感知安装基础（Service-Aware Install Base）用于跟踪客户的产品实例；主动案例（Proactive Case）用于预防性地创建案例来解决潜在问题。这三个组成部分共同构成了主动支持策略。",
       "note": null
     },
     {
@@ -5909,7 +5801,7 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "CSM的三个开箱即用剧本（playbooks）是：入门案例剧本（Case playbook for Onboarding）、产品支持案例剧本（Case playbook for Product Support）和投诉案例剧本（Case playbook for Complaints）。这些剧本为常见的客户服务场景提供预定义的工作流程和最佳实践。",
       "note": null
     },
     {
@@ -5943,7 +5835,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "允许安装开箱即用客户服务管理应用的方式有两种：插件（Plugins）和应用商店应用（Store Apps）。这两种安装方法提供了不同的安装体验和功能集，组织可以根据其需求选择合适的方法。",
       "note": null
     },
     {
@@ -5988,12 +5880,12 @@
         "F"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "客户服务管理中案例分配的可用匹配条件包括：匹配技能（Matching Skills）确保代理具备处理特定案例所需的知识；已分配案例（Assigned Cases）衡量代理当前的工作负荷；可用性今天（Availability Today）反映代理当天的实时可用性。这三个条件共同优化了案例到代理的匹配过程。",
       "note": null
     },
     {
       "id": "csm.176",
-      "question": "What is the purpose of the sidebar feature in CSM Configurable Workspace?",
+      "question": "To enable agents to collaborate with other agents or Subject Matter Experts (SMEs) in real-time for faster case resolution",
       "questionJa": "",
       "options": [
         {
@@ -6021,7 +5913,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "This question discusses the sidebar feature in CSM Configurable Workspace. The sidebar enables collaborative communication between agents and SMEs, allowing real-time assistance for faster case resolution. Option C correctly identifies this collaborative purpose of the sidebar, distinguishing it from other features like template access or case visibility.",
       "note": null
     },
     {
@@ -6054,12 +5946,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Record Producer is a specialized catalog item type that enables users to create various types of records (like cases) directly from the Service Catalog without going through a standard request process. It provides a flexible way to generate different record types through a customizable form interface.",
       "note": null
     },
     {
       "id": "csm.178",
-      "question": "Which feature sends an email notification containing a list of relevant knowledge articlesto the case submitter and watchlist users associated with the case whenever a case iscreated?",
+      "question": "Which feature sends an email notification containing a list of relevant knowledge articles to the case submitter and watchlist users associated with the case whenever a case is created?",
       "questionJa": "",
       "options": [
         {
@@ -6087,12 +5979,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Auto-Responder is a CSM feature that automatically sends email notifications when a case is created. These notifications include relevant knowledge articles to help the customer or case participants find quick solutions. This is distinct from other features like Trending Topics (analysis feature) or Proactive Customer Service Operations (broader initiative).",
       "note": null
     },
     {
       "id": "csm.179",
-      "question": "Depending on the CSM application configurations, cases can be assigned to agentsmanually or by using auto-assignment. Which routing and assignment features leveragematching rules? (Choose two.)",
+      "question": "Depending on the CSM application configurations, cases can be assigned to agents manually or by using auto-assignment. Which routing and assignment features leverage matching rules? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -6121,12 +6013,12 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Both Assignment Workbench and Assignment Rules use matching rules to route and assign cases. Assignment Workbench allows manual matching rule-based assignment, while Assignment Rules automate the process. State Flows handle workflow progression, and CSM Workspace is a UI component rather than an assignment mechanism.",
       "note": null
     },
     {
       "id": "csm.180",
-      "question": "What does Major issue Management use to identify all other customers impacted by amajor case?",
+      "question": "What does Major Issue Management use to identify all other customers impacted by a major case?",
       "questionJa": "",
       "options": [
         {
@@ -6154,12 +6046,12 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Major Issue Management uses Recipient Lists to identify and notify all customers affected by a major case. Recipient Lists contain multiple contact records that need to be informed of issues that impact their installed base or service. This is distinct from Account Lists, Customer Product Lists, or Notify Lists.",
       "note": null
     },
     {
       "id": "csm.181",
-      "question": "Which of the following is correct regarding the social med a channel?",
+      "question": "Which of the following is correct regarding the social media channel?",
       "questionJa": "",
       "options": [
         {
@@ -6187,12 +6079,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "CSM supports integration with social media channels, and cases can be created automatically from certain social channels depending on the configuration. Different social channels have different automation capabilities - some automatically create cases when messages are received, while others require manual intervention. The key point is that behavior varies by channel.",
       "note": null
     },
     {
       "id": "csm.182",
-      "question": "When integrating Customer Service Management with IT Service management whatseparate action is required for Request Management?",
+      "question": "When integrating Customer Service Management with IT Service Management, what separate action is required for Request Management?",
       "questionJa": "",
       "options": [
         {
@@ -6220,7 +6112,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "To enable integration with IT Service Management Request modules, the specific plugin 'com.sn_cs_sm_request' (Customer Service with Request Management plugin) must be activated separately. This is in addition to the standard CSM with Service Management plugin, allowing Request Management integration.",
       "note": null
     },
     {
@@ -6253,7 +6145,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Case tasks in CSM use the CSTASK prefix to distinguish them from other task types. This standardized prefix helps identify and filter case-related tasks in the system, making it easier for agents to locate and manage task-specific functionality and reports.",
       "note": null
     },
     {
@@ -6286,12 +6178,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Child cases are updated automatically whenever the parent case is modified. This automatic synchronization ensures that critical information from parent cases (like status, priority, or assignment) immediately reflects in all related child cases without requiring manual intervention or scheduled jobs.",
       "note": null
     },
     {
       "id": "csm.185",
-      "question": "Which of the following features are specific to CSM Workspaces and will not be found inthe Platform UI view? (Choose two.)",
+      "question": "Which of the following features are specific to CSM Workspaces and will not be found in the Platform UI view? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -6320,12 +6212,12 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "CSM Workspaces include specialized features not available in the standard platform UI: Lookup and Verify enables real-time customer verification against company databases, and Agent Assist provides AI-powered suggestions for resolving cases. These features are workspace-specific enhancements. Special handling notes and Related search are available in both views.",
       "note": null
     },
     {
       "id": "csm.186",
-      "question": "Customer service agents can use Agent Assist to search for information from aninteraction. BY DEFAULT, what are the available search sources? (Choose three.)",
+      "question": "Customer service agents can use Agent Assist to search for information from an interaction. By default, what are the available search sources? (Choose three.)",
       "questionJa": "",
       "options": [
         {
@@ -6360,7 +6252,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Agent Assist defaults to searching three sources: Knowledge articles (self-service resources), Service Catalog (request options), and Communities (peer-to-peer support). While Consumer service portal and Customer service portal can be configured as additional sources, the default configuration focuses on internal knowledge bases and community forums.",
       "note": null
     },
     {
@@ -6393,7 +6285,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "CSM Entitlements track customer usage rights using Hours and Cases as the two standard unit types. Hours track time-based support limits (e.g., hours of support included), while Cases track number-based limits (e.g., maximum cases per year). These units help monitor service consumption against customer contracts.",
       "note": null
     },
     {
@@ -6433,7 +6325,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Service-aware Install Base comprises three key entities: Installed Products (actual products deployed at customer sites), Install Base Items (detailed tracking of specific installations), and Sold Products (products sold to customers). Assets and Configuration Items are related but distinct ITSM concepts, not primary Install Base entities.",
       "note": null
     },
     {
@@ -6466,12 +6358,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The Requirements Gathering workshop produces User Stories as its primary output. Stories describe features and requirements from an end-user perspective, defining what users need and why. These stories form the foundation for CSM implementation planning and guide the configuration and customization efforts.",
       "note": null
     },
     {
       "id": "csm.190",
-      "question": "What is a limitation regarding synchronization between a case and its associated workorder?",
+      "question": "What is a limitation regarding synchronization between a case and its associated work order?",
       "questionJa": "",
       "options": [
         {
@@ -6499,7 +6391,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "A key synchronization limitation is that if information changes on the Case form, it is NOT automatically updated on the associated Work Order form. This one-way synchronization means that changes made to case details don't propagate to the work order, potentially causing data inconsistencies that require manual updates.",
       "note": null
     },
     {
@@ -6539,12 +6431,12 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Three roles can propose cases as Major Case candidates: Customer service manager, Customer service agent, and Major issue manager. Proxy contacts and Customer case managers do not have this proposal capability, emphasizing that major case escalation is primarily handled by service management and major issue management roles.",
       "note": null
     },
     {
       "id": "csm.192",
-      "question": "Which of the following is a required field in the Resolution Information tad in order toclose a case?",
+      "question": "Which of the following is a required field in the Resolution Information tab in order to close a case?",
       "questionJa": "",
       "options": [
         {
@@ -6572,12 +6464,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Resolution notes are a required field in the Resolution Information tab to close a case. This field ensures agents document the solution provided, maintaining audit trails and supporting knowledge management. Other fields like Cause, Closed, and Closed by are either optional or auto-populated.",
       "note": null
     },
     {
       "id": "csm.193",
-      "question": "Access to a Knowledge base or Article can be restricted based on a customer’s assetsand the product models using which of the following?",
+      "question": "Access to a Knowledge base or Article can be restricted based on a customer's assets and the product models using which of the following?",
       "questionJa": "",
       "options": [
         {
@@ -6605,7 +6497,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Knowledge Product Entitlements allow organizations to restrict knowledge base or article access based on customer assets and product models. This ensures customers only see information relevant to their installed products and assets, improving relevance and security. Data Policies, ACLs, and User Criteria are separate access control mechanisms.",
       "note": null
     },
     {
@@ -6645,12 +6537,12 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Scoping provides three key benefits: CSM teams can move at their desired pace independent of IT departments, teams gain autonomy and control over their application, and CSM business logic is protected from unintended changes by other applications. Scope limitations only affect records within that scope, not across the platform.",
       "note": null
     },
     {
       "id": "csm.195",
-      "question": "A customer service agent wants to escalate an account but is unable to use the Escalate Account related link on the Account form. What could be the reasons why the customerservice agent is not able to use it? (Choose two.)",
+      "question": "A customer service agent wants to escalate an account but is unable to use the Escalate Account related link on the Account form. What could be the reasons why the customer service agent is not able to use it? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -6679,12 +6571,12 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Two reasons would prevent account escalation: absence of a configured escalation approval flow, and the customer service agent lacking the escalation requester role assignment. Having an open escalation record doesn't necessarily block new escalations, and the parent account status doesn't prevent escalation functionality.",
       "note": null
     },
     {
       "id": "csm.196",
-      "question": "After installing the Performance Analytics Content Pack for Customer Service, which jobmust be run to retrieve daily case data from previous months?",
+      "question": "After installing the Performance Analytics Content Pack for Customer Service, which job must be run to retrieve daily case data from previous months?",
       "questionJa": "",
       "options": [
         {
@@ -6712,12 +6604,12 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The Customer Service Historic Data Collection job must be executed to retrieve case data from previous months before the content pack installation. This job backfills historical data to provide complete analytics dashboards. Daily Collection job only captures new data, while Initial and Case Collection jobs serve different purposes.",
       "note": null
     },
     {
       "id": "csm.197",
-      "question": "When working with communication channels, what inbound email flows are available bydefault? (Choose two.)",
+      "question": "When working with communication channels, what inbound email flows are available by default? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -6751,7 +6643,7 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Two inbound email flows are available by default: 'Create case from email' (initiating new cases from incoming emails) and 'Update case using reply' (updating existing cases through email replies). These core flows enable email-based case management, while other options like creating cases for products or assets require additional configuration.",
       "note": null
     },
     {
@@ -6784,12 +6676,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Escalation Template determines how an escalation request is processed. Templates define the workflow, approval chain, notification recipients, and processing steps for escalations. Templates allow organizations to standardize and customize escalation handling based on severity, escalation type, or other criteria.",
       "note": null
     },
     {
       "id": "csm.199",
-      "question": "What allows the implementation of phases and tasks to meet performance goals trackprogress and measure success?",
+      "question": "What allows the implementation of phases and tasks to meet performance goals, track progress and measure success?",
       "questionJa": "",
       "options": [
         {
@@ -6817,12 +6709,12 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Continual Improvement Management enables organizations to implement structured phases and tasks aligned with performance goals, track progress systematically, and measure success through defined metrics. This framework supports ongoing service quality improvement. Performance Analytics provides reporting, SLA Tasks enforce SLAs, and Scheduled Reporting automates distribution.",
       "note": null
     },
     {
       "id": "csm.200",
-      "question": "For security purposes certain roles cannot be assigned to a group or individual at thesame time. Which of me following two roles would be restricted?",
+      "question": "For security purposes, certain roles cannot be assigned to a group or individual at the same time. Which of the following two roles would be restricted?",
       "questionJa": "",
       "options": [
         {
@@ -6850,7 +6742,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Roles 'snc_internal' and 'snc_external' are mutually exclusive for security reasons. An individual or group cannot hold both internal (snc_internal) and external (snc_external) user roles simultaneously, as this would create security and access control conflicts. This segregation ensures proper role-based access control enforcement.",
       "note": null
     },
     {
@@ -6883,7 +6775,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The correct answer is A. Special Handling Notes are designed to bring important information to an agent's attention for specific records.\n\n关键点：\n• Focus on the definition or primary purpose\n• Eliminate clearly incorrect options\n• Select the most comprehensive or accurate answer",
       "note": null
     },
     {
@@ -6917,7 +6809,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The correct answers are A, D. These options represent the user criteria features that control who can read and contribute to knowledge articles.\n\n关键点：\n• Question requires selecting 2 correct answer(s)\n• Carefully review each option to identify all correct statements\n• Understand the distinction between related CSM features",
       "note": null
     },
     {
@@ -6950,7 +6842,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The correct answer is A. This option correctly describes the purpose of Parent Child Synchronization.\n\n关键点：\n• Focus on the definition or primary purpose\n• Eliminate clearly incorrect options\n• Select the most comprehensive or accurate answer",
       "note": null
     },
     {
@@ -6989,7 +6881,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The correct answers are B, D. These are the predefined conversations available in the Customer Service Virtual Agent.\n\n关键点：\n• Question requires selecting 2 correct answer(s)\n• Carefully review each option to identify all correct statements\n• Understand the distinction between related CSM features",
       "note": null
     },
     {
@@ -7022,7 +6914,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The correct answer is B. When a customer rejects a proposed solution, the case reverts to Open state.\n\n关键点：\n• Focus on the definition or primary purpose\n• Eliminate clearly incorrect options\n• Select the most comprehensive or accurate answer",
       "note": null
     },
     {
@@ -7061,7 +6953,7 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The correct answers are C, E. These options accurately describe the distinction between partners and third-parties in CSM.\n\n关键点：\n• Question requires selecting 2 correct answer(s)\n• Carefully review each option to identify all correct statements\n• Understand the distinction between related CSM features",
       "note": null
     },
     {
@@ -7107,7 +6999,7 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The correct answers are B, C, D, E. These factors are the primary considerations for AWA routing decisions.\n\n关键点：\n• Question requires selecting 4 correct answer(s)\n• Carefully review each option to identify all correct statements\n• Understand the distinction between related CSM features",
       "note": null
     },
     {
@@ -7140,7 +7032,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The correct answer is D. Installing CSM activates many other plugins, including Field Service Management, Portal, Case Management, and others.\n\n关键点：\n• Focus on the definition or primary purpose\n• Eliminate clearly incorrect options\n• Select the most comprehensive or accurate answer",
       "note": null
     },
     {
@@ -7180,7 +7072,7 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The correct answers are A, C, E. Agents can create cases from Account records, the Customer Service Application, and Chat.\n\n关键点：\n• Question requires selecting 3 correct answer(s)\n• Carefully review each option to identify all correct statements\n• Understand the distinction between related CSM features",
       "note": null
     },
     {
@@ -7213,7 +7105,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The correct answer is A. The Case table must be extended when creating a new case type.\n\n关键点：\n• Focus on the definition or primary purpose\n• Eliminate clearly incorrect options\n• Select the most comprehensive or accurate answer",
       "note": null
     },
     {
@@ -7247,7 +7139,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The correct answers are A, C. These options accurately describe the benefits of the Conversation History feature.\n\n关键点：\n• Question requires selecting 2 correct answer(s)\n• Carefully review each option to identify all correct statements\n• Understand the distinction between related CSM features",
       "note": null
     },
     {
@@ -7280,7 +7172,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The correct answer is D. A phased release approach allows for delivery of core functionality quickly.\n\n关键点：\n• Focus on the definition or primary purpose\n• Eliminate clearly incorrect options\n• Select the most comprehensive or accurate answer",
       "note": null
     },
     {
@@ -7314,7 +7206,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The correct answers are A, C. Partner and Customer admins have access to view work orders from their company hierarchy.\n\n关键点：\n• Question requires selecting 2 correct answer(s)\n• Carefully review each option to identify all correct statements\n• Understand the distinction between related CSM features",
       "note": null
     },
     {
@@ -7347,7 +7239,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The correct answer is D. Activating the Auto Close Resolved Cases flow is the most efficient way to automatically close resolved cases.\n\n关键点：\n• Focus on the definition or primary purpose\n• Eliminate clearly incorrect options\n• Select the most comprehensive or accurate answer",
       "note": null
     },
     {
@@ -7381,7 +7273,7 @@
         "B"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The correct answers are A, B. Customer service managers and agents can specify both skills and mandatory skills.\n\n关键点：\n• Question requires selecting 2 correct answer(s)\n• Carefully review each option to identify all correct statements\n• Understand the distinction between related CSM features",
       "note": null
     },
     {
@@ -7414,7 +7306,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The correct answer is A. A contact can be associated with only one account.\n\n关键点：\n• Focus on the definition or primary purpose\n• Eliminate clearly incorrect options\n• Select the most comprehensive or accurate answer",
       "note": null
     },
     {
@@ -7454,7 +7346,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The correct answers are B, C, D. System administrator, Customer administrator, and Partner administrator roles can approve registration requests.\n\n关键点：\n• Question requires selecting 3 correct answer(s)\n• Carefully review each option to identify all correct statements\n• Understand the distinction between related CSM features",
       "note": null
     },
     {
@@ -7488,7 +7380,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The correct answers are C, D. These describe the actual benefits of CSM-FSM integration.\n\n关键点：\n• Question requires selecting 2 correct answer(s)\n• Carefully review each option to identify all correct statements\n• Understand the distinction between related CSM features",
       "note": null
     },
     {
@@ -7521,7 +7413,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The correct answer is C. A decision tree is a multi-step process consisting of questions, answers, and guidance.\n\n关键点：\n• Focus on the definition or primary purpose\n• Eliminate clearly incorrect options\n• Select the most comprehensive or accurate answer",
       "note": null
     },
     {
@@ -7554,7 +7446,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The correct answer is A. A blue indicator dot means the case needs attention.\n\n关键点：\n• Focus on the definition or primary purpose\n• Eliminate clearly incorrect options\n• Select the most comprehensive or accurate answer",
       "note": null
     },
     {
@@ -7600,7 +7492,7 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The correct answers are A, B, C, D. These are the primary responsibilities of a customer service agent.\n\n关键点：\n• Question requires selecting 4 correct answer(s)\n• Carefully review each option to identify all correct statements\n• Understand the distinction between related CSM features",
       "note": null
     },
     {
@@ -7633,7 +7525,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The correct answer is C. The Outlook add-in enables faster resolution and response times.\n\n关键点：\n• Focus on the definition or primary purpose\n• Eliminate clearly incorrect options\n• Select the most comprehensive or accurate answer",
       "note": null
     },
     {
@@ -7666,7 +7558,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The correct answer is D. An interaction is a request for assistance made through various channels.\n\n关键点：\n• Focus on the definition or primary purpose\n• Eliminate clearly incorrect options\n• Select the most comprehensive or accurate answer",
       "note": null
     },
     {
@@ -7700,7 +7592,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The correct answers are A, C. These describe the services accessible to a customer role.\n\n关键点：\n• Question requires selecting 2 correct answer(s)\n• Carefully review each option to identify all correct statements\n• Understand the distinction between related CSM features",
       "note": null
     },
     {
@@ -7734,12 +7626,12 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The correct answers are B, C. Targeted communications can be sent to contacts and internal users.\n\n关键点：\n• Question requires selecting 2 correct answer(s)\n• Carefully review each option to identify all correct statements\n• Understand the distinction between related CSM features",
       "note": null
     },
     {
       "id": "csm.226",
-      "question": "What does viewing a customer’s install base enable customer service agents to do? (Choose two.)",
+      "question": "What does viewing a customer's install base enable customer service agents to do? (Choose two.)",
       "questionJa": "",
       "options": [
         {
@@ -7768,12 +7660,12 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The install base shows customer's product configurations and service details. Option A allows agents to see detailed configurations to determine needed actions. Option C enables tracing case information to related products/services.",
       "note": null
     },
     {
       "id": "csm.227",
-      "question": "Which step in Advanced Work Assignment (AWA) would ensure the work was allocatedto the appropriate agent?",
+      "question": "Which step in Advanced Work Assignment (AWA) would ensure the work was allocated to the appropriate agent?",
       "questionJa": "",
       "options": [
         {
@@ -7801,12 +7693,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Advanced Work Assignment has multiple steps: Agent Experience, Assignment Rules, Work Item Queues, and Service Channels. Assignment Rules specifically determine how work is routed to appropriate agents based on predefined criteria.",
       "note": null
     },
     {
       "id": "csm.228",
-      "question": "When working with case types, what is the lowest level in the case type hierarchycalled?",
+      "question": "When working with case types, what is the lowest level in the case type hierarchy called?",
       "questionJa": "",
       "options": [
         {
@@ -7834,7 +7726,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Case type hierarchy is structured with multiple levels. The lowest level in this hierarchy is called 'Leaf-level', which represents the terminal nodes that cannot have further subdivisions.",
       "note": null
     },
     {
@@ -7868,12 +7760,12 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Account team membership is maintained by two key roles: System Administrator [admin] and Customer Service Manager [sn_customerservice_manager]. These roles have the permissions required to add, remove, and manage team members.",
       "note": null
     },
     {
       "id": "csm.230",
-      "question": "What can a person assigned with the customer role access on the customer serviceportal by default? (Choose three.)",
+      "question": "What can a person assigned with the customer role access on the customer service portal by default? (Choose three.)",
       "questionJa": "",
       "options": [
         {
@@ -7908,7 +7800,7 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Customers with the customer role can access Cases, Assets, and Sold Products by default on the customer service portal. These provide visibility into their cases, related assets, and products they have purchased.",
       "note": null
     },
     {
@@ -7942,12 +7834,12 @@
         "D"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Customer access management provides two key benefits: (1) It increases security by automatically granting access to cases based on access to sold products, ensuring proper authorization; (2) It improves customer experience by enabling related parties to track and collaborate on cases, promoting transparency and teamwork.",
       "note": null
     },
     {
       "id": "csm.232",
-      "question": "Which ServiceNow products can be integrated out-of-the-box with CSM? (Choosethree.)",
+      "question": "Which ServiceNow products can be integrated out-of-the-box with CSM? (Choose three.)",
       "questionJa": "",
       "options": [
         {
@@ -7982,7 +7874,7 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "CSM has out-of-the-box integrations with ITOM Event Management, Strategic Portfolio Management, and Financial Management. These integrations allow for seamless data flow and operational alignment across these ServiceNow modules.",
       "note": null
     },
     {
@@ -8025,12 +7917,12 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "When activating the CSM Demo Data plugin, it provides sample data including an 'Order' case type in addition to the standard 'Product' case type. This allows users to practice with different case types during their learning phase.",
       "note": null
     },
     {
       "id": "csm.234",
-      "question": "What are the different resource matching methods on the Matching Rule form? (Choosefour.)",
+      "question": "What are the different resource matching methods on the Matching Rule form? (Choose four.)",
       "questionJa": "",
       "options": [
         {
@@ -8071,7 +7963,7 @@
         "F"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "The Matching Rule form supports four resource matching methods: Simple (basic criteria), Advanced (complex logic), Selection Criteria (defined conditions), and Scripted (custom scripts). These methods provide flexible ways to match work items with appropriate agents.",
       "note": null
     },
     {
@@ -8104,12 +7996,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Guided Decisions dynamically assists agents in resolving complex cases by providing step-by-step guidance and decision trees. This capability helps agents navigate through complex case scenarios and improves case resolution outcomes.",
       "note": null
     },
     {
       "id": "csm.236",
-      "question": "Which feature enables employees to request support for themselves and for externalcustomers?",
+      "question": "Which feature enables employees to request support for themselves and for external customers?",
       "questionJa": "",
       "options": [
         {
@@ -8137,12 +8029,12 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Contributor Users is the feature that enables both internal employees and external customers to request support. This dual-mode functionality allows organizations to manage both internal IT support requests and external customer support requests through the same system.",
       "note": null
     },
     {
       "id": "csm.237",
-      "question": "What functionality is required to automatically close resolved cases if customers do notrespond within a specified time?",
+      "question": "What functionality is required to automatically close resolved cases if customers do not respond within a specified time?",
       "questionJa": "",
       "options": [
         {
@@ -8170,12 +8062,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Auto Close Resolved Cases Flow Designer Flow is the required functionality for automatically closing resolved cases when customers don't respond within a specified timeframe. Flow Designer provides the automation engine to implement this time-based closure logic.",
       "note": null
     },
     {
       "id": "csm.238",
-      "question": "Advanced Work Assignment (AWA) automatically routes and assigns work items toagents based on which of the following rules? (Choose three.)",
+      "question": "Advanced Work Assignment (AWA) automatically routes and assigns work items to agents based on which of the following rules? (Choose three.)",
       "questionJa": "",
       "options": [
         {
@@ -8210,12 +8102,12 @@
         "E"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "AWA uses three key rule types for routing and assignment: Skills (matching agent capabilities with case requirements), Schedule (considering agent availability), and Workload (balancing work distribution). These rules work together to ensure optimal work distribution.",
       "note": null
     },
     {
       "id": "csm.239",
-      "question": "Which feature provides easy-to-configure integrations between the Now Platform andthird-party Customer Relationship Management (CRM) and Enterprise Resource Planning (ERP) tools or platforms?",
+      "question": "Which feature provides easy-to-configure integrations between the Now Platform and third-party Customer Relationship Management (CRM) and Enterprise Resource Planning (ERP) tools or platforms?",
       "questionJa": "",
       "options": [
         {
@@ -8243,7 +8135,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Integration Hub is the ServiceNow feature that provides pre-built, easy-to-configure integrations with third-party CRM and ERP systems. It enables organizations to quickly connect their CSM platform with external business applications.",
       "note": null
     },
     {
@@ -8276,7 +8168,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The Account (customer_account) table extends the Company (core_company) table. This inheritance relationship means Account inherits all fields and functionality from the Company table while adding CSM-specific extensions.",
       "note": null
     },
     {
@@ -8309,12 +8201,12 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "The combination of 'snc_internal' and 'sn_customerservice.partner_admin' roles is restricted for security purposes. This restriction prevents users from being both internal system users and partner administrators simultaneously, which could create security conflicts and data access issues.",
       "note": null
     },
     {
       "id": "csm.242",
-      "question": "What must a system administrator configure to define a different approval workflow foran escalation request?",
+      "question": "What must a system administrator configure to define a different approval workflow for an escalation request?",
       "questionJa": "",
       "options": [
         {
@@ -8342,12 +8234,12 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "System administrators must configure an Escalation Template to define different approval workflows for escalation requests. Templates allow customization of the escalation process including approval chains and notification rules.",
       "note": null
     },
     {
       "id": "csm.243",
-      "question": "Which entity represents specific versions of products being sold to and supported forcustomers?",
+      "question": "Which entity represents specific versions of products being sold to and supported for customers?",
       "questionJa": "",
       "options": [
         {
@@ -8375,7 +8267,7 @@
         "C"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "Product Models represent specific versions of products being sold to and supported for customers. Product Models track different versions, configurations, and variants of products in the install base, enabling detailed version management.",
       "note": null
     },
     {
@@ -8408,7 +8300,7 @@
         "D"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "After selecting an assignment group, defining Assignment Rules is the mandatory step that ensures work is allocated to the appropriate agent. Assignment Rules specify the matching criteria and logic that direct work to qualified agents.",
       "note": null
     },
     {
@@ -8442,7 +8334,7 @@
         "C"
       ],
       "isMultiple": true,
-      "explanation": "",
+      "explanation": "Predictive Intelligence supports Case Prioritization and Case Categorization decisions. These AI-powered capabilities analyze case data to automatically recommend appropriate priority levels and categories, improving case handling efficiency.",
       "note": null
     },
     {
@@ -8475,7 +8367,7 @@
         "A"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "服务级别协议（Service Level Agreement, SLA）是服务提供商与客户之间的正式协议，用于明确定义和保证服务的质量水平。该协议详细说明了客户期望接收的服务标准、响应时间、可用性、故障修复时间等具体指标，并在明确的时间范围内对这些承诺负责。SLA是现代IT服务管理中的核心概念，它建立了服务提供商和客户之间的期望管理机制，确保双方对服务质量有共同的理解。通过SLA，组织可以衡量服务表现、管理客户期望，并为未能达到的服务水平提供补偿机制。这使SLA成为服务合同中最重要的约定条款之一。",
       "note": null
     },
     {
@@ -8508,7 +8400,7 @@
         "B"
       ],
       "isMultiple": false,
-      "explanation": "",
+      "explanation": "安装基础项目（Install Base Item）是ServiceNow Service-Aware Install Base中的关键实体，用于定义和管理客户可以访问和使用的配置项。这些配置项代表了客户已购买和部署的产品及服务。Install Base Item允许组织将产品与客户相关联，并追踪客户拥有的特定产品实例及其配置。通过Service-Aware Install Base，企业能够基于客户已有的配置项提供更加个性化和针对性的服务和支持。Model用于定义产品类型，Sold Product表示销售的产品，而Asset代表更广泛的资产概念。Install Base Item则特别强调了从客户角度的可访问配置项，是客户关系管理中的核心构件。",
       "note": null
     }
   ]
