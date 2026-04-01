@@ -59,7 +59,7 @@ input,textarea,select{font:inherit;color:inherit}
 #topnav .nav-tab.active::after{content:'';position:absolute;bottom:-1px;left:12px;right:12px;height:2px;background:var(--pri);border-radius:1px}
 
 /* Bottom Tabs mobile - iOS 26 frosted glass style */
-#bottomtabs{position:fixed;bottom:0;left:0;right:0;padding-bottom:var(--safe-b);display:flex;z-index:1000;
+#bottomtabs{position:fixed;bottom:0;left:0;right:0;padding-bottom:var(--safe-b);display:flex;z-index:1000;transform:translateZ(0);-webkit-transform:translateZ(0);
   background:rgba(250,249,245,.72);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   backdrop-filter:saturate(180%) blur(20px);
@@ -206,7 +206,7 @@ input,textarea,select{font:inherit;color:inherit}
 .exam-nav-cell.flagged{background:var(--warn-bg);border-color:var(--warn);color:var(--warn)}
 .exam-nav-cell.current{background:var(--pri);color:#fff;border-color:var(--pri)}
 .exam-nav-cell.wrong-mark{background:var(--err-bg);border-color:var(--err);color:var(--err)}
-.exam-bottom{position:fixed;bottom:calc(var(--tab-h) + var(--safe-b));left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:8px 16px;z-index:500;
+.exam-bottom{position:fixed;bottom:calc(var(--tab-h) + var(--safe-b));left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:8px 16px;z-index:500;transform:translateZ(0);-webkit-transform:translateZ(0);
   background:rgba(250,249,245,.8);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   backdrop-filter:saturate(180%) blur(20px);
@@ -844,7 +844,7 @@ function renderPracticeQuestion(){
       if(isCorrectKey)cls+=' correct-answer';
       else if(sel&&!isCorrectKey)cls+=' wrong-answer';
     }
-    html+='<div class="'+cls+'" onclick="toggleOption(\''+o.key+'\')">';
+    html+='<div class="'+cls+'" data-key="'+o.key+'" onclick="toggleOption(\''+o.key+'\')">';
     html+='<div class="opt-check"><div class="opt-check-inner"></div></div>';
     html+='<span class="opt-key">'+o.key+'.</span>';
     html+='<span class="opt-text">'+h(oText(o))+'</span>';
@@ -859,7 +859,7 @@ function renderPracticeQuestion(){
     html+='<button class="conf-btn'+(practiceConfidence==='guess'?' active-guess':'')+'" onclick="setConfidence(\'guess\')">'+ic('helpCircle','icon-sm')+' \u731c\u6d4b</button>';
     html+='<button class="conf-btn'+(practiceConfidence==='unsure'?' active-unsure':'')+'" onclick="setConfidence(\'unsure\')">'+ic('target','icon-sm')+' \u4e0d\u786e\u5b9a</button>';
     html+='</div>';
-    html+='<button class="btn btn-pri btn-block" onclick="submitAnswer()"'+(practiceSelected.length?'':' disabled')+'>\u63d0\u4ea4\u7b54\u6848</button>';
+    html+='<button class="btn btn-pri btn-block submit-btn" onclick="submitAnswer()"'+(practiceSelected.length?'':' disabled')+'>\u63d0\u4ea4\u7b54\u6848</button>';
   }
 
   // Feedback
@@ -908,7 +908,15 @@ function toggleOption(key){
   }else{
     practiceSelected=[key];
   }
-  renderPracticeQuestion();
+  // 直接更新 DOM，不全量重渲染
+  let container=$('#v-practice');
+  if(!container)return;
+  container.querySelectorAll('.opt-item').forEach(function(el){
+    let k=el.dataset.key;
+    el.classList.toggle('selected',practiceSelected.includes(k));
+  });
+  let submitBtn=container.querySelector('.submit-btn');
+  if(submitBtn)submitBtn.disabled=!practiceSelected.length;
 }
 
 function setConfidence(c){practiceConfidence=c;renderPracticeQuestion();}
@@ -1234,7 +1242,7 @@ function renderExamActive(){
   exOpts.forEach(function(o){
     let s=sel.includes(o.key);
     let multi=q.isMultiple;
-    html+='<div class="opt-item'+(multi?' multi':'')+(s?' selected':'')+'" onclick="examToggle(\''+o.key+'\')">';
+    html+='<div class="opt-item'+(multi?' multi':'')+(s?' selected':'')+'" data-key="'+o.key+'" onclick="examToggle(\''+o.key+'\')">';
     html+='<div class="opt-check"><div class="opt-check-inner"></div></div>';
     html+='<span class="opt-key">'+o.key+'.</span>';
     html+='<span class="opt-text">'+h(oText(o))+'</span>';
