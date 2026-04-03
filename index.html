@@ -144,6 +144,8 @@ input,textarea,select{font:inherit;color:inherit}
 /* Options */
 .options-list{display:flex;flex-direction:column;gap:8px;margin:12px 0}
 .opt-item{display:flex;align-items:flex-start;gap:10px;padding:12px;border-radius:var(--r2);border:1.5px solid var(--brd);cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);min-height:44px;-webkit-tap-highlight-color:transparent;user-select:none}
+.opt-item:focus{outline:none}
+.opt-item:focus-visible{outline:2px solid var(--pri);outline-offset:1px;border-color:var(--pri)}
 .opt-item:hover{border-color:var(--pri-l);background:var(--pri-bg)}
 .opt-item.selected{border-color:var(--pri);background:var(--pri-bg)}
 .opt-item.correct-answer{border-color:var(--suc);background:var(--suc-bg)}
@@ -870,7 +872,7 @@ function renderPracticeQuestion(){
       if(isCorrectKey)cls+=' correct-answer';
       else if(sel&&!isCorrectKey)cls+=' wrong-answer';
     }
-    html+='<div class="'+cls+'" data-key="'+o.key+'" onclick="toggleOption(\''+o.key+'\')">';
+    html+='<div class="'+cls+'" data-key="'+o.key+'" tabindex="0" onclick="toggleOption(\''+o.key+'\')">';
     html+='<div class="opt-check"><div class="opt-check-inner"></div></div>';
     html+='<span class="opt-key">'+o.key+'.</span>';
     html+='<span class="opt-text">'+h(oText(o))+'</span>';
@@ -1268,7 +1270,7 @@ function renderExamActive(){
   exOpts.forEach(function(o){
     let s=sel.includes(o.key);
     let multi=q.isMultiple;
-    html+='<div class="opt-item'+(multi?' multi':'')+(s?' selected':'')+'" data-key="'+o.key+'" onclick="examToggle(\''+o.key+'\')">';
+    html+='<div class="opt-item'+(multi?' multi':'')+(s?' selected':'')+'" data-key="'+o.key+'" tabindex="0" onclick="examToggle(\''+o.key+'\')">';
     html+='<div class="opt-check"><div class="opt-check-inner"></div></div>';
     html+='<span class="opt-key">'+o.key+'.</span>';
     html+='<span class="opt-text">'+h(oText(o))+'</span>';
@@ -1768,20 +1770,44 @@ document.getElementById('modal').addEventListener('click',function(e){
 document.addEventListener('keydown',function(e){
   if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='SELECT')return;
 
+  let focusedOpt=document.activeElement&&document.activeElement.classList.contains('opt-item')?document.activeElement:null;
+
   // Practice mode
   if(practiceMode&&curTab==='practice'){
     let key=e.key.toUpperCase();
+
+    // ↑/↓: 在选项间移动焦点
+    if(e.key==='ArrowUp'||e.key==='ArrowDown'){
+      let opts=[...document.querySelectorAll('#v-practice .opt-item')];
+      if(opts.length){
+        let cur=opts.indexOf(document.activeElement);
+        let next=e.key==='ArrowUp'
+          ?(cur<=0?opts.length-1:cur-1)
+          :(cur<0||cur>=opts.length-1?0:cur+1);
+        opts[next].focus();
+        opts[next].scrollIntoView({block:'nearest'});
+        e.preventDefault();
+      }
+      return;
+    }
+
+    // Enter/Space 在已聚焦选项上选择
+    if((e.key==='Enter'||e.key===' ')&&focusedOpt&&!practiceSubmitted){
+      toggleOption(focusedOpt.dataset.key);e.preventDefault();return;
+    }
+
+    // A-G 直接选择选项
     if('ABCDEFG'.includes(key)){
       let q=getQ(practiceQs[practiceIdx]);
       if(q&&q.options.find(function(o){return o.key===key;})){
-        toggleOption(key);e.preventDefault();
+        toggleOption(key);e.preventDefault();return;
       }
     }
-    if(key==='D'&&practiceSubmitted){toggleExpl();e.preventDefault();}
-    if(e.key==='Enter'&&!practiceSubmitted&&practiceSelected.length){submitAnswer();e.preventDefault();}
-    if(e.key==='ArrowLeft'){prevQ();e.preventDefault();}
-    if(e.key==='ArrowRight'){nextQ();e.preventDefault();}
-    if(e.key===' '){
+    if(key==='D'&&practiceSubmitted){toggleExpl();e.preventDefault();return;}
+    if(e.key==='Enter'&&!practiceSubmitted&&practiceSelected.length&&!focusedOpt){submitAnswer();e.preventDefault();return;}
+    if(e.key==='ArrowLeft'){prevQ();e.preventDefault();return;}
+    if(e.key==='ArrowRight'){nextQ();e.preventDefault();return;}
+    if(e.key===' '&&!focusedOpt){
       let qId=practiceQs[practiceIdx];
       if(qId){toggleBookmark(qId);e.preventDefault();}
     }
@@ -1790,14 +1816,36 @@ document.addEventListener('keydown',function(e){
   // Exam mode
   if(examActive&&curTab==='exam'){
     let key=e.key.toUpperCase();
+
+    // ↑/↓: 在选项间移动焦点
+    if(e.key==='ArrowUp'||e.key==='ArrowDown'){
+      let opts=[...document.querySelectorAll('#v-exam .opt-item')];
+      if(opts.length){
+        let cur=opts.indexOf(document.activeElement);
+        let next=e.key==='ArrowUp'
+          ?(cur<=0?opts.length-1:cur-1)
+          :(cur<0||cur>=opts.length-1?0:cur+1);
+        opts[next].focus();
+        opts[next].scrollIntoView({block:'nearest'});
+        e.preventDefault();
+      }
+      return;
+    }
+
+    // Enter/Space 在已聚焦选项上选择
+    if((e.key==='Enter'||e.key===' ')&&focusedOpt){
+      examToggle(focusedOpt.dataset.key);e.preventDefault();return;
+    }
+
+    // A-G 直接选择
     if('ABCDEFG'.includes(key)){
       let qId=examState.questionIds[examState.currentIndex];
       let q=getQ(qId);
       if(q&&q.options.find(function(o){return o.key===key;})){
-        examToggle(key);e.preventDefault();
+        examToggle(key);e.preventDefault();return;
       }
     }
-    if(e.key==='ArrowLeft'){examPrev();e.preventDefault();}
+    if(e.key==='ArrowLeft'){examPrev();e.preventDefault();return;}
     if(e.key==='ArrowRight'){examNext();e.preventDefault();}
   }
 });
