@@ -193,11 +193,12 @@ input,textarea,select{font:inherit;color:inherit}
 /* Desktop side navigation */
 .side-nav-btn{display:none}
 @media(min-width:900px){
-  .side-nav-btn{display:flex;align-items:center;justify-content:center;position:fixed;top:50vh;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:var(--bg2);border:1px solid var(--brd);box-shadow:var(--sh);cursor:pointer;color:var(--tx2);transition:all .2s cubic-bezier(.4,0,.2,1);z-index:100}
+  .fade-in{position:relative}
+  .side-nav-btn{display:flex;align-items:center;justify-content:center;position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:var(--bg2);border:1px solid var(--brd);box-shadow:var(--sh);cursor:pointer;color:var(--tx2);transition:all .2s cubic-bezier(.4,0,.2,1);z-index:100}
   .side-nav-btn:hover{background:var(--pri-bg);color:var(--pri);border-color:var(--pri);transform:translateY(-50%) scale(1.05)}
   .side-nav-btn:disabled{opacity:.3;cursor:not-allowed;pointer-events:none}
-  .side-nav-prev{left:max(8px,calc(50% - 440px))}
-  .side-nav-next{right:max(8px,calc(50% - 440px))}
+  .side-nav-prev{left:-52px}
+  .side-nav-next{right:-52px}
 }
 
 .practice-bottom-spacer{height:70px}
