@@ -186,7 +186,27 @@ input,textarea,select{font:inherit;color:inherit}
   backdrop-filter:saturate(180%) blur(20px);
   border-top:0.5px solid rgba(0,0,0,.1)}
 .dark .q-bottom{background:rgba(20,20,19,.8);border-top-color:rgba(255,255,255,.06)}
-@media(min-width:768px){.q-bottom{bottom:0}}
+@media(min-width:768px){.q-bottom{bottom:0;display:none!important}}
+
+/* Desktop side navigation */
+.side-nav-btn{display:none}
+@media(min-width:900px){
+  .side-nav-btn{display:flex;align-items:center;justify-content:center;position:fixed;top:50vh;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:var(--bg2);border:1px solid var(--brd);box-shadow:var(--sh);cursor:pointer;color:var(--tx2);transition:all .2s cubic-bezier(.4,0,.2,1);z-index:100}
+  .side-nav-btn:hover{background:var(--pri-bg);color:var(--pri);border-color:var(--pri);transform:translateY(-50%) scale(1.05)}
+  .side-nav-btn:disabled{opacity:.3;cursor:not-allowed;pointer-events:none}
+  .side-nav-prev{left:max(8px,calc(50% - 440px))}
+  .side-nav-next{right:max(8px,calc(50% - 440px))}
+}
+
+.practice-bottom-spacer{height:70px}
+@media(min-width:768px){.practice-bottom-spacer{height:20px}}
+
+/* Desktop bookmark in header */
+.bm-head-btn{display:none}
+@media(min-width:768px){
+  .bm-head-btn{display:inline-flex;align-items:center;padding:4px 6px;border-radius:var(--r2);background:none;border:none;cursor:pointer;transition:color .2s;color:var(--tx3);margin-left:4px}
+  .bm-head-btn:hover{color:var(--warn)}
+}
 
 /* Exam top */
 .exam-top{position:sticky;top:0;padding:10px 16px;z-index:50;display:flex;align-items:center;gap:12px;flex-wrap:nowrap;min-height:48px;border-radius:0 0 var(--r2) var(--r2);margin:-12px -12px 12px;
@@ -802,6 +822,10 @@ function renderPracticeQuestion(){
 
   let html='<div class="fade-in">';
 
+  // Desktop side navigation buttons
+  html+='<button class="side-nav-btn side-nav-prev" onclick="prevQ()"'+(practiceIdx<=0?' disabled':'')+'>'+ic('chevronL')+'</button>';
+  html+='<button class="side-nav-btn side-nav-next" onclick="nextQ()"'+(practiceIdx>=practiceQs.length-1?' disabled':'')+'>'+ic('chevronR')+'</button>';
+
   // Back + counter
   html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">';
   html+='<button class="btn btn-ghost btn-sm" onclick="exitPractice()">'+ic('chevronL')+' \u8fd4\u56de</button>';
@@ -826,7 +850,9 @@ function renderPracticeQuestion(){
   html+='<div class="lang-toggle">';
   html+='<button class="'+(lang==='en'?'active':'')+'" onclick="setLang(\'en\')">EN</button>';
   html+='<button class="'+(lang==='ja'?'active':'')+'" onclick="setLang(\'ja\')">JA</button>';
-  html+='</div></div>';
+  html+='</div>';
+  html+='<button class="bm-head-btn" onclick="toggleBookmark(\''+qId+'\')" style="color:'+(isBm?'var(--warn)':'')+'">'+ic(isBm?'starFill':'star','icon-lg')+'</button>';
+  html+='</div>';
 
   // Question text
   html+='<div style="font-size:1rem;line-height:1.7;margin:8px 0">'+h(qText(q))+'</div>';
@@ -886,7 +912,7 @@ function renderPracticeQuestion(){
   }
   html+='</div>';
 
-  html+='<div style="height:70px"></div></div>';
+  html+='<div class="practice-bottom-spacer"></div></div>';
 
   $('#v-practice').innerHTML=html;
 
