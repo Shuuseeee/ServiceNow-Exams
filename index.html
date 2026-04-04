@@ -55,6 +55,7 @@ input,textarea,select{font:inherit;color:inherit}
 #topnav .nav-tabs{display:flex;gap:4px;flex:1}
 #topnav .nav-tab{display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:var(--r2);color:var(--tx2);font-size:.9rem;transition:all .25s cubic-bezier(.4,0,.2,1);position:relative}
 #topnav .nav-tab:hover{color:var(--pri)}
+#topnav .nav-tab:focus-visible{outline:2px solid var(--pri);outline-offset:2px;border-radius:var(--r2)}
 #topnav .nav-tab.active{color:var(--pri);font-weight:600}
 #topnav .nav-tab.active::after{content:'';position:absolute;bottom:-1px;left:12px;right:12px;height:2px;background:var(--pri);border-radius:1px}
 
@@ -1913,7 +1914,7 @@ document.addEventListener('keydown',function(e){
   if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='SELECT')return;
 
   // Shift+Alt+H: 打开帮助弹窗
-  if(e.shiftKey&&e.altKey&&e.key.toUpperCase()==='H'){
+  if(e.shiftKey&&e.altKey&&(e.code==='KeyH'||e.key.toUpperCase()==='H')){
     let modal=document.getElementById('modal');
     if(modal&&modal.classList.contains('show')){closeHelpModal();}
     else{showHelpModal();}
