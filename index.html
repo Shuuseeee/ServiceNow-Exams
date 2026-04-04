@@ -294,6 +294,14 @@ input,textarea,select{font:inherit;color:inherit}
 .shortcut-item{display:flex;align-items:center;gap:8px;font-size:.8rem;padding:4px 0}
 .shortcut-key{background:var(--bg3);border:1px solid var(--brd2);border-radius:4px;padding:2px 8px;font-weight:700;font-family:monospace;font-size:.75rem}
 
+/* Keyboard flash feedback */
+@keyframes kb-pulse{0%{transform:scale(1)}45%{transform:scale(1.04);filter:brightness(1.06)}100%{transform:scale(1);filter:brightness(1)}}
+.kb-flash{animation:kb-pulse .22s cubic-bezier(.4,0,.2,1)}
+/* Focus-visible for interactive div elements */
+.btab:focus-visible{outline:2px solid var(--pri);outline-offset:-3px;border-radius:var(--r2)}
+.quick-btn:focus-visible,.mode-card:focus-visible,.setup-card:focus-visible,.bm-card:focus-visible{outline:2px solid var(--pri);outline-offset:1px}
+.expl-toggle:focus-visible,.notes-toggle:focus-visible{outline:2px solid var(--pri);outline-offset:3px;border-radius:4px}
+
 /* Bookmark */
 .bm-card{background:var(--bg2);border-radius:var(--r2);padding:12px;margin-bottom:8px;box-shadow:var(--sh);cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);border-left:3px solid var(--warn)}
 .bm-card:hover{box-shadow:var(--sh2);transform:translateY(-1px)}
@@ -649,7 +657,7 @@ function renderTabs(){
   let btm='',top='';
   TABS.forEach(t=>{
     let a=t.id===curTab?' active':'';
-    btm+='<div class="btab'+a+'" data-navtab="'+t.id+'">'+ic(t.icon)+'<span>'+t.label+'</span></div>';
+    btm+='<div class="btab'+a+'" data-navtab="'+t.id+'" tabindex="0">'+ic(t.icon)+'<span>'+t.label+'</span></div>';
     top+='<button class="nav-tab'+a+'" data-navtab="'+t.id+'">'+ic(t.icon)+' '+t.label+'</button>';
   });
   $('#bottomtabs').innerHTML=btm;
@@ -730,10 +738,10 @@ function renderDash(){
   // Quick actions
   html+='<div style="margin-top:8px;margin-bottom:8px;font-weight:700;font-size:.9rem">\u5feb\u6377\u64cd\u4f5c</div>';
   html+='<div class="quick-grid">';
-  html+='<div class="quick-btn" onclick="startPractice(\'seq\')">'+ic('book')+'<span>\u987a\u5e8f\u7ec3\u4e60</span></div>';
-  html+='<div class="quick-btn" onclick="startPractice(\'random\')">'+ic('dice')+'<span>\u968f\u673a\u7ec3\u4e60</span></div>';
-  html+='<div class="quick-btn" onclick="switchTab(\'exam\')">'+ic('trophy')+'<span>\u6a21\u62df\u8003\u8bd5</span></div>';
-  html+='<div class="quick-btn" onclick="startPractice(\'wrong\')">'+ic('xCircle')+'<span>\u590d\u4e60\u9519\u9898</span></div>';
+  html+='<div class="quick-btn" tabindex="0" onclick="startPractice(\'seq\')">'+ic('book')+'<span>\u987a\u5e8f\u7ec3\u4e60</span></div>';
+  html+='<div class="quick-btn" tabindex="0" onclick="startPractice(\'random\')">'+ic('dice')+'<span>\u968f\u673a\u7ec3\u4e60</span></div>';
+  html+='<div class="quick-btn" tabindex="0" onclick="switchTab(\'exam\')">'+ic('trophy')+'<span>\u6a21\u62df\u8003\u8bd5</span></div>';
+  html+='<div class="quick-btn" tabindex="0" onclick="startPractice(\'wrong\')">'+ic('xCircle')+'<span>\u590d\u4e60\u9519\u9898</span></div>';
   html+='</div>';
 
   html+='<div style="text-align:center;margin-top:16px;font-size:.75rem;color:var(--tx3)">\u5171 '+Q.length+' \u9053\u9898</div>';
@@ -754,12 +762,12 @@ function renderPractice(){
   let html='<div class="fade-in">';
   html+='<h2 style="margin-bottom:12px;display:flex;align-items:center;gap:8px">'+ic('book','icon-lg')+' \u7ec3\u4e60\u6a21\u5f0f</h2>';
   html+='<div class="mode-grid">';
-  html+='<div class="mode-card" onclick="startPractice(\'seq\')">'+ic('book')+'<div class="mc-label">\u987a\u5e8f</div><div class="mc-count">'+Q.length+' \u9898</div></div>';
-  html+='<div class="mode-card" onclick="startPractice(\'random\')">'+ic('dice')+'<div class="mc-label">\u968f\u673a</div><div class="mc-count">'+Q.length+' \u9898</div></div>';
-  html+='<div class="mode-card" onclick="startPractice(\'wrong\')">'+ic('xCircle')+'<div class="mc-label">\u9519\u9898</div><div class="mc-count">'+wrongCount+' \u9898</div></div>';
-  html+='<div class="mode-card" onclick="startPractice(\'unanswered\')">'+ic('helpCircle')+'<div class="mc-label">\u672a\u505a</div><div class="mc-count">'+unanswered+' \u9898</div></div>';
-  html+='<div class="mode-card" onclick="startPractice(\'bookmark\')">'+ic('star')+'<div class="mc-label">\u6536\u85cf</div><div class="mc-count">'+bmCount+' \u9898</div></div>';
-  html+='<div class="mode-card" onclick="startPractice(\'review\')">'+ic('calendar')+'<div class="mc-label">\u4eca\u65e5\u590d\u4e60</div><div class="mc-count">'+rc+' \u9898</div></div>';
+  html+='<div class="mode-card" tabindex="0" onclick="startPractice(\'seq\')">'+ic('book')+'<div class="mc-label">\u987a\u5e8f</div><div class="mc-count">'+Q.length+' \u9898</div></div>';
+  html+='<div class="mode-card" tabindex="0" onclick="startPractice(\'random\')">'+ic('dice')+'<div class="mc-label">\u968f\u673a</div><div class="mc-count">'+Q.length+' \u9898</div></div>';
+  html+='<div class="mode-card" tabindex="0" onclick="startPractice(\'wrong\')">'+ic('xCircle')+'<div class="mc-label">\u9519\u9898</div><div class="mc-count">'+wrongCount+' \u9898</div></div>';
+  html+='<div class="mode-card" tabindex="0" onclick="startPractice(\'unanswered\')">'+ic('helpCircle')+'<div class="mc-label">\u672a\u505a</div><div class="mc-count">'+unanswered+' \u9898</div></div>';
+  html+='<div class="mode-card" tabindex="0" onclick="startPractice(\'bookmark\')">'+ic('star')+'<div class="mc-label">\u6536\u85cf</div><div class="mc-count">'+bmCount+' \u9898</div></div>';
+  html+='<div class="mode-card" tabindex="0" onclick="startPractice(\'review\')">'+ic('calendar')+'<div class="mc-label">\u4eca\u65e5\u590d\u4e60</div><div class="mc-count">'+rc+' \u9898</div></div>';
   html+='</div></div>';
   $('#v-practice').innerHTML=html;
 }
@@ -810,7 +818,7 @@ function resetQState(){
   practiceShowExpl=false;practiceShowNotes=false;
 }
 
-function renderPracticeQuestion(){
+function renderPracticeQuestion(autoFocus){
   if(!practiceQs.length){
     $('#v-practice').innerHTML='<div class="empty-state">'+ic('helpCircle','icon-xl')+'<p>\u6ca1\u6709\u53ef\u7528\u9898\u76ee</p><button class="btn btn-pri" onclick="exitPractice()">\u8fd4\u56de</button></div>';
     return;
@@ -900,7 +908,7 @@ function renderPracticeQuestion(){
     html+='</div>';
 
     // Explanation toggle
-    html+='<div class="expl-toggle" onclick="toggleExpl()">'+ic(practiceShowExpl?'chevronL':'chevronR','icon-sm')+' '+(practiceShowExpl?'\u9690\u85cf':'\u663e\u793a')+'\u89e3\u6790</div>';
+    html+='<div class="expl-toggle" tabindex="0" onclick="toggleExpl()">'+ic(practiceShowExpl?'chevronL':'chevronR','icon-sm')+' '+(practiceShowExpl?'\u9690\u85cf':'\u663e\u793a')+'\u89e3\u6790</div>';
     if(practiceShowExpl&&q.explanation){
       html+='<div class="explanation">'+h(q.explanation)+'</div>';
     }
@@ -908,7 +916,7 @@ function renderPracticeQuestion(){
 
   // Notes
   html+='<div class="notes-section">';
-  html+='<div class="notes-toggle" onclick="toggleNotes()">'+ic('edit','icon-sm')+' '+(practiceShowNotes?'\u9690\u85cf':'\u663e\u793a')+'\u7b14\u8bb0</div>';
+  html+='<div class="notes-toggle" tabindex="0" onclick="toggleNotes()">'+ic('edit','icon-sm')+' '+(practiceShowNotes?'\u9690\u85cf':'\u663e\u793a')+'\u7b14\u8bb0</div>';
   if(practiceShowNotes){
     let noteVal=ST.notes[qId]||'';
     html+='<textarea class="notes-area" id="noteArea" placeholder="\u5728\u6b64\u8f93\u5165\u7b14\u8bb0..." onblur="saveNote(\''+qId+'\')">'+h(noteVal)+'</textarea>';
@@ -919,9 +927,20 @@ function renderPracticeQuestion(){
 
   $('#v-practice').innerHTML=html;
 
+  // Auto-focus management after state transitions
+  if(autoFocus){
+    if(practiceSubmitted){
+      let fb=$('#v-practice .feedback');
+      if(fb){fb.tabIndex=-1;fb.focus();}
+    }else{
+      let first=$('#v-practice .opt-item');
+      if(first)first.focus();
+    }
+  }
+
   // Render bottom bar into external container
   let bar='<button class="btn btn-ghost" onclick="prevQ()"'+(practiceIdx<=0?' disabled':'')+'>'+ic('chevronL')+' \u4e0a\u4e00\u9898</button>';
-  bar+='<button class="btn btn-ghost" onclick="toggleBookmark(\''+qId+'\')" style="color:'+(isBm?'var(--warn)':'var(--tx3)')+'">'+ic(isBm?'starFill':'star','icon-lg')+'</button>';
+  bar+='<button class="btn btn-ghost bm-bar-btn" onclick="toggleBookmark(\''+qId+'\')" style="color:'+(isBm?'var(--warn)':'var(--tx3)')+'">'+ic(isBm?'starFill':'star','icon-lg')+'</button>';
   bar+='<button class="btn btn-ghost" onclick="nextQ()"'+(practiceIdx>=practiceQs.length-1?' disabled':'')+'>\u4e0b\u4e00\u9898 '+ic('chevronR')+'</button>';
   $('#practiceBar').innerHTML=bar;
   $('#practiceBar').style.display='flex';
@@ -991,14 +1010,14 @@ function submitAnswer(){
   saveState();
   vibrate(isCorrect?[50]:[100,50,100]);
   practiceShowExpl=true;
-  renderPracticeQuestion();
+  renderPracticeQuestion(true);
 }
 
 function prevQ(){
-  if(practiceIdx>0){practiceIdx--;resetQState();practiceTimeStart=Date.now();renderPracticeQuestion();}
+  if(practiceIdx>0){practiceIdx--;resetQState();practiceTimeStart=Date.now();renderPracticeQuestion(true);}
 }
 function nextQ(){
-  if(practiceIdx<practiceQs.length-1){practiceIdx++;resetQState();practiceTimeStart=Date.now();renderPracticeQuestion();}
+  if(practiceIdx<practiceQs.length-1){practiceIdx++;resetQState();practiceTimeStart=Date.now();renderPracticeQuestion(true);}
 }
 function jumpPractice(i){
   practiceIdx=i;resetQState();practiceTimeStart=Date.now();renderPracticeQuestion();
@@ -1028,16 +1047,72 @@ function jumpToQuestion(){
   showModalRaw(html);
 }
 
-function toggleExpl(){practiceShowExpl=!practiceShowExpl;renderPracticeQuestion();}
-function toggleNotes(){practiceShowNotes=!practiceShowNotes;renderPracticeQuestion();}
+function toggleExpl(){
+  practiceShowExpl=!practiceShowExpl;
+  let container=$('#v-practice');if(!container)return;
+  let toggle=container.querySelector('.expl-toggle');
+  if(toggle){
+    toggle.innerHTML=ic(practiceShowExpl?'chevronL':'chevronR','icon-sm')+' '+(practiceShowExpl?'\u9690\u85cf':'\u663e\u793a')+'\u89e3\u6790';
+    let existing=container.querySelector('.explanation');
+    if(practiceShowExpl&&!existing){
+      let q=getQ(practiceQs[practiceIdx]);
+      if(q&&q.explanation){
+        let div=document.createElement('div');
+        div.className='explanation';
+        div.style.animation='fadeIn .3s cubic-bezier(.4,0,.2,1)';
+        div.textContent=q.explanation;
+        toggle.after(div);
+      }
+    }else if(!practiceShowExpl&&existing){
+      existing.remove();
+    }
+  }
+}
+
+function toggleNotes(){
+  practiceShowNotes=!practiceShowNotes;
+  let container=$('#v-practice');if(!container)return;
+  let toggle=container.querySelector('.notes-toggle');
+  if(toggle){
+    toggle.innerHTML=ic('edit','icon-sm')+' '+(practiceShowNotes?'\u9690\u85cf':'\u663e\u793a')+'\u7b14\u8bb0';
+    let existing=container.querySelector('.notes-area');
+    if(practiceShowNotes&&!existing){
+      let qId=practiceQs[practiceIdx];
+      let ta=document.createElement('textarea');
+      ta.className='notes-area';ta.id='noteArea';
+      ta.placeholder='\u5728\u6b64\u8f93\u5165\u7b14\u8bb0...';
+      ta.value=ST.notes[qId]||'';
+      ta.onblur=function(){saveNote(qId);};
+      toggle.after(ta);
+      ta.focus();
+    }else if(!practiceShowNotes&&existing){
+      existing.remove();
+    }
+  }
+}
+
 function saveNote(id){
   let el=$('#noteArea');if(el){ST.notes[id]=el.value;saveState();}
 }
+
 function toggleBookmark(id){
   let i=ST.bookmarkIds.indexOf(id);
   if(i>=0)ST.bookmarkIds.splice(i,1);else ST.bookmarkIds.push(id);
   saveState();
-  if(practiceMode)renderPracticeQuestion();
+  let isBm=ST.bookmarkIds.includes(id);
+  if(practiceMode){
+    let headBtn=$('.bm-head-btn');
+    if(headBtn){
+      headBtn.innerHTML=ic(isBm?'starFill':'star','icon-lg');
+      headBtn.style.color=isBm?'var(--warn)':'';
+    }
+    let barBm=$('.bm-bar-btn');
+    if(barBm){
+      barBm.innerHTML=ic(isBm?'starFill':'star','icon-lg');
+      barBm.style.color=isBm?'var(--warn)':'var(--tx3)';
+    }
+    flashEl(headBtn||barBm);
+  }
 }
 
 /* ============================================================
@@ -1581,12 +1656,15 @@ function renderProfile(){
   // Keyboard shortcuts
   html+='<div class="profile-section"><div class="profile-section-title">'+ic('keyboard','icon-sm')+' \u952e\u76d8\u5feb\u6377\u952e</div>';
   html+='<div class="card"><div class="shortcut-grid">';
-  html+='<div class="shortcut-item"><span class="shortcut-key">A-G</span> \u9009\u62e9\u9009\u9879</div>';
-  html+='<div class="shortcut-item"><span class="shortcut-key">Enter</span> \u63d0\u4ea4\u7b54\u6848</div>';
-  html+='<div class="shortcut-item"><span class="shortcut-key">\u2190</span> \u4e0a\u4e00\u9898</div>';
-  html+='<div class="shortcut-item"><span class="shortcut-key">\u2192</span> \u4e0b\u4e00\u9898</div>';
-  html+='<div class="shortcut-item"><span class="shortcut-key">Space</span> \u5207\u6362\u6536\u85cf</div>';
-  html+='<div class="shortcut-item"><span class="shortcut-key">D</span> \u5207\u6362\u89e3\u6790</div>';
+  html+='<div class="shortcut-item"><span class="shortcut-key">A\u2013G</span> \u9009\u62e9\u9009\u9879</div>';
+  html+='<div class="shortcut-item"><span class="shortcut-key">\u2191\u2193</span> \u79fb\u52a8\u9009\u9879\u7126\u70b9</div>';
+  html+='<div class="shortcut-item"><span class="shortcut-key">Enter</span> \u9009\u4e2d / \u63d0\u4ea4</div>';
+  html+='<div class="shortcut-item"><span class="shortcut-key">Space</span> \u9009\u4e2d\u7126\u70b9\u9009\u9879</div>';
+  html+='<div class="shortcut-item"><span class="shortcut-key">\u2190\u2192</span> \u4e0a / \u4e0b\u4e00\u9898</div>';
+  html+='<div class="shortcut-item"><span class="shortcut-key">F</span> \u5207\u6362\u6536\u85cf \u2605</div>';
+  html+='<div class="shortcut-item"><span class="shortcut-key">V</span> \u67e5\u770b\u89e3\u6790</div>';
+  html+='<div class="shortcut-item"><span class="shortcut-key">Tab</span> \u987a\u5e8f\u5bfc\u822a</div>';
+  html+='<div class="shortcut-item"><span class="shortcut-key">Shift+Alt+H</span> \u952e\u76d8\u5e2e\u52a9</div>';
   html+='</div></div></div>';
 
   html+='<div style="height:20px"></div></div>';
@@ -1766,10 +1844,96 @@ document.getElementById('modal').addEventListener('click',function(e){
 });
 
 /* ============================================================
+   Flash Feedback Helper
+   ============================================================ */
+function flashEl(el){
+  if(!el)return;
+  el.classList.remove('kb-flash');
+  void el.offsetWidth; // force reflow to restart animation
+  el.classList.add('kb-flash');
+  el.addEventListener('animationend',function(){el.classList.remove('kb-flash');},{once:true});
+}
+
+/* ============================================================
+   Help Modal (Shift+Alt+H)
+   ============================================================ */
+let _helpPrevFocus=null;
+
+function showHelpModal(){
+  _helpPrevFocus=document.activeElement;
+  let html='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">';
+  html+='<div style="font-weight:700;font-size:1rem;display:flex;align-items:center;gap:8px">'+ic('keyboard')+' \u952e\u76d8\u5feb\u6377\u952e</div>';
+  html+='<button id="helpCloseBtn" class="btn btn-ghost btn-sm" aria-label="\u5173\u95ed">\u2715</button>';
+  html+='</div>';
+  html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 16px">';
+  let rows=[
+    ['A\u2013G','\u9009\u62e9\u9009\u9879'],
+    ['\u2191\u2193','\u79fb\u52a8\u9009\u9879\u7126\u70b9'],
+    ['Enter','\u9009\u4e2d / \u63d0\u4ea4'],
+    ['Space','\u9009\u4e2d\u7126\u70b9\u9009\u9879'],
+    ['\u2190\u2192','\u4e0a / \u4e0b\u4e00\u9898'],
+    ['F','\u5207\u6362\u6536\u85cf \u2605'],
+    ['V','\u67e5\u770b\u89e3\u6790\uff08\u7b54\u9898\u540e\uff09'],
+    ['Tab','\u987a\u5e8f\u5bfc\u822a'],
+    ['Shift+Alt+H','\u6253\u5f00\u672c\u5e2e\u52a9'],
+    ['Esc','\u5173\u95ed\u5e2e\u52a9'],
+  ];
+  rows.forEach(function(r){
+    html+='<div class="shortcut-item"><span class="shortcut-key">'+r[0]+'</span> '+r[1]+'</div>';
+  });
+  html+='</div>';
+  showModalRaw(html);
+  let closeBtn=document.getElementById('helpCloseBtn');
+  if(closeBtn){closeBtn.onclick=closeHelpModal;closeBtn.focus();}
+  document.getElementById('modal').addEventListener('keydown',_helpTrap);
+}
+
+function closeHelpModal(){
+  document.getElementById('modal').removeEventListener('keydown',_helpTrap);
+  hideModal();
+  if(_helpPrevFocus){try{_helpPrevFocus.focus();}catch(e){}}
+  _helpPrevFocus=null;
+}
+
+function _helpTrap(e){
+  if(e.key==='Escape'){closeHelpModal();e.preventDefault();return;}
+  if(e.key!=='Tab')return;
+  let inner=document.getElementById('modalInner');
+  let focusable=[...inner.querySelectorAll('button,input,select,textarea,[tabindex]:not([tabindex="-1"])')];
+  if(!focusable.length)return;
+  let first=focusable[0],last=focusable[focusable.length-1];
+  if(e.shiftKey){if(document.activeElement===first){last.focus();e.preventDefault();}}
+  else{if(document.activeElement===last){first.focus();e.preventDefault();}}
+}
+
+/* ============================================================
    Keyboard Shortcuts
    ============================================================ */
 document.addEventListener('keydown',function(e){
   if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='SELECT')return;
+
+  // Shift+Alt+H: 打开帮助弹窗
+  if(e.shiftKey&&e.altKey&&e.key.toUpperCase()==='H'){
+    let modal=document.getElementById('modal');
+    if(modal&&modal.classList.contains('show')){closeHelpModal();}
+    else{showHelpModal();}
+    e.preventDefault();return;
+  }
+
+  // Esc: 关闭弹窗并归还焦点
+  if(e.key==='Escape'){
+    let modal=document.getElementById('modal');
+    if(modal&&modal.classList.contains('show')){closeHelpModal();e.preventDefault();return;}
+  }
+
+  // 通用：Enter/Space 激活 button-like div 元素
+  if(e.key==='Enter'||e.key===' '){
+    let el=document.activeElement;
+    let btnDivClasses=['quick-btn','mode-card','btab','setup-card','bm-card','expl-toggle','notes-toggle'];
+    if(el&&btnDivClasses.some(function(c){return el.classList.contains(c);})){
+      el.click();e.preventDefault();return;
+    }
+  }
 
   let focusedOpt=document.activeElement&&document.activeElement.classList.contains('opt-item')?document.activeElement:null;
 
@@ -1792,25 +1956,54 @@ document.addEventListener('keydown',function(e){
       return;
     }
 
-    // Enter/Space 在已聚焦选项上选择
+    // Enter/Space: 选中已聚焦选项
     if((e.key==='Enter'||e.key===' ')&&focusedOpt&&!practiceSubmitted){
-      toggleOption(focusedOpt.dataset.key);e.preventDefault();return;
+      let optEl=focusedOpt;
+      toggleOption(optEl.dataset.key);
+      flashEl(optEl);
+      e.preventDefault();return;
     }
 
-    // A-G 直接选择选项
+    // A-G: 直接选择选项（并闪烁对应 DOM 元素）
     if('ABCDEFG'.includes(key)){
       let q=getQ(practiceQs[practiceIdx]);
       if(q&&q.options.find(function(o){return o.key===key;})){
-        toggleOption(key);e.preventDefault();return;
+        toggleOption(key);
+        let optEl=document.querySelector('#v-practice .opt-item[data-key="'+key+'"]');
+        flashEl(optEl);
+        e.preventDefault();return;
       }
     }
-    if(key==='D'&&practiceSubmitted){toggleExpl();e.preventDefault();return;}
-    if(e.key==='Enter'&&!practiceSubmitted&&practiceSelected.length&&!focusedOpt){submitAnswer();e.preventDefault();return;}
-    if(e.key==='ArrowLeft'){prevQ();e.preventDefault();return;}
-    if(e.key==='ArrowRight'){nextQ();e.preventDefault();return;}
-    if(e.key===' '&&!focusedOpt){
+
+    // V: 切换解析（答题后）
+    if(key==='V'&&practiceSubmitted){
+      let exT=$('#v-practice .expl-toggle');
+      toggleExpl();flashEl(exT);
+      e.preventDefault();return;
+    }
+
+    // F: 切换收藏
+    if(key==='F'){
       let qId=practiceQs[practiceIdx];
-      if(qId){toggleBookmark(qId);e.preventDefault();}
+      if(qId){toggleBookmark(qId);e.preventDefault();return;}
+    }
+
+    // Enter: 提交答案（无焦点在选项上时）
+    if(e.key==='Enter'&&!practiceSubmitted&&practiceSelected.length&&!focusedOpt){
+      let btn=$('#v-practice .submit-btn');
+      flashEl(btn);
+      submitAnswer();
+      e.preventDefault();return;
+    }
+
+    // ←/→: 上/下一题（并闪烁侧边按钮）
+    if(e.key==='ArrowLeft'){
+      flashEl($('.side-nav-prev'));
+      prevQ();e.preventDefault();return;
+    }
+    if(e.key==='ArrowRight'){
+      flashEl($('.side-nav-next'));
+      nextQ();e.preventDefault();return;
     }
   }
 
@@ -1833,19 +2026,26 @@ document.addEventListener('keydown',function(e){
       return;
     }
 
-    // Enter/Space 在已聚焦选项上选择
+    // Enter/Space: 选中已聚焦选项
     if((e.key==='Enter'||e.key===' ')&&focusedOpt){
-      examToggle(focusedOpt.dataset.key);e.preventDefault();return;
+      let optEl=focusedOpt;
+      examToggle(optEl.dataset.key);
+      flashEl(optEl);
+      e.preventDefault();return;
     }
 
-    // A-G 直接选择
+    // A-G: 直接选择（并闪烁）
     if('ABCDEFG'.includes(key)){
       let qId=examState.questionIds[examState.currentIndex];
       let q=getQ(qId);
       if(q&&q.options.find(function(o){return o.key===key;})){
-        examToggle(key);e.preventDefault();return;
+        examToggle(key);
+        let optEl=document.querySelector('#v-exam .opt-item[data-key="'+key+'"]');
+        flashEl(optEl);
+        e.preventDefault();return;
       }
     }
+
     if(e.key==='ArrowLeft'){examPrev();e.preventDefault();return;}
     if(e.key==='ArrowRight'){examNext();e.preventDefault();}
   }
