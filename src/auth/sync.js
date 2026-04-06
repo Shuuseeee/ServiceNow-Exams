@@ -29,7 +29,8 @@ if (!isConfigured) {
         { user_id: user.id, exam_key: examKey, state: state.ST, updated_at: new Date().toISOString() },
         { onConflict: 'user_id,exam_key' }
       );
-      updateSyncStatus('已同步 ' + new Date().toLocaleTimeString());
+      let _ss = document.getElementById('syncStatus');
+      if (_ss) _ss.textContent = '已同步 ' + new Date().toLocaleTimeString();
     } catch (e) {
       console.warn('Sync push failed:', e.message);
     }
@@ -133,11 +134,6 @@ if (!isConfigured) {
       try { localStorage.setItem(state.LS_KEY, JSON.stringify(state.ST)); } catch (e) {}
     }
     await pushState();
-  }
-
-  function updateSyncStatus(text) {
-    let el = document.getElementById('syncStatus');
-    if (el) el.textContent = text;
   }
 
   // Sync on page becoming visible again
