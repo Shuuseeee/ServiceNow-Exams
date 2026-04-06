@@ -1,3 +1,6 @@
+node_modules/
+dist/
+.env
 ANALYSIS_SUMMARY.md
 COMPLETION_CHECKLIST.md
 COMPLETION_REPORT.txt
