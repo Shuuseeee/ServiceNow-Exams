@@ -3,6 +3,7 @@ import { renderLibPicker, loadLibFromFile, bootApp } from './library/loader.js';
 import { initKeyboard } from './input/keyboard.js';
 import { initTouch } from './input/touch.js';
 import { $ } from './lib/dom.js';
+import { t } from './i18n/t.js';
 
 // Import all view modules to trigger registerView calls
 import './views/modal.js';
@@ -33,7 +34,7 @@ export function init() {
     e.preventDefault(); dz.classList.remove('dragover');
     let f = e.dataTransfer.files;
     if (f.length && f[0].name.endsWith('.json')) loadLibFromFile(f[0]);
-    else alert('请拖入 .json 格式的题库文件');
+    else alert(t('lib.dragHint'));
   });
 
   // Auto-load questions.json

@@ -4,71 +4,107 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-这是一个基于纯原生 JavaScript 的单文件题库/刷题 Web 应用，用于备考认证考试（如 ServiceNow CIS-CSM）。无构建工具、无框架、无包管理器，直接用浏览器打开 `index.html` 即可运行。
+基于 Vite + 原生 JavaScript（ES 模块）的题库/刷题 Web 应用，用于备考认证考试（如 ServiceNow CIS-CSM）。支持 Supabase 用户登录与云端状态同步，可选配置。
 
-## Running the App
+## 常用命令
 
 ```bash
-python3 -m http.server 8080
-# 访问 http://localhost:8080
+npm run dev        # 启动开发服务器（Vite，热重载）
+npm run build      # 构建生产版本到 dist/
+npm run preview    # 预览构建结果
 ```
 
-应用启动时自动尝试加载 `./questions.json`（`cis-csm.json` 即为此文件），若不存在则显示文件上传界面。
+`public/questions.json` 是默认加载的题库（即 `cis-csm.json`）；启动时自动 fetch，若不存在则显示文件上传界面。
 
-## Architecture
+## 环境变量（可选）
 
-整个应用是一个**单文件 SPA**（`index.html`，约 2265 行），从上到下：
+复制 `.env.example` 为 `.env`，填入 Supabase 凭据即可启用云同步：
 
-1. **`<style>`** — 内嵌 CSS，使用 CSS 自定义属性实现明/暗主题（`.dark` 类切换），移动端优先，`768px` 断点切换到桌面布局。顶部导航 `#topnav`（桌面）和底部 Tab `#bottomtabs`（移动端）互斥显示。
-2. **`<body>`** — 5 个视图 `div`（`#v-dash`、`#v-practice`、`#v-exam`、`#v-wrong`、`#v-profile`），通过 JS 动态 `innerHTML` 渲染，`.active` 类控制显隐。还有 2 个固定底部操作栏：`#practiceBar`、`#examBar`。
-3. **`<script>`** — 所有业务逻辑，无模块化，全局变量。
+```
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
 
-### 全局变量
+不配置时应用完全离线运行，auth/sync 模块暴露空操作 stub。
 
-| 变量 | 说明 |
+## 架构
+
+### 模块结构
+
+```
+src/
+  main.js              # 入口：导入 CSS + 调用 init()
+  init.js              # 初始化：绑定文件拖放、auto-fetch questions.json、keyboard/touch
+  state/
+    store.js           # 全局状态对象 state{}、saveState()、loadState()、lsKey()
+    constants.js       # TABS 定义、DEFAULT_EXAM_CFG、REVIEW_INTERVALS
+    question-helpers.js # getQ(id) 等题目查询工具
+    statistics.js      # 统计计算
+  views/
+    router.js          # registerView()、switchTab()、renderTabs()（tab 路由核心）
+    dashboard.js       # 仪表盘视图
+    practice.js        # 练习模式（startPractice、submitAnswer、renderPracticeQuestion）
+    exam.js            # 考试模式（startExam、finishExam、renderExamActive）
+    wrong.js           # 错题本视图
+    profile.js         # 个人中心视图
+    modal.js           # 通用弹窗（showModalRaw、hideModal）
+    help.js            # 帮助弹窗
+  library/
+    loader.js          # 题库加载（loadLibFromFile、bootApp、reloadLib、renderLibPicker）
+  auth/
+    supabase.js        # 初始化 Supabase client（未配置时导出 null）
+    auth.js            # 登录/注册/Google OAuth，initAuth()
+    sync.js            # 云同步（debouncedSync、syncState、mergeState）
+  input/
+    keyboard.js        # 全局键盘快捷键
+    touch.js           # 触摸滑动手势
+  lib/
+    dom.js             # $()、$$()、h()（DOM 工具）
+    utils.js           # isoNow() 等通用工具
+  icons/icons.js       # ic(name) SVG 图标函数
+  styles/              # CSS 拆分：variables、base、nav、components、practice、exam、views、responsive
+public/
+  questions.json       # 默认题库（运行时从此路径 fetch）
+```
+
+### 状态管理
+
+所有运行时状态集中在 `src/state/store.js` 导出的 `state` 对象（非全局变量）：
+
+| 字段 | 说明 |
 |------|------|
-| `Q[]` | 当前加载的题目数组 |
-| `meta{}` | 题库元数据（`exam`、`totalQuestions`、`officialCount`、`officialTime`、`passRate`） |
-| `ST{}` | 用户状态，持久化到 `localStorage`，键名由 `lsKey()` 生成（格式：`{exam_name}_state`） |
-| `EXAM_CFG{}` | 考试配置，由 `meta` 覆盖默认值 |
-| `curTab` | 当前激活的 tab id（`'dash'`/`'practice'`/`'exam'`/`'wrong'`/`'profile'`） |
-| `practiceMode` | 当前练习模式字符串，`null` 表示未在练习中 |
-| `practiceQs[]` | 当前练习题目 id 列表 |
-| `practiceIdx` | 当前练习题目下标 |
-| `examActive` | 是否正在进行考试 |
-| `examState{}` | 当前考试状态（题目列表、答案、计时等） |
-| `REVIEW_INTERVALS` | Ebbinghaus 复习间隔天数 `[1,3,7,15,30]` |
+| `state.Q[]` | 当前题目数组 |
+| `state.meta{}` | 题库元数据 |
+| `state.ST{}` | 用户状态，持久化到 localStorage（键由 `lsKey()` 生成：`{exam}_state`） |
+| `state.curTab` | 当前激活 tab（`'dash'`/`'practice'`/`'exam'`/`'wrong'`/`'profile'`） |
+| `state.practiceMode` | 当前练习模式，`null` 表示未在练习 |
+| `state.examActive` / `state.examState` | 考试状态 |
 
-### ST 对象结构
-
+`ST` 对象结构：
 ```js
 {
   version: 1,
   answers: { [id]: { selected, correct, time, timeSpent, attempts, correctStreak, confidence } },
-  wrongIds: [],          // 错题 id 列表
-  masteredWrongIds: [],  // 已掌握的错题 id
-  bookmarkIds: [],       // 收藏题 id
+  wrongIds: [], masteredWrongIds: [], bookmarkIds: [],
   notes: { [id]: string },
   examHistory: [{ date, mode, score, total, timeUsed, details }],
-  pausedExam: null,      // 暂停的考试状态
+  pausedExam: null,
   settings: { lang, showExplanation, darkMode, wrongMasteryThreshold, shuffleOptions },
   reviewSchedule: { [id]: { nextReview, interval, level } }
 }
 ```
 
-### 核心函数
+### 视图路由
 
-| 函数 | 说明 |
-|------|------|
-| `loadLibFromFile(file)` | 加载题库 JSON 文件 |
-| `switchTab(id)` | 切换 tab，触发 `renderView()` |
-| `startPractice(mode)` | 开始练习，mode: `seq`/`random`/`wrong`/`unanswered`/`bookmark`/`review` |
-| `startExam(mode)` | 开始考试，mode: `official`/`full`/`custom` |
-| `submitAnswer()` | 提交练习答案，更新 `ST` 并调用 `updateReviewSchedule()` |
-| `finishExam()` | 结束考试，批量更新 `ST.answers` 和 `ST.examHistory` |
-| `saveState()` | 将 `ST` 序列化写入 `localStorage` |
-| `renderPracticeQuestion()` | 渲染当前练习题目 |
-| `renderExamActive()` | 渲染考试中视图 |
+`router.js` 的 `registerView(id, fn)` 注册各视图渲染函数，`switchTab(id)` 切换 tab 并调用对应渲染函数。各视图模块在 `init.js` 中 import 后自动注册。
+
+### 全局暴露约定
+
+部分函数需从 HTML `onclick` 调用，通过 `window.xxx = fn` 暴露（如 `window.switchTab`、`window.showAuthModal`、`window.bootApp`）。新增此类函数须显式赋值到 `window`。
+
+### 云同步
+
+`sync.js` 使用 Supabase `user_states` 表（字段：`user_id`、`exam_key`、`state`、`updated_at`）。`saveState()` 调用后触发 3 秒防抖推送；页面重新可见时自动 pull+merge+push。`mergeState()` 实现细粒度合并（answers 取 attempts 多者、arrays 取并集、settings 按时间戳选胜者）。
 
 ### 题目 JSON 格式
 
@@ -78,8 +114,7 @@ python3 -m http.server 8080
   "questions": [
     {
       "id": "csm.1",
-      "question": "...",
-      "questionJa": "...",
+      "question": "...", "questionJa": "...",
       "options": [{ "key": "A", "text": "...", "textJa": "..." }],
       "answer": ["A"],
       "isMultiple": false,
@@ -92,18 +127,16 @@ python3 -m http.server 8080
 
 ### 键盘快捷键
 
-练习模式下：`A`-`G` 直接选择选项，`↑`/`↓` 在选项间移动焦点，`Enter`/`Space` 选中当前聚焦选项，`←`/`→` 上/下一题，`Enter` 提交/继续。全局：`Shift+Alt+H` 打开帮助弹窗，`Esc` 关闭弹窗。
+练习模式：`A`–`G` 直接选项，`↑`/`↓` 移动焦点，`Enter`/`Space` 选中，`←`/`→` 上/下一题，`Enter` 提交/继续。全局：`Shift+Alt+H` 帮助弹窗，`Esc` 关闭弹窗。
 
 ## 题库维护脚本（Python）
 
-项目包含用于批量处理题库的 Python 脚本：
+- `process_questions.py` — 拼写纠错，生成 `part_N_updates.json`
+- `generate_explanations.py` / `generate_part3.py` 等 — 批量生成解析
+- `run_generate.py` — 批量执行生成脚本
 
-- **`process_questions.py`** — 对特定题号范围做拼写纠错，生成 `part_N_updates.json`
-- **`generate_explanations.py`** / `generate_part3.py` 等 — 批量生成解析内容
-- **`run_generate.py`** — 批量执行生成脚本
-
-`part_1_updates.json` ~ `part_10_updates.json` 是各批次的中间处理结果，最终需手动或脚本合并回 `cis-csm.json`（即运行时的 `questions.json`）。
+`part_1_updates.json` ~ `part_10_updates.json` 是中间处理结果，最终需合并回 `cis-csm.json`（即 `public/questions.json`）。
 
 ## 多题库支持
 
-通过 `lib_history`（localStorage 键）存储多个题库的加载历史。每个题库对应独立的 localStorage 状态键（由题库的 `meta.exam` 字段决定，格式：`{exam}_state`）。
+`quiz_libraries`（localStorage 键）存储最近 10 个题库历史。每个题库独立状态键（`{exam}_state`）。`bootApp()` 负责切换题库并重置运行时状态。

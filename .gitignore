@@ -26,3 +26,5 @@ README_PART3.txt
 run_generate.py
 SPELLING_CORRECTIONS_DETAIL.txt
 VERIFICATION_REPORT.txt
+.vercel
+.env*.local

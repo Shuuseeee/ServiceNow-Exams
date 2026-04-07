@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<title>Quiz App</title>
+<title>题库</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="theme-color" content="#4F46E5">
 </head>
 <body>
 <!-- Top Nav desktop -->
@@ -23,8 +26,8 @@
   <div class="drop-zone" id="dropZone">
     <div style="display:flex;flex-direction:column;align-items:center">
       <span class="icon" style="width:48px;height:48px;color:var(--tx3);margin-bottom:12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></span>
-      <p style="font-weight:600">点击选择或拖入题库文件</p>
-      <p class="hint">支持 .json 格式的题库文件</p>
+      <p id="dropZoneTitle" style="font-weight:600">点击选择或拖入题库文件</p>
+      <p id="dropZoneHint" class="hint">支持 .json 格式的题库文件</p>
     </div>
     <input type="file" id="libFileInput" accept=".json" style="display:none">
   </div>

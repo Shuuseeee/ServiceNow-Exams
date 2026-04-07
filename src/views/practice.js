@@ -6,6 +6,7 @@ import { getQ, getLang, qText, oText, diffTag, typeBadge } from '../state/questi
 import { getTodayReviewIds, getTodayReviewCount, updateReviewSchedule } from '../state/statistics.js';
 import { showModalRaw, hideModal } from './modal.js';
 import { registerView, switchTab } from './router.js';
+import { t } from '../i18n/t.js';
 
 function resetQState() {
   state.practiceSubmitted = false;
@@ -29,16 +30,16 @@ export function startPractice(mode) {
     state.practiceQs = shuffle(state.Q.map(function (q) { return q.id; }));
   } else if (mode === 'wrong') {
     state.practiceQs = state.ST.wrongIds.filter(function (id) { return !state.ST.masteredWrongIds.includes(id); });
-    if (!state.practiceQs.length) { alert('没有错题!'); state.practiceMode = null; renderPractice(); return; }
+    if (!state.practiceQs.length) { alert(t('practice.noWrong')); state.practiceMode = null; renderPractice(); return; }
   } else if (mode === 'unanswered') {
     state.practiceQs = state.Q.filter(function (q) { return !state.ST.answers[q.id]; }).map(function (q) { return q.id; });
-    if (!state.practiceQs.length) { alert('所有题目已答!'); state.practiceMode = null; renderPractice(); return; }
+    if (!state.practiceQs.length) { alert(t('practice.allAnswered')); state.practiceMode = null; renderPractice(); return; }
   } else if (mode === 'bookmark') {
     state.practiceQs = [...state.ST.bookmarkIds];
-    if (!state.practiceQs.length) { alert('没有收藏题目!'); state.practiceMode = null; renderPractice(); return; }
+    if (!state.practiceQs.length) { alert(t('practice.noBookmarks')); state.practiceMode = null; renderPractice(); return; }
   } else if (mode === 'review') {
     state.practiceQs = getTodayReviewIds();
-    if (!state.practiceQs.length) { alert('今日没有待复习的题目!'); state.practiceMode = null; renderPractice(); return; }
+    if (!state.practiceQs.length) { alert(t('practice.noReview')); state.practiceMode = null; renderPractice(); return; }
   }
 
   state.practiceTimeStart = Date.now();
@@ -73,21 +74,21 @@ function renderPractice() {
   let rc = getTodayReviewCount();
 
   let html = '<div class="fade-in">';
-  html += '<h2 style="margin-bottom:12px;display:flex;align-items:center;gap:8px">' + ic('book', 'icon-lg') + ' 练习模式</h2>';
+  html += '<h2 style="margin-bottom:12px;display:flex;align-items:center;gap:8px">' + ic('book', 'icon-lg') + ' ' + t('practice.title') + '</h2>';
   html += '<div class="mode-grid">';
-  html += '<div class="mode-card" tabindex="0" onclick="startPractice(\'seq\')">' + ic('book') + '<div class="mc-label">顺序</div><div class="mc-count">' + state.Q.length + ' 题</div></div>';
-  html += '<div class="mode-card" tabindex="0" onclick="startPractice(\'random\')">' + ic('dice') + '<div class="mc-label">随机</div><div class="mc-count">' + state.Q.length + ' 题</div></div>';
-  html += '<div class="mode-card" tabindex="0" onclick="startPractice(\'wrong\')">' + ic('xCircle') + '<div class="mc-label">错题</div><div class="mc-count">' + wrongCount + ' 题</div></div>';
-  html += '<div class="mode-card" tabindex="0" onclick="startPractice(\'unanswered\')">' + ic('helpCircle') + '<div class="mc-label">未做</div><div class="mc-count">' + unanswered + ' 题</div></div>';
-  html += '<div class="mode-card" tabindex="0" onclick="startPractice(\'bookmark\')">' + ic('star') + '<div class="mc-label">收藏</div><div class="mc-count">' + bmCount + ' 题</div></div>';
-  html += '<div class="mode-card" tabindex="0" onclick="startPractice(\'review\')">' + ic('calendar') + '<div class="mc-label">今日复习</div><div class="mc-count">' + rc + ' 题</div></div>';
+  html += '<div class="mode-card" tabindex="0" onclick="startPractice(\'seq\')">' + ic('book') + '<div class="mc-label">' + t('practice.seq') + '</div><div class="mc-count">' + t('common.qCount', state.Q.length) + '</div></div>';
+  html += '<div class="mode-card" tabindex="0" onclick="startPractice(\'random\')">' + ic('dice') + '<div class="mc-label">' + t('practice.random') + '</div><div class="mc-count">' + t('common.qCount', state.Q.length) + '</div></div>';
+  html += '<div class="mode-card" tabindex="0" onclick="startPractice(\'wrong\')">' + ic('xCircle') + '<div class="mc-label">' + t('practice.wrong') + '</div><div class="mc-count">' + t('common.qCount', wrongCount) + '</div></div>';
+  html += '<div class="mode-card" tabindex="0" onclick="startPractice(\'unanswered\')">' + ic('helpCircle') + '<div class="mc-label">' + t('practice.unanswered') + '</div><div class="mc-count">' + t('common.qCount', unanswered) + '</div></div>';
+  html += '<div class="mode-card" tabindex="0" onclick="startPractice(\'bookmark\')">' + ic('star') + '<div class="mc-label">' + t('practice.bookmark') + '</div><div class="mc-count">' + t('common.qCount', bmCount) + '</div></div>';
+  html += '<div class="mode-card" tabindex="0" onclick="startPractice(\'review\')">' + ic('calendar') + '<div class="mc-label">' + t('practice.review') + '</div><div class="mc-count">' + t('common.qCount', rc) + '</div></div>';
   html += '</div></div>';
   $('#v-practice').innerHTML = html;
 }
 
 export function renderPracticeQuestion(autoFocus) {
   if (!state.practiceQs.length) {
-    $('#v-practice').innerHTML = '<div class="empty-state">' + ic('helpCircle', 'icon-xl') + '<p>没有可用题目</p><button class="btn btn-pri" onclick="exitPractice()">返回</button></div>';
+    $('#v-practice').innerHTML = '<div class="empty-state">' + ic('helpCircle', 'icon-xl') + '<p>' + t('practice.noQuestions') + '</p><button class="btn btn-pri" onclick="exitPractice()">' + t('common.back') + '</button></div>';
     return;
   }
   if (state.practiceIdx < 0) state.practiceIdx = 0;
@@ -95,7 +96,7 @@ export function renderPracticeQuestion(autoFocus) {
   let qId = state.practiceQs[state.practiceIdx];
   let q = getQ(qId);
   if (!q) { exitPractice(); return; }
-  let lang = getLang();
+  let qlang = (state.ST.settings.questionLang) || 'en';
   let isBm = state.ST.bookmarkIds.includes(qId);
 
   let html = '<div class="fade-in">';
@@ -104,7 +105,7 @@ export function renderPracticeQuestion(autoFocus) {
   html += '<button class="side-nav-btn side-nav-next" onclick="nextQ()"' + (state.practiceIdx >= state.practiceQs.length - 1 ? ' disabled' : '') + '>' + ic('chevronR') + '</button>';
 
   html += '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">';
-  html += '<button class="btn btn-ghost btn-sm" onclick="exitPractice()">' + ic('chevronL') + ' 返回</button>';
+  html += '<button class="btn btn-ghost btn-sm" onclick="exitPractice()">' + ic('chevronL') + ' ' + t('common.back') + '</button>';
   html += '<button class="btn btn-ghost btn-sm" onclick="jumpToQuestion()" style="font-variant-numeric:tabular-nums">' + (state.practiceIdx + 1) + ' / ' + state.practiceQs.length + ' ' + ic('list', 'icon-sm') + '</button>';
   html += '</div>';
 
@@ -122,8 +123,8 @@ export function renderPracticeQuestion(autoFocus) {
   html += typeBadge(q);
   html += diffTag(q);
   html += '<div class="lang-toggle">';
-  html += '<button class="' + (lang === 'en' ? 'active' : '') + '" onclick="setLang(\'en\')">EN</button>';
-  html += '<button class="' + (lang === 'ja' ? 'active' : '') + '" onclick="setLang(\'ja\')">JA</button>';
+  html += '<button class="' + (qlang === 'en' ? 'active' : '') + '" onclick="setQuestionLang(\'en\')">EN</button>';
+  html += '<button class="' + (qlang === 'ja' ? 'active' : '') + '" onclick="setQuestionLang(\'ja\')">JA</button>';
   html += '</div>';
   html += '<button class="bm-head-btn" onclick="toggleBookmark(\'' + qId + '\')" style="color:' + (isBm ? 'var(--warn)' : '') + '">' + ic(isBm ? 'starFill' : 'star', 'icon-lg') + '</button>';
   html += '</div>';
@@ -152,31 +153,31 @@ export function renderPracticeQuestion(autoFocus) {
 
   if (!state.practiceSubmitted) {
     html += '<div class="confidence-row">';
-    html += '<button class="conf-btn' + (state.practiceConfidence === 'sure' ? ' active-sure' : '') + '" onclick="setConfidence(\'sure\')">' + ic('checkCircle', 'icon-sm') + ' 确定</button>';
-    html += '<button class="conf-btn' + (state.practiceConfidence === 'guess' ? ' active-guess' : '') + '" onclick="setConfidence(\'guess\')">' + ic('helpCircle', 'icon-sm') + ' 猜测</button>';
-    html += '<button class="conf-btn' + (state.practiceConfidence === 'unsure' ? ' active-unsure' : '') + '" onclick="setConfidence(\'unsure\')">' + ic('target', 'icon-sm') + ' 不确定</button>';
+    html += '<button class="conf-btn' + (state.practiceConfidence === 'sure' ? ' active-sure' : '') + '" onclick="setConfidence(\'sure\')">' + ic('checkCircle', 'icon-sm') + ' ' + t('practice.confSure') + '</button>';
+    html += '<button class="conf-btn' + (state.practiceConfidence === 'guess' ? ' active-guess' : '') + '" onclick="setConfidence(\'guess\')">' + ic('helpCircle', 'icon-sm') + ' ' + t('practice.confGuess') + '</button>';
+    html += '<button class="conf-btn' + (state.practiceConfidence === 'unsure' ? ' active-unsure' : '') + '" onclick="setConfidence(\'unsure\')">' + ic('target', 'icon-sm') + ' ' + t('practice.confUnsure') + '</button>';
     html += '</div>';
-    html += '<button class="btn btn-pri btn-block submit-btn" onclick="submitAnswer()"' + (state.practiceSelected.length ? '' : ' disabled') + '>提交答案</button>';
+    html += '<button class="btn btn-pri btn-block submit-btn" onclick="submitAnswer()"' + (state.practiceSelected.length ? '' : ' disabled') + '>' + t('practice.submit') + '</button>';
   }
 
   if (state.practiceSubmitted) {
     let isCorrect = arrEq(state.practiceSelected, q.answer);
     html += '<div class="feedback ' + (isCorrect ? 'correct' : 'wrong') + '">';
     html += ic(isCorrect ? 'checkCircle' : 'xCircle');
-    html += ' ' + (isCorrect ? '回答正确!' : '回答错误! 正确答案: ' + q.answer.join(', '));
+    html += ' ' + (isCorrect ? t('practice.correct') : t('practice.wrongAns', q.answer.join(', ')));
     html += '</div>';
 
-    html += '<div class="expl-toggle" tabindex="0" onclick="toggleExpl()">' + ic(state.practiceShowExpl ? 'chevronL' : 'chevronR', 'icon-sm') + ' ' + (state.practiceShowExpl ? '隐藏' : '显示') + '解析</div>';
+    html += '<div class="expl-toggle" tabindex="0" onclick="toggleExpl()">' + ic(state.practiceShowExpl ? 'chevronL' : 'chevronR', 'icon-sm') + ' ' + t(state.practiceShowExpl ? 'practice.hideExpl' : 'practice.showExpl') + '</div>';
     if (state.practiceShowExpl && q.explanation) {
       html += '<div class="explanation">' + h(q.explanation) + '</div>';
     }
   }
 
   html += '<div class="notes-section">';
-  html += '<div class="notes-toggle" tabindex="0" onclick="toggleNotes()">' + ic('edit', 'icon-sm') + ' ' + (state.practiceShowNotes ? '隐藏' : '显示') + '笔记</div>';
+  html += '<div class="notes-toggle" tabindex="0" onclick="toggleNotes()">' + ic('edit', 'icon-sm') + ' ' + t(state.practiceShowNotes ? 'practice.hideNotes' : 'practice.showNotes') + '</div>';
   if (state.practiceShowNotes) {
     let noteVal = state.ST.notes[qId] || '';
-    html += '<textarea class="notes-area" id="noteArea" placeholder="在此输入笔记..." onblur="saveNote(\'' + qId + '\')">' + h(noteVal) + '</textarea>';
+    html += '<textarea class="notes-area" id="noteArea" placeholder="' + t('practice.notePlaceholder') + '" onblur="saveNote(\'' + qId + '\')">' + h(noteVal) + '</textarea>';
   }
   html += '</div>';
 
@@ -193,9 +194,9 @@ export function renderPracticeQuestion(autoFocus) {
     }
   }
 
-  let bar = '<button class="btn btn-ghost" onclick="prevQ()"' + (state.practiceIdx <= 0 ? ' disabled' : '') + '>' + ic('chevronL') + ' 上一题</button>';
+  let bar = '<button class="btn btn-ghost" onclick="prevQ()"' + (state.practiceIdx <= 0 ? ' disabled' : '') + '>' + ic('chevronL') + ' ' + t('common.prevQ') + '</button>';
   bar += '<button class="btn btn-ghost bm-bar-btn" onclick="toggleBookmark(\'' + qId + '\')" style="color:' + (isBm ? 'var(--warn)' : 'var(--tx3)') + '">' + ic(isBm ? 'starFill' : 'star', 'icon-lg') + '</button>';
-  bar += '<button class="btn btn-ghost" onclick="nextQ()"' + (state.practiceIdx >= state.practiceQs.length - 1 ? ' disabled' : '') + '>下一题 ' + ic('chevronR') + '</button>';
+  bar += '<button class="btn btn-ghost" onclick="nextQ()"' + (state.practiceIdx >= state.practiceQs.length - 1 ? ' disabled' : '') + '>' + t('common.nextQ') + ' ' + ic('chevronR') + '</button>';
   $('#practiceBar').innerHTML = bar;
   $('#practiceBar').style.display = 'flex';
 }
@@ -222,8 +223,8 @@ function toggleOption(key) {
 
 function setConfidence(c) { state.practiceConfidence = c; renderPracticeQuestion(); }
 
-function setLang(l) {
-  state.ST.settings.lang = l; saveState();
+function setQuestionLang(l) {
+  state.ST.settings.questionLang = l; saveState();
   if (state.practiceMode) renderPracticeQuestion();
   else if (state.examActive && typeof window.renderExamActive === 'function') window.renderExamActive();
 }
@@ -289,12 +290,12 @@ function jumpToQuestion() {
     grid += '<div class="exam-nav-cell ' + cls + '" onclick="jumpPractice(' + i + ');hideModal()">' + (i + 1) + '</div>';
   }
   let html = '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">';
-  html += '<div style="font-weight:700;font-size:1rem">题目导航</div>';
+  html += '<div style="font-weight:700;font-size:1rem">' + t('practice.jumpNav') + '</div>';
   html += '<button class="btn btn-ghost btn-sm" onclick="hideModal()">' + ic('xCircle', 'icon-sm') + '</button></div>';
   html += '<div style="display:flex;gap:12px;margin-bottom:12px;font-size:.75rem;color:var(--tx2);flex-wrap:wrap">';
-  html += '<span>' + ic('checkCircle', 'icon-sm') + ' 正确 ' + correct + '</span>';
-  html += '<span>' + ic('xCircle', 'icon-sm') + ' 错误 ' + wrong + '</span>';
-  html += '<span style="color:var(--tx3)">未做 ' + unanswered + '</span></div>';
+  html += '<span>' + ic('checkCircle', 'icon-sm') + ' ' + t('common.correct') + ' ' + correct + '</span>';
+  html += '<span>' + ic('xCircle', 'icon-sm') + ' ' + t('common.wrong') + ' ' + wrong + '</span>';
+  html += '<span style="color:var(--tx3)">' + t('common.unanswered') + ' ' + unanswered + '</span></div>';
   html += '<div class="exam-nav-grid" style="max-height:50vh;overflow-y:auto">' + grid + '</div>';
   showModalRaw(html);
 }
@@ -304,7 +305,7 @@ function toggleExpl() {
   let container = $('#v-practice'); if (!container) return;
   let toggle = container.querySelector('.expl-toggle');
   if (toggle) {
-    toggle.innerHTML = ic(state.practiceShowExpl ? 'chevronL' : 'chevronR', 'icon-sm') + ' ' + (state.practiceShowExpl ? '隐藏' : '显示') + '解析';
+    toggle.innerHTML = ic(state.practiceShowExpl ? 'chevronL' : 'chevronR', 'icon-sm') + ' ' + t(state.practiceShowExpl ? 'practice.hideExpl' : 'practice.showExpl');
     let existing = container.querySelector('.explanation');
     if (state.practiceShowExpl && !existing) {
       let q = getQ(state.practiceQs[state.practiceIdx]);
@@ -326,13 +327,13 @@ function toggleNotes() {
   let container = $('#v-practice'); if (!container) return;
   let toggle = container.querySelector('.notes-toggle');
   if (toggle) {
-    toggle.innerHTML = ic('edit', 'icon-sm') + ' ' + (state.practiceShowNotes ? '隐藏' : '显示') + '笔记';
+    toggle.innerHTML = ic('edit', 'icon-sm') + ' ' + t(state.practiceShowNotes ? 'practice.hideNotes' : 'practice.showNotes');
     let existing = container.querySelector('.notes-area');
     if (state.practiceShowNotes && !existing) {
       let qId = state.practiceQs[state.practiceIdx];
       let ta = document.createElement('textarea');
       ta.className = 'notes-area'; ta.id = 'noteArea';
-      ta.placeholder = '在此输入笔记...';
+      ta.placeholder = t('practice.notePlaceholder');
       ta.value = state.ST.notes[qId] || '';
       ta.onblur = function () { saveNote(qId); };
       toggle.after(ta);
@@ -372,7 +373,7 @@ window.exitPractice = exitPractice;
 window.renderPracticeQuestion = renderPracticeQuestion;
 window.toggleOption = toggleOption;
 window.setConfidence = setConfidence;
-window.setLang = setLang;
+window.setQuestionLang = setQuestionLang;
 window.submitAnswer = submitAnswer;
 window.prevQ = prevQ;
 window.nextQ = nextQ;

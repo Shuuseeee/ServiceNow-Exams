@@ -2,6 +2,7 @@ import { supabase, isConfigured } from './supabase.js';
 import { getUser } from './auth.js';
 import { state, saveState, lsKey, defaultState } from '../state/store.js';
 import { examName } from '../state/store.js';
+import { t } from '../i18n/t.js';
 
 if (!isConfigured) {
   // No Supabase — expose no-op stubs and exit
@@ -30,7 +31,7 @@ if (!isConfigured) {
         { onConflict: 'user_id,exam_key' }
       );
       let _ss = document.getElementById('syncStatus');
-      if (_ss) _ss.textContent = '已同步 ' + new Date().toLocaleTimeString();
+      if (_ss) _ss.textContent = t('sync.synced') + ' ' + new Date().toLocaleTimeString();
     } catch (e) {
       console.warn('Sync push failed:', e.message);
     }

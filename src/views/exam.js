@@ -6,6 +6,7 @@ import { getQ, getLang, qText, oText, diffTag, typeBadge } from '../state/questi
 import { updateReviewSchedule } from '../state/statistics.js';
 import { showModal, hideModal } from './modal.js';
 import { registerView, switchTab } from './router.js';
+import { t } from '../i18n/t.js';
 
 function renderExam() {
   if (state.examActive) { renderExamActive(); return; }
@@ -16,36 +17,36 @@ function renderExam() {
 function renderExamSetup() {
   let hasPaused = !!state.ST.pausedExam;
   let html = '<div class="fade-in">';
-  html += '<h2 style="margin-bottom:12px;display:flex;align-items:center;gap:8px">' + ic('trophy', 'icon-lg') + ' 模拟考试</h2>';
+  html += '<h2 style="margin-bottom:12px;display:flex;align-items:center;gap:8px">' + ic('trophy', 'icon-lg') + ' ' + t('exam.title') + '</h2>';
 
   if (hasPaused) {
     let p = state.ST.pausedExam;
     html += '<div class="setup-card highlight" onclick="resumeExam()">';
-    html += '<h3>' + ic('pause') + ' 继续上次考试</h3>';
-    html += '<p>' + (p.answered || 0) + '/' + p.total + ' 已答 -- ' + fmtTimer(p.remainingMs) + ' 剩余</p>';
+    html += '<h3>' + ic('pause') + ' ' + t('exam.resume') + '</h3>';
+    html += '<p>' + t('exam.resumeDesc', p.answered || 0, p.total, fmtTimer(p.remainingMs)) + '</p>';
     html += '</div>';
   }
 
   html += '<div class="setup-card" onclick="startExam(\'official\')">';
-  html += '<h3>' + ic('trophy') + ' 官方模式</h3>';
-  html += '<p>' + state.EXAM_CFG.officialCount + '题 / ' + state.EXAM_CFG.officialTime + '分钟 / ' + state.EXAM_CFG.passRate + '%及格</p>';
+  html += '<h3>' + ic('trophy') + ' ' + t('exam.official') + '</h3>';
+  html += '<p>' + t('exam.officialDesc', state.EXAM_CFG.officialCount, state.EXAM_CFG.officialTime, state.EXAM_CFG.passRate) + '</p>';
   html += '</div>';
 
   html += '<div class="setup-card" id="customExamCard">';
-  html += '<h3>' + ic('gear') + ' 自定义模式</h3>';
-  html += '<p>自由配置题数和时间</p>';
+  html += '<h3>' + ic('gear') + ' ' + t('exam.custom') + '</h3>';
+  html += '<p>' + t('exam.customDesc') + '</p>';
   html += '<div style="margin-top:12px" onclick="event.stopPropagation()">';
-  html += '<div class="slider-row"><label style="min-width:50px;font-size:.85rem">题数:</label>';
+  html += '<div class="slider-row"><label style="min-width:50px;font-size:.85rem">' + t('exam.qCountLabel') + '</label>';
   html += '<input type="range" id="examCount" min="10" max="' + state.Q.length + '" value="' + state.EXAM_CFG.officialCount + '" oninput="document.getElementById(\'examCountVal\').textContent=this.value">';
   html += '<span class="slider-val" id="examCountVal">' + state.EXAM_CFG.officialCount + '</span></div>';
-  html += '<div class="slider-row"><label style="min-width:50px;font-size:.85rem">分钟:</label>';
+  html += '<div class="slider-row"><label style="min-width:50px;font-size:.85rem">' + t('exam.minutesLabel') + '</label>';
   html += '<input type="range" id="examTime" min="10" max="300" value="' + state.EXAM_CFG.officialTime + '" oninput="document.getElementById(\'examTimeVal\').textContent=this.value">';
   html += '<span class="slider-val" id="examTimeVal">' + state.EXAM_CFG.officialTime + '</span></div>';
-  html += '<button class="btn btn-pri btn-block" style="margin-top:8px" onclick="startExam(\'custom\')">开始自定义考试</button>';
+  html += '<button class="btn btn-pri btn-block" style="margin-top:8px" onclick="startExam(\'custom\')">' + t('exam.startCustom') + '</button>';
   html += '</div></div>';
 
   if (state.ST.examHistory.length) {
-    html += '<div class="card" style="margin-top:12px"><div class="card-title">' + ic('trendUp') + ' 考试历史</div>';
+    html += '<div class="card" style="margin-top:12px"><div class="card-title">' + ic('trendUp') + ' ' + t('exam.history') + '</div>';
     html += '<div class="chart-wrap"><canvas id="examSetupChart"></canvas></div>';
     state.ST.examHistory.slice(-5).reverse().forEach(function (e, ri) {
       let idx = state.ST.examHistory.length - 1 - ri;
@@ -185,15 +186,15 @@ function renderExamActive() {
   let sel = state.examState.answers[qId] || [];
   let isFlagged = state.examState.flagged.has(qId);
   let answeredCount = Object.keys(state.examState.answers).length;
-  let lang = getLang();
+  let qlang = (state.ST.settings.questionLang) || 'en';
 
   let html = '';
   html += '<div class="exam-top">';
   html += '<div class="timer" id="examTimer">' + ic('clock', 'icon-sm') + ' ' + fmtTimer(state.examState.remainingMs) + '</div>';
-  html += '<button class="btn btn-ghost btn-sm" onclick="pauseExam()">' + ic('pause', 'icon-sm') + ' 暂停</button>';
+  html += '<button class="btn btn-ghost btn-sm" onclick="pauseExam()">' + ic('pause', 'icon-sm') + ' ' + t('exam.pause') + '</button>';
   html += '<div class="exam-prog">' + answeredCount + '/' + state.examState.total + '</div>';
-  html += '<button class="btn btn-ghost btn-sm" onclick="toggleExamNav()">' + ic('clipboard', 'icon-sm') + ' 导航</button>';
-  html += '<div style="margin-left:auto"><button class="btn btn-err btn-sm" onclick="confirmFinish()">提交考试</button></div>';
+  html += '<button class="btn btn-ghost btn-sm" onclick="toggleExamNav()">' + ic('clipboard', 'icon-sm') + ' ' + t('exam.nav') + '</button>';
+  html += '<div style="margin-left:auto"><button class="btn btn-err btn-sm" onclick="confirmFinish()">' + t('exam.submitExam') + '</button></div>';
   html += '</div>';
 
   html += '<div class="nav-panel' + (state.examShowNav ? ' show' : '') + '">';
@@ -212,8 +213,8 @@ function renderExamActive() {
   html += typeBadge(q);
   html += diffTag(q);
   html += '<div class="lang-toggle">';
-  html += '<button class="' + (lang === 'en' ? 'active' : '') + '" onclick="setLang(\'en\')">EN</button>';
-  html += '<button class="' + (lang === 'ja' ? 'active' : '') + '" onclick="setLang(\'ja\')">JA</button>';
+  html += '<button class="' + (qlang === 'en' ? 'active' : '') + '" onclick="setQuestionLang(\'en\')">EN</button>';
+  html += '<button class="' + (qlang === 'ja' ? 'active' : '') + '" onclick="setQuestionLang(\'ja\')">JA</button>';
   html += '</div></div>';
 
   html += '<div style="font-size:1rem;line-height:1.7;margin:8px 0">' + h(qText(q)) + '</div>';
@@ -235,9 +236,9 @@ function renderExamActive() {
 
   $('#v-exam').innerHTML = html;
 
-  let ebar = '<button class="btn btn-ghost" onclick="examPrev()"' + (state.examState.currentIndex <= 0 ? ' disabled' : '') + '>' + ic('chevronL') + ' 上一题</button>';
-  ebar += '<button class="btn btn-ghost" onclick="examFlag()" style="color:' + (isFlagged ? 'var(--warn)' : 'var(--tx3)') + '">' + ic('flag') + ' ' + (isFlagged ? '已标记' : '标记') + '</button>';
-  ebar += '<button class="btn btn-ghost" onclick="examNext()"' + (state.examState.currentIndex >= state.examState.total - 1 ? ' disabled' : '') + '>下一题 ' + ic('chevronR') + '</button>';
+  let ebar = '<button class="btn btn-ghost" onclick="examPrev()"' + (state.examState.currentIndex <= 0 ? ' disabled' : '') + '>' + ic('chevronL') + ' ' + t('common.prevQ') + '</button>';
+  ebar += '<button class="btn btn-ghost" onclick="examFlag()" style="color:' + (isFlagged ? 'var(--warn)' : 'var(--tx3)') + '">' + ic('flag') + ' ' + t(isFlagged ? 'exam.flagged' : 'exam.flag') + '</button>';
+  ebar += '<button class="btn btn-ghost" onclick="examNext()"' + (state.examState.currentIndex >= state.examState.total - 1 ? ' disabled' : '') + '>' + t('common.nextQ') + ' ' + ic('chevronR') + '</button>';
   $('#examBar').innerHTML = ebar;
   $('#examBar').style.display = 'flex';
 }
@@ -269,11 +270,11 @@ function toggleExamNav() { state.examShowNav = !state.examShowNav; renderExamAct
 
 function confirmFinish() {
   let unanswered = state.examState.questionIds.filter(function (id) { return !state.examState.answers[id] || !state.examState.answers[id].length; }).length;
-  let msg = '确定要提交考试吗？';
-  if (unanswered) msg += ' 还有 ' + unanswered + ' 题未答。';
-  showModal('提交考试', msg, [
-    { text: '取消', cls: 'btn-out', action: hideModal },
-    { text: '确定提交', cls: 'btn-err', action: function () { hideModal(); finishExam(); } },
+  let msg = t('exam.confirmSubmit');
+  if (unanswered) msg += ' ' + t('exam.unansweredWarning', unanswered);
+  showModal(t('exam.submitExam'), msg, [
+    { text: t('common.cancel'), cls: 'btn-out', action: hideModal },
+    { text: t('exam.confirmBtn'), cls: 'btn-err', action: function () { hideModal(); finishExam(); } },
   ]);
 }
 
@@ -295,18 +296,18 @@ function renderExamResult() {
   html += '<div class="card" style="text-align:center">';
   html += '<div style="margin-bottom:8px">' + ic(pass ? 'award' : 'frown', 'icon-xl') + '</div>';
   html += '<div class="result-score ' + (pass ? 'result-pass' : 'result-fail') + '">' + scorePct + '%</div>';
-  html += '<div class="result-label" style="color:' + (pass ? 'var(--suc)' : 'var(--err)') + '">' + ic(pass ? 'award' : 'frown') + ' ' + (pass ? 'PASS — 恭喜通过!' : 'FAIL — 继续加油!') + '</div>';
+  html += '<div class="result-label" style="color:' + (pass ? 'var(--suc)' : 'var(--err)') + '">' + ic(pass ? 'award' : 'frown') + ' ' + t(pass ? 'exam.pass' : 'exam.fail') + '</div>';
   html += '</div>';
 
   html += '<div class="result-stats">';
-  html += '<div class="result-stat"><div class="val">' + r.score + '/' + r.total + '</div><div class="lbl">得分</div></div>';
-  html += '<div class="result-stat"><div class="val">' + fmtTime(r.timeUsed) + '</div><div class="lbl">用时</div></div>';
-  html += '<div class="result-stat"><div class="val">' + (r.total - r.score) + '</div><div class="lbl">错题</div></div>';
-  html += '<div class="result-stat"><div class="val">' + (r.mode === 'official' ? '官方' : '自定义') + '</div><div class="lbl">模式</div></div>';
+  html += '<div class="result-stat"><div class="val">' + r.score + '/' + r.total + '</div><div class="lbl">' + t('exam.scoreLabel') + '</div></div>';
+  html += '<div class="result-stat"><div class="val">' + fmtTime(r.timeUsed) + '</div><div class="lbl">' + t('exam.timeLabel') + '</div></div>';
+  html += '<div class="result-stat"><div class="val">' + (r.total - r.score) + '</div><div class="lbl">' + t('exam.wrongQLabel') + '</div></div>';
+  html += '<div class="result-stat"><div class="val">' + t(r.mode === 'official' ? 'exam.modeOfficial' : 'exam.modeCustom') + '</div><div class="lbl">' + t('exam.modeLabel') + '</div></div>';
   html += '</div>';
 
   if (state.ST.examHistory.length > 1) {
-    html += '<div class="card"><div class="card-title">' + ic('trendUp') + ' 趋势图</div>';
+    html += '<div class="card"><div class="card-title">' + ic('trendUp') + ' ' + t('exam.trend') + '</div>';
     html += '<div class="chart-wrap"><canvas id="resultTrendChart"></canvas></div></div>';
   }
 
@@ -314,7 +315,7 @@ function renderExamResult() {
   let dAnswers = details.answers || {};
   let dQids = details.questionIds || [];
 
-  html += '<div class="card"><div class="card-title">' + ic('list') + ' 题目回顾</div>';
+  html += '<div class="card"><div class="card-title">' + ic('list') + ' ' + t('exam.review') + '</div>';
   dQids.forEach(function (id, i) {
     let q = getQ(id); if (!q) return;
     let userAns = dAnswers[id] || [];
@@ -324,12 +325,12 @@ function renderExamResult() {
     html += ' <span style="font-weight:700;font-size:.85rem">' + (i + 1) + '. ' + h(q.id) + '</span> ' + typeBadge(q) + '</div>';
     let stem = qText(q);
     html += '<div class="rq-stem" style="color:' + (isCorrect ? 'var(--tx)' : 'var(--err)') + '">' + h(stem.length > 120 ? stem.slice(0, 120) + '...' : stem) + '</div>';
-    html += '<div class="rq-ans">你的答案: ' + (userAns.length ? userAns.join(', ') : '--') + ' | 正确答案: ' + q.answer.join(', ') + '</div>';
+    html += '<div class="rq-ans">' + t('exam.answerCompare', (userAns.length ? userAns.join(', ') : '--'), q.answer.join(', ')) + '</div>';
     html += '</div>';
   });
   html += '</div>';
 
-  let backLabel = state.examReviewBackTo === 'profile' ? '返回我的' : '返回考试设置';
+  let backLabel = state.examReviewBackTo === 'profile' ? t('exam.backProfile') : t('exam.backSetup');
   let backFn = state.examReviewBackTo === 'profile'
     ? 'state.examReview=null;switchTab("profile")'
     : 'state.examReview=null;renderExam()';

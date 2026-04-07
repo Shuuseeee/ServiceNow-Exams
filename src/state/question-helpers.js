@@ -1,8 +1,9 @@
 import { state } from './store.js';
 import { ic } from '../icons/icons.js';
+import { t } from '../i18n/t.js';
 
 export function getQ(id) { return state.Q.find(q => q.id === id); }
-export function getLang() { return state.ST.settings.lang || 'en'; }
+export function getLang() { return (state.ST && state.ST.settings && state.ST.settings.questionLang) || 'en'; }
 export function qText(q) { return getLang() === 'ja' ? (q.questionJa || q.question) : q.question; }
 export function oText(o) { return getLang() === 'ja' ? (o.textJa || o.text) : o.text; }
 
@@ -22,6 +23,6 @@ export function diffTag(q) {
 
 export function typeBadge(q) {
   return q.isMultiple
-    ? '<span class="badge badge-multi">多选 (' + q.answer.length + ')</span>'
-    : '<span class="badge badge-single">单选</span>';
+    ? '<span class="badge badge-multi">' + t('common.multiSelect', q.answer.length) + '</span>'
+    : '<span class="badge badge-single">' + t('common.singleSelect') + '</span>';
 }

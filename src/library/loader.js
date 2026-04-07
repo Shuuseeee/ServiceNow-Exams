@@ -3,6 +3,7 @@ import { $ } from '../lib/dom.js';
 import { h } from '../lib/dom.js';
 import { ic } from '../icons/icons.js';
 import { renderTabs, switchTab } from '../views/router.js';
+import { t } from '../i18n/t.js';
 
 const LIB_HISTORY_KEY = 'quiz_libraries';
 
@@ -34,11 +35,11 @@ export function renderLibPicker() {
   let list = getLibHistory();
   let el = $('#libHistory');
   if (!list.length) { el.innerHTML = ''; return; }
-  let html = '<div class="lib-history-title">最近使用</div>';
+  let html = '<div class="lib-history-title">' + t('lib.recentTitle') + '</div>';
   list.forEach(function (lib) {
     html += '<div class="lib-item" onclick="reloadLib(\'' + h(lib.fileName || lib.name) + '\')">';
     html += '<div><div class="lib-item-name">' + h(lib.name) + '</div>';
-    html += '<div class="lib-item-info">' + lib.count + ' 题 · ' + new Date(lib.lastUsed).toLocaleDateString() + '</div></div>';
+    html += '<div class="lib-item-info">' + t('common.qCount', lib.count) + ' · ' + new Date(lib.lastUsed).toLocaleDateString() + '</div></div>';
     html += '<div class="lib-item-right">';
     html += '<button class="lib-item-remove" onclick="event.stopPropagation();removeLibFromHistory(\'' + h(lib.name) + '\')">' + ic('trash', 'icon-sm') + '</button>';
     html += '</div></div>';
@@ -54,7 +55,7 @@ export async function reloadLib(fileNameOrPath) {
     if (!data.questions || !data.questions.length) throw new Error('Invalid format');
     bootApp(data, fileNameOrPath);
   } catch (e) {
-    alert('加载失败: ' + e.message + '\n请重新选择文件。');
+    alert(t('lib.loadFailed') + ' ' + e.message + '\n' + t('lib.reloadHint'));
   }
 }
 
@@ -63,10 +64,10 @@ export function loadLibFromFile(file) {
   reader.onload = function () {
     try {
       let data = JSON.parse(reader.result);
-      if (!data.questions || !data.questions.length) throw new Error('无效的题库格式: 缺少 questions 数组');
+      if (!data.questions || !data.questions.length) throw new Error(t('lib.invalidFormat'));
       bootApp(data, file.name);
     } catch (e) {
-      alert('加载失败: ' + e.message);
+      alert(t('lib.loadFailed') + ' ' + e.message);
     }
   };
   reader.readAsText(file);
@@ -84,7 +85,7 @@ export function bootApp(data, fileName) {
 
   addLibToHistory(examName(), state.Q.length, fileName);
 
-  document.title = examName() + ' 题库练习';
+  document.title = examName() + ' ' + t('lib.appTitle');
   let bt = $('#brandTitle'); if (bt) bt.textContent = examName();
 
   state.practiceMode = null; state.practiceQs = []; state.practiceIdx = 0;

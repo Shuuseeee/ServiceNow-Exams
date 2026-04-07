@@ -1,7 +1,8 @@
-import { state } from '../state/store.js';
+import { state, saveState } from '../state/store.js';
 import { ic } from '../icons/icons.js';
 import { $, $$ } from '../lib/dom.js';
 import { TABS } from '../state/constants.js';
+import { t } from '../i18n/t.js';
 
 const viewRenderers = {};
 
@@ -17,10 +18,11 @@ export function renderTabs() {
   let prevNavtab = document.activeElement && document.activeElement.dataset.navtab
     ? document.activeElement.dataset.navtab : null;
   let btm = '', top = '';
-  TABS.forEach(t => {
-    let a = t.id === state.curTab ? ' active' : '';
-    btm += '<div class="btab' + a + '" data-navtab="' + t.id + '" tabindex="0">' + ic(t.icon) + '<span>' + t.label + '</span></div>';
-    top += '<button class="nav-tab' + a + '" data-navtab="' + t.id + '">' + ic(t.icon) + ' ' + t.label + '</button>';
+  TABS.forEach(tab => {
+    let a = tab.id === state.curTab ? ' active' : '';
+    let label = t(tab.labelKey);
+    btm += '<div class="btab' + a + '" data-navtab="' + tab.id + '" tabindex="0">' + ic(tab.icon) + '<span>' + label + '</span></div>';
+    top += '<button class="nav-tab' + a + '" data-navtab="' + tab.id + '">' + ic(tab.icon) + ' ' + label + '</button>';
   });
   $('#bottomtabs').innerHTML = btm;
   $('#desktopTabs').innerHTML = top;
@@ -42,7 +44,7 @@ document.addEventListener('click', function (e) {
 
 export function switchTab(id) {
   if (state.examActive && id !== 'exam') {
-    if (!confirm('离开将暂停考试，确定继续？')) return;
+    if (!confirm(t('exam.leaveConfirm'))) return;
     // pauseExam is registered globally
     if (typeof window.pauseExam === 'function') window.pauseExam();
   }
@@ -55,4 +57,18 @@ export function switchTab(id) {
   renderView(id);
 }
 
+export function setUILang(lang) {
+  state.ST.settings.lang = lang;
+  saveState();
+  renderTabs();
+  renderView(state.curTab);
+  // Update static strings in index.html drop zone
+  let dropTitle = document.getElementById('dropZoneTitle');
+  if (dropTitle) dropTitle.textContent = t('lib.dropTitle');
+  let dropHint = document.getElementById('dropZoneHint');
+  if (dropHint) dropHint.textContent = t('lib.dropHint');
+  if (typeof window.updateLibSignInBtn === 'function') window.updateLibSignInBtn();
+}
+
 window.switchTab = switchTab;
+window.setUILang = setUILang;

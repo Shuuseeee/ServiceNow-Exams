@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- App icon background -->
+  <rect width="32" height="32" rx="7" fill="#4F46E5"/>
+  <!-- Document/card -->
+  <rect x="8" y="6" width="16" height="20" rx="2.5" fill="white"/>
+  <!-- Question lines -->
+  <rect x="11" y="10" width="10" height="1.8" rx="0.9" fill="#C7D2FE"/>
+  <rect x="11" y="13.4" width="7" height="1.8" rx="0.9" fill="#C7D2FE"/>
+  <!-- Checkmark (correct answer indicator) -->
+  <path d="M11 19.5 L14 22.5 L21 16.5" stroke="#22C55E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

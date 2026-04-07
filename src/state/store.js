@@ -51,7 +51,8 @@ export function defaultState() {
     examHistory: [],
     pausedExam: null,
     settings: {
-      lang: 'en',
+      lang: 'zh',
+      questionLang: 'en',
       showExplanation: true,
       darkMode: false,
       wrongMasteryThreshold: 2,
@@ -75,8 +76,14 @@ export function loadState() {
   }
   if (!state.ST.reviewSchedule) state.ST.reviewSchedule = {};
   if (!state.ST.notes) state.ST.notes = {};
-  if (!state.ST.settings) state.ST.settings = { lang: 'en', showExplanation: true, darkMode: false, wrongMasteryThreshold: 2, shuffleOptions: false };
+  if (!state.ST.settings) state.ST.settings = { lang: 'zh', questionLang: 'en', showExplanation: true, darkMode: false, wrongMasteryThreshold: 2, shuffleOptions: false };
   if (state.ST.settings.shuffleOptions === undefined) state.ST.settings.shuffleOptions = false;
+  // Migrate: old lang (en/ja) was question-content language, not UI language
+  if (state.ST.settings.questionLang === undefined) {
+    let oldLang = state.ST.settings.lang;
+    state.ST.settings.questionLang = (oldLang === 'ja') ? 'ja' : 'en';
+    state.ST.settings.lang = 'zh';
+  }
   applyDarkMode();
 }
 

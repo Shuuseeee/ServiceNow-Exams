@@ -1,26 +1,27 @@
 import { ic } from '../icons/icons.js';
 import { showModalRaw, hideModal } from './modal.js';
+import { t } from '../i18n/t.js';
 
 let _helpPrevFocus = null;
 
 export function showHelpModal() {
   _helpPrevFocus = document.activeElement;
   let html = '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">';
-  html += '<div style="font-weight:700;font-size:1rem;display:flex;align-items:center;gap:8px">' + ic('keyboard') + ' 键盘快捷键</div>';
-  html += '<button id="helpCloseBtn" class="btn btn-ghost btn-sm" aria-label="关闭">✕</button>';
+  html += '<div style="font-weight:700;font-size:1rem;display:flex;align-items:center;gap:8px">' + ic('keyboard') + ' ' + t('help.title') + '</div>';
+  html += '<button id="helpCloseBtn" class="btn btn-ghost btn-sm" aria-label="' + t('common.close') + '">✕</button>';
   html += '</div>';
   html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 16px">';
   let rows = [
-    ['A–G', '选择选项'],
-    ['↑↓', '移动选项焦点'],
-    ['Enter', '选中 / 提交'],
-    ['Space', '选中焦点选项'],
-    ['←→', '上 / 下一题'],
-    ['F', '切换收藏 ★'],
-    ['V', '查看解析（答题后）'],
-    ['Tab', '顺序导航'],
-    ['Shift+Alt+H', '打开本帮助'],
-    ['Esc', '关闭帮助'],
+    ['A–G', t('sc.select')],
+    ['↑↓', t('sc.move')],
+    ['Enter', t('sc.submit')],
+    ['Space', t('sc.check')],
+    ['←→', t('sc.nav')],
+    ['F', t('sc.bookmark')],
+    ['V', t('sc.expl')],
+    ['Tab', t('sc.tab')],
+    ['Shift+Alt+H', t('sc.openHelp')],
+    ['Esc', t('sc.closeHelp')],
   ];
   rows.forEach(function (r) {
     html += '<div class="shortcut-item"><span class="shortcut-key">' + r[0] + '</span> ' + r[1] + '</div>';
